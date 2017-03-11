@@ -1,0 +1,20 @@
+@import 'nativescript-theme-core/scss/light';
+
+//Trail App Colors
+$brown:  darken(#322A26, 10%);
+$yellow: #FFA400;
+$brown_fade: rgba(50,42,38,0.5);
+
+// ActionBar
+$ab-background: $brown;
+$ab-color: $yellow;
+$btn-color: $brown_fade;
+$btn-color-secondary: darken($brown, 5%);
+
+// Import the theme’s main ruleset.
+@import 'nativescript-theme-core/scss/index';
+
+.trail-app-container {
+  background-color: #FFA400;
+}
+

@@ -1,0 +1,13 @@
+<ActionBar title="TRAIL" class="action-bar">
+  <ActionItem nsRouterLink="/trail" ios.position="right" android.position="popup">
+    <Button text="LOG OUT" class="action-item"></Button>
+  </ActionItem>
+</ActionBar>
+
+<StackLayout class="trail-app-container">
+  <ScrollView>
+    <GridLayout>
+      <page-router-outlet></page-router-outlet>
+    </GridLayout>
+  </ScrollView>
+</StackLayout>
