@@ -1,33 +1,37 @@
-import { Injector, Component } from '@angular/core';
-import { Config } from '../../shared/core/index';
+// libs
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
+// app
+import { RouterExtensions, Config } from '../../shared/core/index';
+import { IAppState, getNames } from '../../shared/ngrx/index';
+import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-trail',
-  templateUrl: 'trail.component.html',
-  styleUrls: [
-    'trail.component.css',
-  ],
+  selector: 'sd-signin',
+  templateUrl: 'signin.component.html',
+  styleUrls: ['signin.component.css']
 })
-export class TrailComponent {
+export class SigninComponent implements OnInit {
+  public names$: Observable<any>;
+  public newName: string;
 
-  // Just one way you could handle the {N} `ui/page` Page class
-  // in a shared component...
-  private _page: any;
-  private get page() {
-    if (Config.PageClass) {
-      if (!this._page) {
-        this._page = this.injector.get(Config.PageClass);
-      }
+  constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
-      return this._page;
-    }
+  ngOnInit() {
+    this.names$ = this.store.let(getNames);
+    this.newName = '';
   }
 
-  constructor(private injector: Injector) {
-    // This is here as an example
-    // if (this.page) {
-    //   this.page.actionBarHidden = true;
-    // }
+  /*
+   * @param newname  any text as input.
+   * @returns return false to prevent default form submit behavior to refresh the page.
+   */
+  addName(): boolean {
+    this.store.dispatch(new nameList.AddAction(this.newName));
+    this.newName = '';
+    return false;
   }
 }
