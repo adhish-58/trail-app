@@ -5,7 +5,7 @@ import {
   NativeScriptHttpModule,
   NativeScriptRouterModule
 } from 'nativescript-angular';
-import { Http } from '@angular/http';
+import { Http, HttpModule, Headers, XHRBackend } from '@angular/http';
 
 // angular
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -20,6 +20,7 @@ import { HomeComponent } from './app/components/home/home.component';
 import { AboutComponent } from './app/components/about/about.component';
 import { RegisterComponent } from './app/components/register/register.component';
 import { SigninComponent } from './app/components/signin/signin.component';
+import { SignInService } from './app/components/signin/signin.service';
 import { routes } from './app/components/app.routes';
 
 // feature modules
@@ -39,6 +40,7 @@ import { SampleModule } from './app/shared/sample/sample.module';
     NativeScriptRouterModule,
     AnalyticsModule,
     CoreModule,
+    HttpModule,
     MultilingualModule.forRoot([{
       provide: TranslateLoader,
       deps: [Http],
@@ -52,6 +54,9 @@ import { SampleModule } from './app/shared/sample/sample.module';
     AboutComponent,
     SigninComponent,
     HomeComponent
+  ],
+  providers: [
+      SignInService
   ],
   schemas: [
     NO_ERRORS_SCHEMA,
