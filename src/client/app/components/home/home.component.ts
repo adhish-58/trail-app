@@ -8,6 +8,7 @@ import { RouterExtensions, Config } from '../../shared/core/index';
 import { IAppState, getNames } from '../../shared/ngrx/index';
 import * as nameList from '../../shared/sample/index';
 
+
 @Component({
   moduleId: module.id,
   selector: 'sd-home',
@@ -17,6 +18,7 @@ import * as nameList from '../../shared/sample/index';
 export class HomeComponent implements OnInit {
   public names$: Observable<any>;
   public newName: string;
+  public welcomeUser: string = "Welcome";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 

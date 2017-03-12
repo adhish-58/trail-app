@@ -18,15 +18,18 @@ export class SigninComponent implements OnInit {
   public names$: Observable<any>;
   public email: string;
   public password: string;
+  public userName: string;
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
 
   user1 = {
+      name: "Phuc",
       email : "jamesptran96@gmail.com",
       password : "abc123"
   }
   user2 = {
+      name : "Lam",
       email : "ltnguyen14@earlham.edu",
       password : "abc123"
   }
@@ -56,18 +59,20 @@ export class SigninComponent implements OnInit {
         var verified = false;
         for (var i = 0; i < this.userList.length; i++) {
             if (this.email == this.userList[i].email && this.password == this.userList[i].password) {
+                this.userName = this.userList[i].name;
                 this.routerext.navigate(['/home'], {
                   transition: {
                     duration: 1000,
                     name: 'slideTop',
                   }
                 });
+
                 verified = true;
                 break;
             }
         }
         if (!verified){
-            alert("No user found! Maybe you want to register instead?")
+            alert("No user found! Maybe you want to register instead?");
         }
     }
 
