@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
   public email: string;
   public password: string;
   public userName: string;
-  public locations = ["EH","OA","Mills"];
+  public locations = ["Earlham Hall","OA","Mills"];
   public activeLocation = "EH";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
