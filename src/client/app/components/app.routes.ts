@@ -5,6 +5,7 @@ import { SigninRoutes } from "./signin/signin.routes";
 import { HomeRoutes } from './home/home.routes';
 import { CreateRoutes } from './create/create.routes';
 import { HelpRoutes } from './help/help.routes';
+import { GameNameRoutes } from './game_name/game_name.routes';
 
 export const routes: Array<any> = [
   ...RegisterRoutes,
@@ -12,5 +13,6 @@ export const routes: Array<any> = [
   ...SigninRoutes,
   ...HomeRoutes,
   ...CreateRoutes,
-  ...HelpRoutes
+  ...HelpRoutes,
+  ...GameNameRoutes
 ];
