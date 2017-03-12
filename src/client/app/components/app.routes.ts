@@ -4,7 +4,7 @@ import { AboutRoutes } from './about/about.routes';
 import { SigninRoutes } from "./signin/signin.routes";
 import { HomeRoutes } from './home/home.routes';
 import { CreateRoutes } from './create/create.routes';
-import { TrailRoutes } from './trail/trail.routes';
+import { HelpRoutes } from './help/help.routes';
 
 export const routes: Array<any> = [
   ...RegisterRoutes,
@@ -12,5 +12,5 @@ export const routes: Array<any> = [
   ...SigninRoutes,
   ...HomeRoutes,
   ...CreateRoutes,
-  ...TrailRoutes
+  ...HelpRoutes
 ];

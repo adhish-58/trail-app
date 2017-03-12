@@ -10,11 +10,11 @@ import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-trail',
-  templateUrl: 'trail.component.html',
-  styleUrls: ['trail.component.css']
+  selector: 'sd-help',
+  templateUrl: 'help.component.html',
+  styleUrls: ['help.component.css']
 })
-export class TrailComponent implements OnInit {
+export class HelpComponent implements OnInit {
   public names$: Observable<any>;
   public email: string;
 
