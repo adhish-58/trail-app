@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
     return false;
   }
 
-  readAbout() {
+  registerUser() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/about'], {
+    this.routerext.navigate(['/signin'], {
       transition: {
         duration: 1000,
         name: 'slideTop',
