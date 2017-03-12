@@ -20,14 +20,17 @@ import * as nameList from '../../shared/sample/index';
 export class HomeComponent implements OnInit {
   public names$: Observable<any>;
   public newName: string;
-  public welcomeUser: string = "Welcome";
-
+  
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
   ngOnInit() {
     this.names$ = this.store.let(getNames);
     this.newName = '';
   }
+
+  public goBack() {
+    this.routerext.back();
+    }
 
   createGame() {
     // Try this in the {N} app

@@ -3,6 +3,7 @@ import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
+
 // app
 import { RouterExtensions, Config } from '../../shared/core/index';
 import { IAppState, getNames } from '../../shared/ngrx/index';
@@ -14,14 +15,24 @@ import * as nameList from '../../shared/sample/index';
   templateUrl: 'create.component.html',
   styleUrls: ['create.component.css']
 })
+
+
+
 export class CreateComponent implements OnInit {
   public names$: Observable<any>;
   public email: string;
   public password: string;
   public userName: string;
+  public locations = ["EH","OA","Mills"];
+  public activeLocation = "EH";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
-  
+
+  public onItemTapped(name) {
+      console.log("Item is tapped");
+      console.log(name);
+
+  }
 
   ngOnInit() {
     this.names$ = this.store.let(getNames);
