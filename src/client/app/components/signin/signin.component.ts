@@ -26,8 +26,20 @@ export class SigninComponent implements OnInit {
 
 
   signinUser() {
-    var x = this.signInService.signin(this.email, this.password);
-    console.log(x);
+
+    let auth = this.signInService.signin(this.email, this.password);
+    auth.subscribe(response  => {
+      let stat = response['stat'];
+      let usr = response['user'];
+      if(stat.localeCompare('False') == 0){
+        console.log(usr + " IS NOT in our trail_db! Status Response: " + stat);
+      } else {
+        console.log(usr + " IS in our trail_db! Status Response: " + stat);
+      }
+    },
+      error => { console.log("Error happened" + error); },
+    );
+
   }
 
 }

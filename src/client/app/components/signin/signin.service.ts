@@ -23,15 +23,10 @@ export class SignInService {
       nativePlatformLocalhost= 'http://10.0.2.2:5000/sign-in';
     }
 
-    console.log("I AM BEING CALLED.");
     return this.http.post(nativePlatformLocalhost, {'username': username, 'password': pwd}, options)
-    .map(response => response.json())
-    .subscribe(
-      response  => { console.log("Success Response " + JSON.stringify(response))},
-      error     => { console.log("Error happened" + error); },
-      ()        => console.log("the subscription is completed")
-    );
+    .map(response => response.json());
   }
+
 
 
 }
