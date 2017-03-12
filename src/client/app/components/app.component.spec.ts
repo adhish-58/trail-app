@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { HelpComponent } from './help/help.component';
+import { GameNameComponent } from './game_name/game_name.component';
 
 const config:Route[] = [
   {path: '', component: HomeComponent},
