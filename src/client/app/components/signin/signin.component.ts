@@ -63,6 +63,13 @@ export class SigninComponent implements OnInit {
         }
         if (!verified){
             alert("No user found! Maybe you want to register instead?")
+        } else {
+            this.routerext.navigate(['/home'], {
+              transition: {
+                duration: 1000,
+                name: 'slideTop',
+              }
+            });
         }
     }
 
