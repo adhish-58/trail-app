@@ -19,27 +19,12 @@ import { SignInService } from './signin.service';
 export class SigninComponent implements OnInit {
   public email: string;
   public password: string;
-  constructor(private store: Store<IAppState>, public routerext: RouterExtensions, private signInService: SignInService) {}
+  constructor(private store: Store<IAppState>, public routerext: RouterExtensions, private SignInService: SignInService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+
+  authenticator() {
+    this.SignInService.authenticate(this.email, this.password);
   }
-
-
-  signinUser() {
-
-    let auth = this.signInService.signin(this.email, this.password);
-    auth.subscribe(response  => {
-      let stat = response['stat'];
-      let usr = response['user'];
-      if(stat.localeCompare('False') == 0){
-        console.log(usr + " IS NOT in our trail_db! Status Response: " + stat);
-      } else {
-        console.log(usr + " IS in our trail_db! Status Response: " + stat);
-      }
-    },
-      error => { console.log("Error happened" + error); },
-    );
-
-  }
-
 }
