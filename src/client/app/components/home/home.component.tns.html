@@ -1,12 +1,12 @@
 <ActionBar title="TRAIL" class="action-bar">
-    <ActionItem nsRouterLink="/" ios.position="right" android.position="popup">
+    <ActionItem (tap)="goBack()" ios.position="right" android.position="popup">
     <Button text="LOG OUT" class="action-item"></Button>
   </ActionItem>
 </ActionBar>
 
 <StackLayout class="trail-app-container">
     <StackLayout class="p-10">
-      <Label text={{welcomeUser}} textWrap="true" class="tl-title"></Label>
+      <Label text="Welcome" textWrap="true" class="tl-title"></Label>
     </StackLayout>
   <StackLayout class="buttons">
     <Button (tap)="createGame()" [text]="'CREATE_BTN' | translate" class="btn btn-default"></Button>

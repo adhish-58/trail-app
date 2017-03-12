@@ -11,5 +11,14 @@
     </StackLayout>
   </StackLayout>
   <Button [text]="'LCT_BTN' | translate" (tap)="chooseLocation()"  class="btn btn-default"></Button>
+
+  <ListView [items]=locations class="list-group">
+      <template let-name="item" let-odd="odd" let-even="even">
+          <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
+            <Label [text]="name" (tap)="onItemTapped(name)"></Label>
+          </StackLayout>
+        </template>
+    </ListView>
+
   <Button [text]="'CF_BTN' | translate" (tap)="addMessage()"  class="btn btn-default"></Button>
 </StackLayout>
