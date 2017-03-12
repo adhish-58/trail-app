@@ -20,7 +20,7 @@ import * as nameList from '../../shared/sample/index';
 export class HomeComponent implements OnInit {
   public names$: Observable<any>;
   public newName: string;
-  
+
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   createGame() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/create'], {
+    this.routerext.navigate(['/gameName'], {
       transition: {
         duration: 1000,
         name: 'slideTop',

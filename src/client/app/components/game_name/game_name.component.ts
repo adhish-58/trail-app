@@ -18,25 +18,27 @@ import * as nameList from '../../shared/sample/index';
 
 @Injectable()
 export class GameNameComponent implements OnInit {
-  public names$: Observable<any>;
-  public newName: string;
-  public welcomeUser: string = "Welcome";
-
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
+  public name: string = "";
+  public description: string = "";
+
   ngOnInit() {
-    this.names$ = this.store.let(getNames);
-    this.newName = '';
   }
 
-  chooseLocation() {
+  addMessage() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/register'], {
-      transition: {
-        duration: 1000,
-        name: 'slideTop',
-      }
-    });
+    if (this.name == "" || this.description == ""){
+        alert("Need a name and description!");
+    } else {
+        this.routerext.navigate(['/create'], {
+          transition: {
+            duration: 1000,
+            name: 'flipRight',
+          }
+        });
+    }
+
   }
 }

@@ -1,12 +1,15 @@
+<ActionBar title="TRAIL" class="action-bar">
+</ActionBar>
+
 <StackLayout>
   <StackLayout class="buttons">
     <Label text="Game Name" class="tl-input-label"></Label>
-      <TextField autocorrect="false" autocapitalizationType="none" class="tl-input"></TextField>
+      <TextField autocorrect="false" autocapitalizationType="none" hint="Type the name of your TRAIL game here" class="tl-input" [(ngModel)] = "name"></TextField>
 
-      <Label text="Game Description" class="tl-input-label"></Label>
-      <TextField autocorrect="false" autocapitalizationType="none" class="tl-input"></TextField>
+      <Label  text="Game Description" class="tl-input-label"></Label>
+      <TextField autocorrect="false" autocapitalizationType="none" hint="Type a short description for the game" class="tl-input" [(ngModel)] = "description"></TextField>
 
-    <Button (tap)="chooseLocation()" text="Select Location" class="btn btn-default"></Button>
+    <Button (tap)="addMessage()" text="Create game" class="btn btn-default"></Button>
   </StackLayout>
 
 </StackLayout>

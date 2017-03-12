@@ -19,42 +19,35 @@ import * as nameList from '../../shared/sample/index';
 
 
 export class CreateComponent implements OnInit {
-  public names$: Observable<any>;
-  public email: string;
-  public password: string;
-  public userName: string;
-  public locationList: Array<string> = ["Earlham Hall","OA","Mills"];
+  public locationList: Array<string> = ["Earlham Hall","OA","Mills", "Hoener", "Wellness Center", "Joseph Moore Museum"];
   public activeLocation = "Location chosen: Earlham Hall";
+  public indexOfLocation = 0;
+  public message : string = "";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
   public onItemTap(args) {
         console.log("------------------------ ItemTapped: " + args.index);
-        this.activeLocation = "Location chosen: " + this.locationList[args.index]
+        this.activeLocation = "Location chosen: " + this.locationList[args.index];
+        this.indexOfLocation = args.index;
     }
 
   ngOnInit() {
-    this.names$ = this.store.let(getNames);
-    this.email = '';
+
   }
 
   /*
    * @param newname  any text as input.
    * @returns return false to prevent default form submit behavior to refresh the page.
    */
-  addName(): boolean {
-    this.store.dispatch(new nameList.AddAction(this.email));
-    this.email = '';
-    return false;
-  }
 
-  addMessage() {
-        // Try this in the {N} app
-        // {N} can use these animation options
-    }
-
-    chooseLocation(){
-
+    addMessage(){
+        //Take all data and add a message
+        console.log("Location index: " + this.indexOfLocation);
+        console.log("Message: " + this.message);
+        if (this.message == "") {
+            alert("Message can't be empty!");
+        }
     }
 
 }

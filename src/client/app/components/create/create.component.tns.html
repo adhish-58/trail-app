@@ -6,11 +6,12 @@
     <StackLayout class="input-field">
 
       <Label text="Message" class="tl-input-label"></Label>
-      <TextField autocorrect="false" autocapitalizationType="none" class="tl-input"></TextField>
+      <TextField autocorrect="false" autocapitalizationType="none" hint="e.g: The next message is near OA" class="tl-input" [(ngModel)]="message"></TextField>
 
     </StackLayout>
   </StackLayout>
-  <Label text="Tap one of the location below to choose the location for your message" class="tl-input-label" textWrap="true"></Label>
+  <Label text="Tap one of the location below to choose the location for your message." class="tl-input-label" textWrap="true"></Label>
+  <Label text="The players will see your message when they go near the location specified." class="tl-input-label" textWrap="true"></Label>
   <Label text={{activeLocation}} class="tl-input-label"></Label>
 
   <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group">
@@ -21,5 +22,5 @@
     </template>
 </ListView>
 
-  <Button [text]="'CF_BTN' | translate" (tap)="addMessage()"  class="btn btn-default"></Button>
+  <Button text="Add message" (tap)="addMessage()"  class="btn btn-default"></Button>
 </StackLayout>
