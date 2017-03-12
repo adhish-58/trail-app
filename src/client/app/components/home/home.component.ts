@@ -1,5 +1,5 @@
 // libs
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,6 +15,8 @@ import * as nameList from '../../shared/sample/index';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css']
 })
+
+@Injectable()
 export class HomeComponent implements OnInit {
   public names$: Observable<any>;
   public newName: string;

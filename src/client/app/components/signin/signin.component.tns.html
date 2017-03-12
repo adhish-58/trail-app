@@ -1,8 +1,8 @@
-<StackLayout class="trail-app-container">
-  <StackLayout class="p-10">
-    <Label text="Sign In" textWrap="true" class="tl-title"></Label>
-  </StackLayout>
+<ActionBar title="SIGN IN" class="action-bar">
+</ActionBar>
 
+
+<StackLayout class="trail-app-container">
   <StackLayout class="form">
     <StackLayout class="input-field">
 
@@ -15,5 +15,5 @@
     </StackLayout>
   </StackLayout>
 
-  <Button (tap)="signinUser()" text="Sign in" class="btn btn-outline tl-btn"></Button>
+  <Button text="Sign in" (tap)="signinUser()" class="btn btn-default"></Button>
 </StackLayout>

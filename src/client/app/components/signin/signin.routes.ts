@@ -2,7 +2,7 @@ import { SigninComponent } from './signin.component';
 
 export const SigninRoutes: Array<any> = [
   {
-    path: '',
+    path: 'signin',
     component: SigninComponent
   }
 ];

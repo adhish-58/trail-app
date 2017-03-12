@@ -1,11 +1,17 @@
+<ActionBar title="HOME" class="action-bar">
+    <ActionItem nsRouterLink="/signin" ios.position="right" android.position="popup">
+    <Button text="LOG OUT" class="action-item"></Button>
+  </ActionItem>
+</ActionBar>
+
 <StackLayout class="trail-app-container">
     <StackLayout class="p-10">
       <Label text={{welcomeUser}} textWrap="true" class="tl-title"></Label>
     </StackLayout>
   <StackLayout class="buttons">
-    <Button (tap)="createGame()" text="Create" class="btn btn-outline tl-btn"></Button>
-    <Button (tap)="viewGame()" text="View" class="btn btn-outline tl-btn"></Button>
-    <Button (tap)="playGame()" text="Play" class="btn btn-outline tl-btn"></Button>
+    <Button (tap)="createGame()" [text]="'CREATE_BTN' | translate" class="btn btn-default"></Button>
+    <Button (tap)="viewGame()" [text]="'VIEW_BTN' | translate" class="btn btn-default"></Button>
+    <Button (tap)="playGame()" [text]="'PLAY_BTN' | translate" class="btn btn-default"></Button>
   </StackLayout>
 
 </StackLayout>

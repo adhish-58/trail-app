@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './create/create.component';
+import { TrailComponent } from './trail/trail.component';
 
 export const APP_COMPONENTS: any[] = [
   AppComponent,
@@ -11,7 +12,8 @@ export const APP_COMPONENTS: any[] = [
   RegisterComponent,
   SigninComponent,
   HomeComponent,
-  CreateComponent
+  CreateComponent,
+  TrailComponent
 ];
 
 export * from './app.component';

@@ -1,0 +1,36 @@
+//Trail App Colors
+$brown:  darken(#322A26, 10%);
+$yellow: #FFA400;
+$brown_fade: rgba(50,42,38,0.1);
+
+.tl-title {
+  font-size: 28;
+  font-weight: 200;
+  color: $brown;
+  margin: 16px 6px;
+}
+
+.tl-input-label {
+  margin: 16px 8px 4px 8px;
+}
+
+.tl-input {
+  margin: 4px 8px 8px 8px;
+  height: 48px;
+  padding: 0 8px;
+  background-color: $brown_fade;
+  border: 1px solid $brown_fade;
+}
+
+.tl-btn {
+  padding: 16px 0;
+  margin: 48px 16px 16px 16px;
+  border: 1px solid #322A26 !important;
+  color: #322A26;
+}
+
+.welcome-text {
+  font-size: 18;
+  color: $brown;
+  margin: 16px 6px;
+}
