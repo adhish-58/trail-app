@@ -20,6 +20,7 @@ import { HomeComponent } from './app/components/home/home.component';
 import { AboutComponent } from './app/components/about/about.component';
 import { RegisterComponent } from './app/components/register/register.component';
 import { TrailComponent } from './app/components/trail/trail.component';
+import { SigninComponent } from './app/components/signin/signin.component';
 import { routes } from './app/components/app.routes';
 
 // feature modules
@@ -51,6 +52,7 @@ import { SampleModule } from './app/shared/sample/sample.module';
     RegisterComponent,
     AboutComponent,
     TrailComponent,
+    SigninComponent,
     HomeComponent
   ],
   schemas: [

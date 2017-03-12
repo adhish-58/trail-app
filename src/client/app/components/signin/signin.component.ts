@@ -10,11 +10,11 @@ import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-register',
-  templateUrl: 'register.component.html',
-  styleUrls: ['register.component.css']
+  selector: 'sd-signin',
+  templateUrl: 'signin.component.html',
+  styleUrls: ['signin.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class SigninComponent implements OnInit {
   public names$: Observable<any>;
   public newName: string;
 
@@ -35,14 +35,10 @@ export class RegisterComponent implements OnInit {
     return false;
   }
 
-  registerUser() {
+  signinUser() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/signin'], {
-      transition: {
-        duration: 1000,
-        name: 'slideTop',
-      }
-    });
+    
   }
+
 }

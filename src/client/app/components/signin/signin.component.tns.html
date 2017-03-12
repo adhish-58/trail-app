@@ -1,13 +1,10 @@
 <StackLayout>
   <StackLayout class="p-10">
-    <Label text="Registration" textWrap="true" class="tl-title"></Label>
+    <Label text="Sign In" textWrap="true" class="tl-title"></Label>
   </StackLayout>
 
   <StackLayout class="form">
     <StackLayout class="input-field">
-
-      <Label text="Name" class="tl-input-label"></Label>
-      <TextField autocorrect="false" autocapitalizationType="none" class="tl-input"></TextField>
 
       <Label text="Email" class="tl-input-label"></Label>
       <TextField keyboardType="email" autocorrect="false" autocapitalizationType="none" class="tl-input"></TextField>
@@ -18,5 +15,5 @@
     </StackLayout>
   </StackLayout>
 
-  <Button (tap)="registerUser()" text="Register" class="btn btn-outline tl-btn"></Button>
+  <Button (tap)="signinUser()" text="Sign in" class="btn btn-outline tl-btn"></Button>
 </StackLayout>
