@@ -17,6 +17,8 @@ import { SignInService } from './signin.service';
   styleUrls: ['signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  public email: string;
+  public password: string;
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions, private signInService: SignInService) {}
 
   ngOnInit() {
@@ -24,7 +26,8 @@ export class SigninComponent implements OnInit {
 
 
   signinUser() {
-    this.signInService.signin();
+    var x = this.signInService.signin(this.email, this.password);
+    console.log(x);
   }
 
 }
