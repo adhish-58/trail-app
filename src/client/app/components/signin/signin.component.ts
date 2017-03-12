@@ -30,9 +30,13 @@ export class SigninComponent implements OnInit {
       email : "ltnguyen14@earlham.edu",
       password : "abc123"
   }
+  user3 = {
+      email : "ssudhe13@earlham.edu",
+      password : "abc123"
+  }
 
   userList = [
-      this.user1, this.user2
+      this.user1, this.user2, this.user3
   ]
 
   ngOnInit() {
