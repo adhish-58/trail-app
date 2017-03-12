@@ -56,20 +56,18 @@ export class SigninComponent implements OnInit {
         var verified = false;
         for (var i = 0; i < this.userList.length; i++) {
             if (this.email == this.userList[i].email && this.password == this.userList[i].password) {
-                alert("You are signed in now!");
+                this.routerext.navigate(['/home'], {
+                  transition: {
+                    duration: 1000,
+                    name: 'slideTop',
+                  }
+                });
                 verified = true;
                 break;
             }
         }
         if (!verified){
             alert("No user found! Maybe you want to register instead?")
-        } else {
-            this.routerext.navigate(['/home'], {
-              transition: {
-                duration: 1000,
-                name: 'slideTop',
-              }
-            });
         }
     }
 
