@@ -27,30 +27,10 @@ export class HomeComponent implements OnInit {
     this.newName = '';
   }
 
-  /*
-   * @param newname  any text as input.
-   * @returns return false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    this.store.dispatch(new nameList.AddAction(this.newName));
-    this.newName = '';
-    return false;
-  }
-
-  readAbout() {
-    // Try this in the {N} app
-    // {N} can use these animation options
-    this.routerext.navigate(['/about'], {
-      transition: {
-        duration: 1000,
-        name: 'slideTop',
-      }
-    });
-  }
   createGame() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/about'], {
+    this.routerext.navigate(['/create'], {
       transition: {
         duration: 1000,
         name: 'slideTop',

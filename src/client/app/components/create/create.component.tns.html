@@ -1,0 +1,16 @@
+<StackLayout class="trail-app-container">
+  <StackLayout class="p-10">
+    <Label text="Create new message" textWrap="true" class="tl-title"></Label>
+  </StackLayout>
+
+  <StackLayout class="form">
+    <StackLayout class="input-field">
+
+      <Label text="Message" class="tl-input-label"></Label>
+      <TextField keyboardType="email" autocorrect="false" autocapitalizationType="none" class="tl-input" [(ngModel)]="email"></TextField>
+
+    </StackLayout>
+  </StackLayout>
+  <Button (tap)="chooseLocation()" text="Choose Location" class="btn btn-outline tl-btn"></Button>
+  <Button (tap)="addMessage()" text="Confirm" class="btn btn-outline tl-btn"></Button>
+</StackLayout>

@@ -34,6 +34,7 @@ export class SigninComponent implements OnInit {
       password : "abc123"
   }
   user3 = {
+      name: "Sidd",
       email : "ssudhe13@earlham.edu",
       password : "abc123"
   }
