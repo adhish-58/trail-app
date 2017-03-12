@@ -10,7 +10,7 @@ export const APP_COMPONENTS: any[] = [
   AboutComponent,
   RegisterComponent,
   TrailComponent,
-  SigninComponent
+  SigninComponent,
 	TrailComponent,
   HomeComponent
 ];
