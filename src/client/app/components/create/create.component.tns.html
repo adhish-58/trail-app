@@ -1,16 +1,24 @@
-<StackLayout class="trail-app-container">
-  <StackLayout class="p-10">
-    <Label text="Create new message" textWrap="true" class="tl-title"></Label>
-  </StackLayout>
+<ActionBar title="TRAIL" class="action-bar">
+</ActionBar>
 
+<StackLayout class="trail-app-container">
   <StackLayout class="form">
     <StackLayout class="input-field">
 
       <Label text="Message" class="tl-input-label"></Label>
-      <TextField keyboardType="email" autocorrect="false" autocapitalizationType="none" class="tl-input" [(ngModel)]="email"></TextField>
+      <TextField autocorrect="false" autocapitalizationType="none" class="tl-input"></TextField>
 
     </StackLayout>
   </StackLayout>
-  <Button (tap)="chooseLocation()" text="Choose Location" class="btn btn-outline tl-btn"></Button>
-  <Button (tap)="addMessage()" text="Confirm" class="btn btn-outline tl-btn"></Button>
+  <Button [text]="'LCT_BTN' | translate" (tap)="chooseLocation()"  class="btn btn-default"></Button>
+
+  <ListView [items]=locations class="list-group">
+      <template let-name="item" let-odd="odd" let-even="even">
+          <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
+            <Label [text]="name" (tap)="onItemTapped(name)" class="button-text"></Label>
+          </StackLayout>
+        </template>
+    </ListView>
+
+  <Button [text]="'CF_BTN' | translate" (tap)="addMessage()"  class="btn btn-default"></Button>
 </StackLayout>

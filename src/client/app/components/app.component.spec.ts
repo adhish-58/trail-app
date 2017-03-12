@@ -19,12 +19,13 @@ import { reducer } from '../shared/i18n/index';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { TrailComponent } from './trail/trail.component';
+import { HelpComponent } from './help/help.component';
+import { GameNameComponent } from './game_name/game_name.component';
 
 const config:Route[] = [
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'trail', component: TrailComponent}
+  {path: 'help', component: HelpComponent}
 ];
 
 // test module configuration for each test

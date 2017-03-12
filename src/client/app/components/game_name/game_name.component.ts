@@ -11,16 +11,17 @@ import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-home',
-  templateUrl: 'home.component.html',
-  styleUrls: ['home.component.css']
+  selector: 'sd-game_name',
+  templateUrl: 'game_name.component.html',
+  styleUrls: ['game_name.component.css']
 })
 
 @Injectable()
-export class HomeComponent implements OnInit {
+export class GameNameComponent implements OnInit {
   public names$: Observable<any>;
   public newName: string;
-  
+  public welcomeUser: string = "Welcome";
+
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
   ngOnInit() {
@@ -28,38 +29,15 @@ export class HomeComponent implements OnInit {
     this.newName = '';
   }
 
-  public goBack() {
-    this.routerext.back();
-    }
-
-  createGame() {
+  chooseLocation() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/create'], {
+    this.routerext.navigate(['/register'], {
       transition: {
         duration: 1000,
         name: 'slideTop',
       }
     });
   }
-  viewGame() {
-    // Try this in the {N} app
-    // {N} can use these animation options
-    this.routerext.navigate(['/about'], {
-      transition: {
-        duration: 1000,
-        name: 'slideTop',
-      }
-    });
-  }
-  playGame() {
-    // Try this in the {N} app
-    // {N} can use these animation options
-    this.routerext.navigate(['/about'], {
-      transition: {
-        duration: 1000,
-        name: 'slideTop',
-      }
-    });
   }
 }

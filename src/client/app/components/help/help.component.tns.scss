@@ -7,7 +7,7 @@ $brown_fade: rgba(50,42,38,0.1);
   font-size: 28;
   font-weight: 200;
   color: $brown;
-  margin: 16px 12px;
+  margin: 16px 6px;
 }
 
 .tl-input-label {
@@ -25,7 +25,12 @@ $brown_fade: rgba(50,42,38,0.1);
 .tl-btn {
   padding: 16px 0;
   margin: 48px 16px 16px 16px;
-  border: 1px solid $brown;
-  border-radius: 50%;
+  border: 1px solid #322A26 !important;
   color: #322A26;
+}
+
+.welcome-text {
+  font-size: 18;
+  color: $brown;
+  margin: 16px 6px;
 }

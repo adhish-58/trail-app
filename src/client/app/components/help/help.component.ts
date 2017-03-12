@@ -3,7 +3,6 @@ import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-
 // app
 import { RouterExtensions, Config } from '../../shared/core/index';
 import { IAppState, getNames } from '../../shared/ngrx/index';
@@ -11,28 +10,15 @@ import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-create',
-  templateUrl: 'create.component.html',
-  styleUrls: ['create.component.css']
+  selector: 'sd-help',
+  templateUrl: 'help.component.html',
+  styleUrls: ['help.component.css']
 })
-
-
-
-export class CreateComponent implements OnInit {
+export class HelpComponent implements OnInit {
   public names$: Observable<any>;
   public email: string;
-  public password: string;
-  public userName: string;
-  public locations = ["Earlham Hall","OA","Mills"];
-  public activeLocation = "EH";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
-
-  public onItemTapped(name) {
-      console.log("Item is tapped");
-      console.log(name);
-
-  }
 
   ngOnInit() {
     this.names$ = this.store.let(getNames);
@@ -49,13 +35,15 @@ export class CreateComponent implements OnInit {
     return false;
   }
 
-  addMessage() {
+  transitionToSignin() {
         // Try this in the {N} app
         // {N} can use these animation options
-    }
-
-    chooseLocation(){
-
+        this.routerext.navigate(['/signin'], {
+          transition: {
+            duration: 1000,
+            name: 'slideTop',
+          }
+        });
     }
 
 }
