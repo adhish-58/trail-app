@@ -39,5 +39,4 @@ export class GameNameComponent implements OnInit {
       }
     });
   }
-  }
 }
