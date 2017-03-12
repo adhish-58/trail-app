@@ -16,6 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // app
 import { AppComponent } from './app/components/app.component';
+import { HomeComponent } from './app/components/home/home.component';
 import { AboutComponent } from './app/components/about/about.component';
 import { RegisterComponent } from './app/components/register/register.component';
 import { TrailComponent } from './app/components/trail/trail.component';
@@ -49,7 +50,8 @@ import { SampleModule } from './app/shared/sample/sample.module';
     AppComponent,
     RegisterComponent,
     AboutComponent,
-    TrailComponent
+    TrailComponent,
+    HomeComponent
   ],
   schemas: [
     NO_ERRORS_SCHEMA,
