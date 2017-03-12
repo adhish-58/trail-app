@@ -22,6 +22,7 @@ import { RegisterComponent } from './app/components/register/register.component'
 import { SigninComponent } from './app/components/signin/signin.component';
 import { SignInService } from './app/components/signin/signin.service';
 import { CreateComponent } from './app/components/create/create.component';
+import { TrailComponent } from './app/components/trail/trail.component';
 import { routes } from './app/components/app.routes';
 
 // feature modules
@@ -55,7 +56,8 @@ import { SampleModule } from './app/shared/sample/sample.module';
     AboutComponent,
     SigninComponent,
     HomeComponent,
-    CreateComponent
+    CreateComponent,
+    TrailComponent
   ],
   providers: [
       SignInService
