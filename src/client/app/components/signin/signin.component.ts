@@ -16,13 +16,28 @@ import * as nameList from '../../shared/sample/index';
 })
 export class SigninComponent implements OnInit {
   public names$: Observable<any>;
-  public newName: string;
+  public email: string;
+  public password: string;
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
+
+  user1 = {
+      email : "jamesptran96@gmail.com",
+      password : "abc123"
+  }
+  user2 = {
+      email : "ltnguyen14@earlham.edu",
+      password : "abc123"
+  }
+
+  userList = [
+      this.user1, this.user2
+  ]
+
   ngOnInit() {
     this.names$ = this.store.let(getNames);
-    this.newName = '';
+    this.email = '';
   }
 
   /*
@@ -30,15 +45,25 @@ export class SigninComponent implements OnInit {
    * @returns return false to prevent default form submit behavior to refresh the page.
    */
   addName(): boolean {
-    this.store.dispatch(new nameList.AddAction(this.newName));
-    this.newName = '';
+    this.store.dispatch(new nameList.AddAction(this.email));
+    this.email = '';
     return false;
   }
 
   signinUser() {
-    // Try this in the {N} app
-    // {N} can use these animation options
-    
-  }
+        // Try this in the {N} app
+        // {N} can use these animation options
+        var verified = false;
+        for (var i = 0; i < this.userList.length; i++) {
+            if (this.email == this.userList[i].email && this.password == this.userList[i].password) {
+                alert("You are signed in now!");
+                verified = true;
+                break;
+            }
+        }
+        if (!verified){
+            alert("No user found! Maybe you want to register instead?")
+        }
+    }
 
 }
