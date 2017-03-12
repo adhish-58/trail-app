@@ -17,15 +17,14 @@ import { SignInService } from './signin.service';
   styleUrls: ['signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  constructor(private store: Store<IAppState>, public routerext: RouterExtensions, private http: Http) {}
+  constructor(private store: Store<IAppState>, public routerext: RouterExtensions, private signInService: SignInService) {}
 
   ngOnInit() {
   }
 
 
   signinUser() {
-    console.log('TEST GET');
-    this.http.get('http://10.0.2.2:5000/signin').map(response => response.text()).subscribe();
+    this.signInService.signin();
   }
 
 }
