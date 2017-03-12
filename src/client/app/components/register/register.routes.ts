@@ -2,7 +2,7 @@ import { RegisterComponent } from './register.component';
 
 export const RegisterRoutes: Array<any> = [
   {
-    path: '',
+    path: 'register',
     component: RegisterComponent
   }
 ];

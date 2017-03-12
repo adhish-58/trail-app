@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     // Try this in the {N} app
     // {N} can use these animation options
-    this.routerext.navigate(['/signin'], {
+    this.routerext.navigate(['/home'], {
       transition: {
         duration: 1000,
         name: 'slideTop',
