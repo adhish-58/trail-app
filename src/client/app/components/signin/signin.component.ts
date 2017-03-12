@@ -40,6 +40,12 @@ export class SigninComponent implements OnInit {
       error => { console.log("Error happened" + error); },
     );
 
+    this.routerext.navigate(['/home'], {
+      transition: {
+        duration: 1000,
+        name: 'slideTop',
+      }
+    });
   }
 
 }

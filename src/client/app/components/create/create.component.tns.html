@@ -10,15 +10,16 @@
 
     </StackLayout>
   </StackLayout>
-  <Button [text]="'LCT_BTN' | translate" (tap)="chooseLocation()"  class="btn btn-default"></Button>
+  <Label text="Tap one of the location below to choose the location for your message" class="tl-input-label" textWrap="true"></Label>
+  <Label text={{activeLocation}} class="tl-input-label"></Label>
 
-  <ListView [items]=locations class="list-group">
-      <template let-name="item" let-odd="odd" let-even="even">
-          <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
-            <Label [text]="name" (tap)="onItemTapped(name)" class="button-text"></Label>
-          </StackLayout>
-        </template>
-    </ListView>
+  <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group">
+    <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
+            <Label [text]='item'></Label>
+        </StackLayout>
+    </template>
+</ListView>
 
   <Button [text]="'CF_BTN' | translate" (tap)="addMessage()"  class="btn btn-default"></Button>
 </StackLayout>

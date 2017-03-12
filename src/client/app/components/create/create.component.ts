@@ -1,8 +1,7 @@
 // libs
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-
 
 // app
 import { RouterExtensions, Config } from '../../shared/core/index';
@@ -13,7 +12,8 @@ import * as nameList from '../../shared/sample/index';
   moduleId: module.id,
   selector: 'sd-create',
   templateUrl: 'create.component.html',
-  styleUrls: ['create.component.css']
+  styleUrls: ['create.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
@@ -23,16 +23,15 @@ export class CreateComponent implements OnInit {
   public email: string;
   public password: string;
   public userName: string;
-  public locations = ["Earlham Hall","OA","Mills"];
-  public activeLocation = "EH";
+  public locationList: Array<string> = ["Earlham Hall","OA","Mills"];
+  public activeLocation = "Location chosen: Earlham Hall";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
-  public onItemTapped(name) {
-      console.log("Item is tapped");
-      console.log(name);
-
-  }
+  public onItemTap(args) {
+        console.log("------------------------ ItemTapped: " + args.index);
+        this.activeLocation = "Location chosen: " + this.locationList[args.index]
+    }
 
   ngOnInit() {
     this.names$ = this.store.let(getNames);
