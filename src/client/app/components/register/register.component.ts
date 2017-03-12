@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { RouterExtensions, Config } from '../../shared/core/index';
 import { IAppState, getNames } from '../../shared/ngrx/index';
 import * as nameList from '../../shared/sample/index';
+import { SignInService } from '../signin/signin.service';
 
 @Component({
   moduleId: module.id,
@@ -15,34 +16,17 @@ import * as nameList from '../../shared/sample/index';
   styleUrls: ['register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  public names$: Observable<any>;
-  public newName: string;
+  public fullname: string;
+  public userName: string;
 
-  constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
+  constructor(private store: Store<IAppState>, public routerext: RouterExtensions, private SignInService: SignInService) {}
 
   ngOnInit() {
-    this.names$ = this.store.let(getNames);
-    this.newName = '';
-  }
-
-  /*
-   * @param newname  any text as input.
-   * @returns return false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    this.store.dispatch(new nameList.AddAction(this.newName));
-    this.newName = '';
-    return false;
+    this.userName = this.SignInService.ecUsername;
   }
 
   registerUser() {
-    // Try this in the {N} app
-    // {N} can use these animation options
-    this.routerext.navigate(['/home'], {
-      transition: {
-        duration: 1000,
-        name: 'slideTop',
-      }
-    });
+    this.SignInService.registerThisUser(this.userName, this.fullname);
+
   }
 }
