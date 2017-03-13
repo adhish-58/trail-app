@@ -13,7 +13,11 @@ $brown_fade: rgba(50,42,38,0.1);
 .tl-input-label {
   margin: 16px 8px 4px 8px;
 }
-
+.tl-location-label {
+    margin: 16px 8px 4px 8px;
+    font-weight: bold;
+    border: 1px solid $brown_fade;
+}
 .tl-input {
   margin: 4px 8px 8px 8px;
   height: 48px;

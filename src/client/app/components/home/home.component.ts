@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     // {N} can use these animation options
     this.routerext.navigate(['/gameName'], {
       transition: {
-        duration: 1000,
+        duration: 500,
         name: 'slideTop',
       }
     });
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     // {N} can use these animation options
     this.routerext.navigate(['/about'], {
       transition: {
-        duration: 1000,
+        duration: 500,
         name: 'slideTop',
       }
     });
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     // {N} can use these animation options
     this.routerext.navigate(['/about'], {
       transition: {
-        duration: 1000,
+        duration: 500,
         name: 'slideTop',
       }
     });

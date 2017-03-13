@@ -34,7 +34,7 @@ export class GameNameComponent implements OnInit {
     } else {
         this.routerext.navigate(['/create'], {
           transition: {
-            duration: 1000,
+            duration: 500,
             name: 'flipRight',
           }
         });

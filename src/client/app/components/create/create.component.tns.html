@@ -10,11 +10,10 @@
 
     </StackLayout>
   </StackLayout>
-  <Label text="Tap one of the location below to choose the location for your message." class="tl-input-label" textWrap="true"></Label>
-  <Label text="The players will see your message when they go near the location specified." class="tl-input-label" textWrap="true"></Label>
-  <Label text={{activeLocation}} class="tl-input-label"></Label>
+  <Label text={{activeLocation}} class="tl-location-label"></Label>
+  <Label text="{{locationMessage}}" class="tl-input-label" textWrap="true"></Label>
 
-  <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group">
+  <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group" height=200>
     <template let-item="item" let-i="index" let-odd="odd" let-even="even">
         <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
             <Label [text]='item'></Label>
