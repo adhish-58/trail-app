@@ -32,7 +32,7 @@ export class GameNameComponent implements OnInit {
     if (this.name == "" || this.description == ""){
         alert("Need a name and description!");
     } else {
-        this.routerext.navigate(['/create'], {
+        this.routerext.navigate(['/createMessage'], {
           transition: {
             duration: 500,
             name: 'flipRight',

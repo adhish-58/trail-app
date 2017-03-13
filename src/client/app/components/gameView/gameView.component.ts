@@ -10,7 +10,7 @@ import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-create',
+  selector: 'sd-gameView',
   templateUrl: 'create.component.html',
   styleUrls: ['create.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -18,7 +18,7 @@ import * as nameList from '../../shared/sample/index';
 
 
 
-export class CreateComponent implements OnInit {
+export class GameViewComponent implements OnInit {
   public locationList: Array<string> = ["Earlham Hall","OA","Mills", "Hoener", "Wellness Center", "Joseph Moore Museum"];
   public activeLocation = "Location chosen: Earlham Hall";
   public locationMessage = "The players will see your message when they go near Earlham Hall."

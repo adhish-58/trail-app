@@ -21,9 +21,11 @@ import { AboutComponent } from './app/components/about/about.component';
 import { RegisterComponent } from './app/components/register/register.component';
 import { SigninComponent } from './app/components/signin/signin.component';
 import { SignInService } from './app/components/signin/signin.service';
-import { CreateComponent } from './app/components/create/create.component';
+import { CreateMessageComponent } from './app/components/createMessage/createMessage.component';
 import { HelpComponent } from './app/components/help/help.component';
-import { GameNameComponent } from './app/components/game_name/game_name.component';
+import { GameNameComponent } from './app/components/gameName/gameName.component';
+import { GameViewComponent } from './app/components/gameView/gameView.component';
+
 import { routes } from './app/components/app.routes';
 
 // feature modules
@@ -57,9 +59,10 @@ import { SampleModule } from './app/shared/sample/sample.module';
     AboutComponent,
     SigninComponent,
     HomeComponent,
-    CreateComponent,
+    CreateMessageComponent,
     HelpComponent,
-    GameNameComponent
+    GameNameComponent,
+    GameViewComponent
   ],
   providers: [
       SignInService

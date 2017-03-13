@@ -3,9 +3,10 @@ import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
-import { CreateComponent } from './create/create.component';
+import { CreateMessageComponent } from './createMessage/createMessage.component';
 import { HelpComponent } from './help/help.component';
-import { GameNameComponent } from './game_name/game_name.component';
+import { GameNameComponent } from './gameName/gameName.component';
+import { GameViewComponent } from './gameView/gameView.component';
 
 export const APP_COMPONENTS: any[] = [
   AppComponent,
@@ -13,14 +14,15 @@ export const APP_COMPONENTS: any[] = [
   RegisterComponent,
   SigninComponent,
   HomeComponent,
-  CreateComponent,
+  CreateMessageComponent,
   HelpComponent,
-  GameNameComponent
+  GameNameComponent,
+  GameViewComponent
 ];
 
-export * from './app.component';
+/*export * from './app.component';
 export * from './about/about.component';
 export * from './register/register.component';
 export * from './signin/signin.component';
 export * from './home/home.component';
-export * from './game_name/game_name.component';
+export * from './gameName/gameName.component';*/

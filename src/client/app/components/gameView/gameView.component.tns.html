@@ -1,0 +1,25 @@
+<ActionBar title="TRAIL" class="action-bar">
+</ActionBar>
+
+<StackLayout class="trail-app-container">
+  <StackLayout class="form">
+    <StackLayout class="input-field">
+
+      <Label text="Message" class="tl-input-label"></Label>
+      <TextField autocorrect="false" autocapitalizationType="none" hint="e.g: The next message is near OA" class="tl-input" [(ngModel)]="message"></TextField>
+
+    </StackLayout>
+  </StackLayout>
+  <Label text={{activeLocation}} class="tl-location-label"></Label>
+  <Label text="{{locationMessage}}" class="tl-input-label" textWrap="true"></Label>
+
+  <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group" height=200>
+    <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
+            <Label [text]='item'></Label>
+        </StackLayout>
+    </template>
+</ListView>
+
+  <Button text="Add message" (tap)="addMessage()"  class="btn btn-default"></Button>
+</StackLayout>

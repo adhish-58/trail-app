@@ -1,4 +1,4 @@
-import { GameNameComponent } from './game_name.component';
+import { GameNameComponent } from './gameName.component';
 
 export const GameNameRoutes: Array<any> = [
   {
