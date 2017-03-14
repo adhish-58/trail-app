@@ -15,11 +15,11 @@
 
   <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group" height=200>
     <template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
+        <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item trail-app-container">
             <Label [text]='item'></Label>
         </StackLayout>
     </template>
 </ListView>
 
-  <Button text="Add message" (tap)="addMessage()"  class="btn btn-default"></Button>
+  <Button text="Add message" (tap)="addMessage()"  class="btn btn-outline btn-round"></Button>
 </StackLayout>

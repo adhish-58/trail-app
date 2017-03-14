@@ -11,9 +11,9 @@ import * as nameList from '../../shared/sample/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'sd-game_name',
-  templateUrl: 'game_name.component.html',
-  styleUrls: ['game_name.component.css']
+  selector: 'sd-gameName',
+  templateUrl: 'gameName.component.html',
+  styleUrls: ['gameName.component.css']
 })
 
 @Injectable()

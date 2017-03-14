@@ -3,6 +3,7 @@
 //Trail App Colors
 $brown:  darken(#322A26, 10%);
 $yellow: #FFA400;
+$light_yellow: #fcd183;
 $brown_fade: rgba(50,42,38,0.5);
 
 // ActionBar
@@ -14,7 +15,19 @@ $btn-color-secondary: darken($brown, 5%);
 // Import the theme’s main ruleset.
 @import 'nativescript-theme-core/scss/index';
 
-.trail-app-container, StackLayout {
-  background-color: #FFA400;
+.trail-app-container {
+  background-color: $yellow;
+  //background-color: $light_yellow;
 }
 
+.trail-btn {
+    font-size: 25;
+    font-weight: bold;
+}
+
+
+.btn-round {
+  border-radius: 60;
+  height: 120;
+  width: 120;
+}
