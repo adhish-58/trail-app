@@ -26,16 +26,16 @@ export class GameNameComponent implements OnInit {
   ngOnInit() {
   }
 
-  addMessage() {
+  createGame() {
     // Try this in the {N} app
     // {N} can use these animation options
     if (this.name == "" || this.description == ""){
         alert("Need a name and description!");
     } else {
-        this.routerext.navigate(['/createMessage'], {
+        this.routerext.navigate(['/gameView'], {
           transition: {
             duration: 500,
-            name: 'flipRight',
+            name: 'slideRight',
           }
         });
     }
