@@ -21,16 +21,16 @@ import * as nameList from '../../shared/sample/index';
 export class CreateMessageComponent implements OnInit {
   public locationList: Array<string> = ["Earlham Hall","OA","Mills", "Hoener", "Wellness Center", "Joseph Moore Museum"];
   public activeLocation = "Location chosen: Earlham Hall";
-  public locationMessage = "The players will see your message when they go near Earlham Hall."
+  public locationMessage = "The players in the game will see your message when they go near Earlham Hall."
   public indexOfLocation = 0;
   public message : string = "";
 
   constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
   public onItemTap(args) {
-        console.log("------------------------ ItemTapped: " + args.index);
+        console.log("ItemTapped: " + args.index);
         this.activeLocation = "Location chosen: " + this.locationList[args.index];
-        this.locationMessage = "The players will see your message when they go near " + this.locationList[args.index] + ".";
+        this.locationMessage = "The players in the game will see your message when they go near " + this.locationList[args.index] + ".";
         this.indexOfLocation = args.index;
     }
 
@@ -46,6 +46,7 @@ export class CreateMessageComponent implements OnInit {
     addMessage(){
         //Take all data and add a message
         console.log("Location index: " + this.indexOfLocation);
+        console.log("Location: " + this.locationList[this.indexOfLocation]);
         console.log("Message: " + this.message);
         if (this.message == "") {
             alert("Message can't be empty!");
