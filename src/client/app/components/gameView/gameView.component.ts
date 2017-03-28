@@ -11,8 +11,8 @@ import * as nameList from '../../shared/sample/index';
 @Component({
   moduleId: module.id,
   selector: 'sd-gameView',
-  templateUrl: 'create.component.html',
-  styleUrls: ['create.component.css'],
+  templateUrl: 'gameView.component.html',
+  styleUrls: ['gameView.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
