@@ -29,7 +29,8 @@ $brown_fade: rgba(50,42,38,0.1);
 .tl-btn {
   padding: 16px 0;
   margin: 48px 16px 16px 16px;
-  border: 1px solid #322A26 !important;
+  border: 1px solid $brown;
+  border-radius: 50%;
   color: #322A26;
 }
 
@@ -38,4 +39,9 @@ $brown_fade: rgba(50,42,38,0.1);
     color: $brown;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+.list-color {
+    background-color: $brown_fade;
+    color: $brown;
 }

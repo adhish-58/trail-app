@@ -13,15 +13,15 @@
   <Label text={{activeLocation}} class="tl-location-label"></Label>
   <Label text="{{locationMessage}}" class="tl-input-label" textWrap="true"></Label>
 
-  <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group" height=200>
-    <template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item">
-            <Label [text]='item'></Label>
+  <ListView [items]="locationList" (itemTap)="onItemTap($event)" class="list-group list-color" height=200>
+    <template let-item="item" let-i="index" let-odd="odd" let-even="even" class="list-color">
+        <StackLayout [class.odd]="odd" [class.even]="even" class="list-group-item trail-app-container">
+            <Label [text]='item' class="list-color"></Label>
         </StackLayout>
     </template>
 </ListView>
     <StackLayout class="bottom">
-        <Button text="Add message" (tap)="addMessage()"  class="btn btn-outline btn-round"></Button>
+        <Button text="Add message" (tap)="addMessage()"  class="btn btn-outline btn-round btn-trail"></Button>
     </StackLayout>
 
 </StackLayout>

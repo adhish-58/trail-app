@@ -25,18 +25,12 @@ export class SigninComponent implements OnInit {
 
 
   authenticator() {
-      alert({
-          title: "Success",
-          message: "You are signed in!",
-          okButtonText: "Continue"
-      }).then(() => {
-          this.routerext.navigate(['/home'], {
-              transition: {
-                  duration: 500,
-                  name: 'slideTop',
-              }
-          });
-    });
+      this.routerext.navigate(['/home'], {
+          transition: {
+              duration: 500,
+              name: 'slideTop',
+          }
+      });
     this.SignInService.authenticate(this.email, this.password);
   }
 }
