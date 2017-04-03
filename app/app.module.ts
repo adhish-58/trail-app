@@ -12,6 +12,7 @@ import { ItemDetailComponent } from "./item/item-detail.component";
 // TRAIL APP STUFF
 // ===========================================================================================
 //Access
+import { AccessService } from "./components/access/access.service";
 import { LoginComponent } from "./components/access/login/login.component";
 import { RegisterComponent } from "./components/access/register/register.component";
 
@@ -45,7 +46,8 @@ import { ListComponent } from "./components/list/list.component";
     ],
     providers: [
         // DELETE LATER
-        ItemService
+        ItemService,
+        AccessService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

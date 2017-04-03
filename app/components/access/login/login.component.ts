@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import {RouterExtensions} from "nativescript-angular/router";
+import { RouterExtensions } from "nativescript-angular/router";
+import { AccessService } from "../access.service";
+
 
 @Component({
     selector: "tl-login",
@@ -7,19 +9,20 @@ import {RouterExtensions} from "nativescript-angular/router";
     templateUrl: "./login.component.html",
 })
 export class LoginComponent implements OnInit {
-
-    constructor(public RouterExtensions: RouterExtensions) { }
+    public username: string;
+    public password: string;
+    constructor(public RouterExtensions: RouterExtensions, private AccessService: AccessService) { }
 
     ngOnInit() {}
 
     authenticator() {
-            this.RouterExtensions.navigate(['/register'], {
-                transition: {
-                    duration: 500,
-                    name: 'slideLeft',
-                },
-                clearHistory: true
-            });
-      //this.SignInService.authenticate(this.email, this.password);
+    //         this.RouterExtensions.navigate(['/register'], {
+    //             transition: {
+    //                 duration: 500,
+    //                 name: 'slideLeft',
+    //             },
+    //             clearHistory: true
+    //         });
+      this.AccessService.authenticate(this.username, this.password);
     }
 }
