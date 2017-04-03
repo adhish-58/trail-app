@@ -6,3 +6,4 @@ platforms/android
 .idea
 *.iml
 !/.gitignore
+app/*.css
