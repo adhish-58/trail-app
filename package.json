@@ -4,7 +4,7 @@
   "readme": "Trail - A Virtual Treasure Hunt App",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.trailapp2",
+    "id": "org.nativescript.trailapp",
     "tns-ios": {
       "version": "2.5.0"
     },
@@ -28,6 +28,7 @@
     "rxjs": "~5.2.0",
     "tns-core-modules": "2.5.2",
     "tslint": "^5.0.0",
+    "typescript": "^2.1.6",
     "zone.js": "~0.8.2"
   },
   "devDependencies": {

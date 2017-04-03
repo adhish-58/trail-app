@@ -51,5 +51,6 @@
     "path-parse": true,
     "semver": true,
     "tsutils": true,
+    "typescript": true,
     "zone.js": true
 }
