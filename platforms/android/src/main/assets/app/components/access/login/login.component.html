@@ -1,0 +1,14 @@
+<ActionBar title="Trail" class="tl-action-bar"></ActionBar>
+
+<StackLayout class="page" orientation="vertical">
+
+    <Label text="Sign In" class="tl-title"></Label>
+    <Label text="Please sign in with your Earlham credentials." class="tl-subtitle"></Label>
+
+
+    <StackLayout class="form">
+            <TextField keyboardType="email" autocorrect="false" hint="Earlham Username" autocapitalizationType="none" class="tl-input" [(ngModel)]="username"></TextField>
+            <TextField secure="true" class="tl-input" hint="Earlham Password" [(ngModel)]="password"></TextField>
+            <Button text="Sign in" (tap)="authenticator()" clearHistory="true" class="signin-btn"></Button>
+    </StackLayout>
+</StackLayout>

@@ -1,0 +1,64 @@
+//@import 'nativescript-theme-core/css/core.purple.css';
+@import 'variables.less';
+
+.tl-action-bar {
+  background-color: @tl-purple;
+  font-family: sans-serif;
+  font-weight: lighter;
+  color: rgba(255,255,255,0.7);
+
+  .action-bar-title {
+    font-weight: bold;
+    font-size: 17;
+    vertical-align: center;
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .action-item {
+    background-color: @tl-purple;
+  }
+}
+
+.page {
+  background-color: @tl-purple;
+  padding: 16;
+  color: @tl-white;
+}
+
+.tl-title {
+  font-size: 50;
+  opacity: 0.7;
+  margin: 24 8 8 8;
+  text-align: center;
+  font-weight: 100;
+}
+
+.tl-subtitle {
+  font-size: 14;
+  opacity: 0.4;
+  margin: 0 8 16 8;
+  text-align: center;
+  font-weight: 100;
+}
+
+.form {
+  margin-top: 32;
+  text-align: center;
+
+  TextField.tl-input {
+    padding: 16 16 8 16;
+    margin: 24 8 16 8;
+    border-color: rgba(255,255,255,0.4);
+    border-bottom-width: 1;
+    placeholder-color: rgba(255,255,255,0.2);
+  }
+
+  Button.signin-btn {
+    margin: 88 8;
+    padding: 16;
+    color: rgba(255,255,255,0.9);
+    background-color: rgba(255,255,255,0.1);
+    //border-width: 1;
+  }
+}
+
