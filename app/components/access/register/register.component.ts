@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import {RouterExtensions} from "nativescript-angular/router";
 
 @Component({
     selector: "tl-register",
@@ -7,7 +8,18 @@ import { Component, OnInit } from "@angular/core";
 })
 export class RegisterComponent implements OnInit {
 
-    constructor() { }
+    constructor(public RouterExtensions: RouterExtensions) { }
 
     ngOnInit(): void {}
+
+    register() {
+            this.RouterExtensions.navigate(['/home'], {
+                transition: {
+                    duration: 500,
+                    name: 'slideLeft',
+                },
+                clearHistory: true
+            });
+      //this.SignInService.registerThisUser(this.userName, this.fullname);
+    }
 }

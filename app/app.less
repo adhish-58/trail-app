@@ -16,6 +16,7 @@
 
   .action-item {
     background-color: @tl-purple;
+    font-size: 22;
   }
 }
 
@@ -23,6 +24,31 @@
   background-color: @tl-purple;
   padding: 16;
   color: @tl-white;
+}
+
+.tl-tab-view {
+  background-color: @tl-purple;
+  color: @tl-white;
+}
+
+.page, .tl-action-bar, .tl-tab-view {
+  &.oceanblue {
+    background-color: @tl-oceanblue;
+    .action-item {
+      background-color: @tl-oceanblue;
+    }
+  }
+
+  &.mustard {
+    background-color: @tl-mustard;
+    .action-item {
+      background-color: @tl-mustard;
+    }
+  }
+}
+
+.tl-tab-label {
+  color: @tl-bloodred;
 }
 
 .tl-title {
@@ -41,6 +67,8 @@
   font-weight: 100;
 }
 
+
+
 .form {
   margin-top: 32;
   text-align: center;
@@ -53,7 +81,7 @@
     placeholder-color: rgba(255,255,255,0.2);
   }
 
-  Button.signin-btn {
+  Button {
     margin: 88 8;
     padding: 16;
     color: rgba(255,255,255,0.9);

@@ -1,0 +1,13 @@
+<ActionBar title="Trail" class="tl-action-bar oceanblue"></ActionBar>
+
+<StackLayout class="page oceanblue" orientation="vertical">
+
+    <Label text="Registration" class="tl-title"></Label>
+    <Label text="EC User ID: <username>" class="tl-subtitle"></Label>
+
+
+    <StackLayout class="form">
+            <TextField autocorrect="false" autocapitalizationType="none" class="tl-input" [(ngModel)]="fullname"></TextField>
+            <Button text="Register" (tap)="register()" clearHistory="true"></Button>
+    </StackLayout>
+</StackLayout>

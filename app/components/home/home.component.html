@@ -1,0 +1,21 @@
+<ActionBar title="Trail" class="tl-action-bar mustard">
+  <ActionItem nsRouterLink="/create" ios.position="right" android.position="popup">
+    <Button text="+" class="action-item"></Button>
+  </ActionItem>
+</ActionBar>
+
+<TabView class="tl-tab-view mustard" tabsBackgroundColor="#EEBA0B" color="#F18F01" selectedColor="#fff">
+    <StackLayout *tabItem="{title: 'Play', iconSource: '~/icon.png'}" class="page mustard">
+        <ListView [items]="items">
+            <template let-item="item">
+                <Label [text]="item.itemDesc"></Label>
+            </template>
+        </ListView>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Your Games'}" class="page mustard">
+        <Label text="Second tab item"></Label>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Completed Games'}" class="page mustard">
+        <Label text="Third tab item" class="tl-tab-label"></Label>
+    </StackLayout>
+</TabView>
