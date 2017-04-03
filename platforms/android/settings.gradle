@@ -1,4 +1,4 @@
-rootProject.name = "trailapp"
+rootProject.name = "trailapp2"
 include "asbg"
 project(":asbg").projectDir = file("build-tools/android-static-binding-generator")
 
