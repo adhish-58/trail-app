@@ -13,13 +13,13 @@ export class RegisterComponent implements OnInit {
     ngOnInit(): void {}
 
     register() {
-            this.RouterExtensions.navigate(['/home'], {
-                transition: {
-                    duration: 500,
-                    name: 'slideLeft',
-                },
-                clearHistory: true
-            });
+    //        this.RouterExtensions.navigate(['/home'], {
+    //            transition: {
+    //                duration: 500,
+    //                name: 'slideLeft',
+    //            },
+    //            clearHistory: true
+    //        });
       //this.SignInService.registerThisUser(this.userName, this.fullname);
     }
 }

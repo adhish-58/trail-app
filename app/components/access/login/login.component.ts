@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { AccessService } from "../access.service";
-
+import {Http} from '@angular/http';
 
 @Component({
     selector: "tl-login",
@@ -16,13 +16,13 @@ export class LoginComponent implements OnInit {
     ngOnInit() {}
 
     authenticator() {
-    //         this.RouterExtensions.navigate(['/register'], {
-    //             transition: {
-    //                 duration: 500,
-    //                 name: 'slideLeft',
-    //             },
-    //             clearHistory: true
-    //         });
+             this.RouterExtensions.navigate(['/register'], {
+                 transition: {
+                     duration: 500,
+                     name: 'slideLeft',
+                 },
+                 clearHistory: true
+             });
       this.AccessService.authenticate(this.username, this.password);
     }
 }

@@ -20,6 +20,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { CreateComponent } from "./components/home/create/create.component";
 
 import { ListComponent } from "./components/list/list.component";
+import { HttpModule } from '@angular/http';
 
 // ===========================================================================================
 
@@ -28,6 +29,7 @@ import { ListComponent } from "./components/list/list.component";
         AppComponent
     ],
     imports: [
+        HttpModule,
         NativeScriptModule,
         AppRoutingModule
     ],
