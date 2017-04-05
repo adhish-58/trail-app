@@ -21,5 +21,6 @@ export class RegisterComponent implements OnInit {
     //            clearHistory: true
     //        });
       //this.SignInService.registerThisUser(this.userName, this.fullname);
+        console.log("register");
     }
 }

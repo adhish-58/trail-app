@@ -3,12 +3,30 @@
 <StackLayout class="page" orientation="vertical">
 
     <Label text="Sign In" class="tl-title"></Label>
-    <Label text="Please sign in with your Earlham credentials." class="tl-subtitle"></Label>
-
+    <Label [text]="subtitleMessage" class="tl-subtitle"></Label>
 
     <StackLayout class="form">
-            <TextField keyboardType="email" autocorrect="false" hint="Earlham Username" autocapitalizationType="none" class="tl-input" [(ngModel)]="username"></TextField>
-            <TextField secure="true" class="tl-input" hint="Earlham Password" [(ngModel)]="password"></TextField>
-            <Button text="Sign in" (tap)="authenticator()" clearHistory="true"></Button>
+            <TextField
+                    [(ngModel)]="user.username"
+                    autocorrect="false"
+                    hint="Earlham Username"
+                    autocapitalizationType="none"
+                    class="tl-input"
+                    editable="true">
+            </TextField>
+            <TextField
+                    [(ngModel)]="user.password"
+                    secure="true"
+                    hint="Password"
+                    returnKeyType="done"
+                    (returnPress)="onLogIn()"
+                    editable="true"
+                    class="tl-input">
+            </TextField>
+            <Button
+                    text="Log in"
+                    clearHistory="true"
+                    (tap)="onLogIn()">
+            </Button>
     </StackLayout>
 </StackLayout>

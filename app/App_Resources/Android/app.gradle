@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.trailapp2"  
+    applicationId = "org.nativescript.trailapp"  
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
