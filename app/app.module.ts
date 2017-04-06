@@ -4,6 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 // ===========================================================================================
@@ -28,7 +29,8 @@ import { HttpModule } from '@angular/http';
         NativeScriptFormsModule,
         AppRoutingModule,
         NativeScriptHttpModule,
-        HttpModule
+        HttpModule,
+        ReactiveFormsModule
     ],
     declarations: [
         AppComponent,

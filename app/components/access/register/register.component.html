@@ -8,24 +8,18 @@
           class="tl-subtitle"
           >
     </Label>
-    <Label
-          text="ltnguyen14"
-          class="tl-subtitle"
-          >
-    </Label>
 
-
-    <StackLayout class="form">
+    <StackLayout class="form" [formGroup]="loginForm">
             <TextField
                         autocorrect="false"
                         autocapitalizationType="none"
                         class="tl-input"
                         hint="Enter full name"
-                        [(ngModel)]="fullname">
+                        formControlName="fullname">
             </TextField>
             <Button
                         text="Register"
-                        (tap)="register()"
+                        (tap)="checkValidity()"
                         clearHistory="true">
             </Button>
     </StackLayout>

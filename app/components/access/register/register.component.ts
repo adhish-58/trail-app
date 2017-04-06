@@ -4,6 +4,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { RestService } from "../../../services";
 import { RegModel } from "../access.model";
+import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
     selector: "tl-register",
@@ -16,11 +18,26 @@ export class RegisterComponent implements OnInit {
 
     username: String;
     fullname:String;
+    loginForm: FormGroup;
+    usernameControl: AbstractControl;
+
     private sub: any;
-    constructor(private route: ActivatedRoute, private router: RouterExtensions, private RestService: RestService)  {
+    constructor(private route: ActivatedRoute, private router: RouterExtensions, private RestService: RestService, private fb:FormBuilder)  {
     }
 
-    ngOnInit(): void {}
+    ngOnInit() {
+            this.loginForm = this.fb.group({
+                fullname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+            });
+            this.usernameControl = this.loginForm.controls['fullname'];
+    }
+
+    public checkValidity(){
+            this.fullname = this.usernameControl.value;
+            if (!this.loginForm.valid)
+              this.invalidName()
+            else this.register()
+    }
 
     public register() {
             this.sub = this.route.params.subscribe(params => {
@@ -49,5 +66,9 @@ export class RegisterComponent implements OnInit {
 
     validateRegistered(res){
             this.goToRegister;
+    }
+
+    invalidName(){
+      alert("Error: The name entered is invalid");
     }
 }
