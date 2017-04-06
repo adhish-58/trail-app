@@ -3,11 +3,30 @@
 <StackLayout class="page oceanblue" orientation="vertical">
 
     <Label text="Registration" class="tl-title"></Label>
-    <Label text="EC User ID: <username>" class="tl-subtitle"></Label>
+    <Label
+          text="EC User ID:"
+          class="tl-subtitle"
+          >
+    </Label>
+    <Label
+          text="ltnguyen14"
+          class="tl-subtitle"
+          >
+    </Label>
 
 
     <StackLayout class="form">
-            <TextField autocorrect="false" autocapitalizationType="none" class="tl-input" [(ngModel)]="fullname"></TextField>
-            <Button text="Register" (tap)="register()" clearHistory="true"></Button>
+            <TextField
+                        autocorrect="false"
+                        autocapitalizationType="none"
+                        class="tl-input"
+                        hint="Enter full name"
+                        [(ngModel)]="fullname">
+            </TextField>
+            <Button
+                        text="Register"
+                        (tap)="register()"
+                        clearHistory="true">
+            </Button>
     </StackLayout>
 </StackLayout>

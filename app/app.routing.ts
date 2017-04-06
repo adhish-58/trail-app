@@ -14,7 +14,7 @@ import { ListComponent }     from "./components/list/list.component";
 const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
-    { path: "register", component: RegisterComponent },
+    { path: "register/:username", component: RegisterComponent},
     { path: "home", component: HomeComponent },
     { path: "create", component: CreateComponent },
     { path: "list", component: ListComponent },

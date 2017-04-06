@@ -16,7 +16,6 @@ export class LoginComponent{
     user: UserModel;
     public subtitleMessage: string = "Please sign in with your Earlham credentials.";
 
-
     constructor(private router: RouterExtensions, private RestService: RestService) {
         this.user = new UserModel();
         this.user.username = "";
@@ -48,7 +47,7 @@ export class LoginComponent{
     }
 
     goToRegister() {
-        this.router.navigate(['/access/register'], {
+        this.router.navigate(['register', this.user.username], {
             transition: {
                 duration: 500,
                 name: 'slideTop',
@@ -69,6 +68,5 @@ export class LoginComponent{
     invalidCredentials() {
         alert("Error: Username & password do not match. Please try again.");
         this.subtitleMessage = "Error: Username & password do not match. Please try again.";
-    }
-
+    };
 }
