@@ -1,0 +1,28 @@
+<ActionBar title="TRAIL" class="tl-action-bar">
+</ActionBar>
+
+<StackLayout class="page">
+    <Label text="Add message" class="tl-title"></Label>
+    <Label text="You can add a new message at a location here." class="trail-small"></Label>
+
+    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=100>
+              <template let-item="item" let-i="index">
+                  <StackLayout class="page">
+                      <Label [text]='item' class="trail-message"></Label>
+                  </StackLayout>
+              </template>
+    </ListView>
+    <Label text={{locationSelectMessage}} class="trail-message"></Label>
+  <StackLayout class="page">
+      <TextField autocorrect="false" autocapitalizationType="none" hint="Location Message" class="tl-input" [(ngModel)]="message"></TextField>
+
+      <TextField autocorrect="false" autocapitalizationType="none" hint="Location Additional Info" class="tl-input" [(ngModel)]="locationInfo"></TextField>
+
+
+  </StackLayout>
+  <StackLayout class="page">
+      <Button text="Add message" (tap)="addMessage()" class="trail-btn"></Button>
+  </StackLayout>
+
+
+</StackLayout>

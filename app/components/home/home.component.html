@@ -1,17 +1,68 @@
-<ActionBar title="Trail" class="tl-action-bar mustard">
-  <ActionItem nsRouterLink="/create" ios.position="right" android.position="popup">
-    <Button text="+" class="action-item"></Button>
+<ActionBar title="Trail" class="tl-action-bar">
+  <ActionItem nsRouterLink="/createGame" ios.position="right" android.position="popup">
+    <Button text="+"></Button>
+  </ActionItem>
+  <ActionItem ios.position="left" android.position="popup" (tap)="logout()">
+      <Button text="Log out"></Button>
   </ActionItem>
 </ActionBar>
 
-<TabView class="tl-tab-view mustard" tabsBackgroundColor="#EEBA0B" color="#F18F01" selectedColor="#fff">
-    <StackLayout *tabItem="{title: 'Play'}" class="page mustard">
-        <Label text="First tab item"></Label>
+
+
+<TabView class="tl-tab-view" tabsBackgroundColor="#4A1A7E" color="#171738" selectedColor="#fff">
+    <StackLayout *tabItem="{title: 'Active game'}" class="page">
+        <Label text="Home" class="tl-title"></Label>
+        <Label text="This is where you can check for messages and location info. You are currently playing..." class="trail-small" textWrap=true></Label>
+        <Label text={{activeGame}} class="trail-subtitle"></Label>
+
+        <Label text="Next location: Earlham Hall" class="trail-message"></Label>
+        <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=150 class="page">
+          <template let-item="item" let-i="index">
+              <StackLayout class="page">
+                  <Label [text]='item' class="trail-message"></Label>
+              </StackLayout>
+          </template>
+      </ListView>
+      <StackLayout>
+          <Button text="Check" (tap)="checkCurrentLocation()" class="trail-btn"></Button>
+      </StackLayout>
+      <Label text={{locationInfo}} class="trail-small" textWrap=true></Label>
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Your Games'}" class="page mustard">
-        <Label text="Second tab item"></Label>
+
+    <StackLayout *tabItem="{title: 'Your games', iconSource: '~/icon.png'}" class="page">
+        <Label text="Home" class="tl-title"></Label>
+        <Label text="This is the list of games you have been invited to." class="trail-small"></Label>
+        <Label text="Select a game and press begin to start playing." class="tl-subtitle"></Label>
+
+        <ListView [items]="gameList" (itemTap)="onGameTap($event)" height=200 class="page">
+          <template let-item="item" let-i="index">
+              <StackLayout class="page">
+                  <Label [text]='item' class="trail-message"></Label>
+              </StackLayout>
+          </template>
+      </ListView>
+      <Label text={{gameSelectMessage}} class="trail-message"></Label>
+
+      <StackLayout class="page">
+          <Button text="Begin" (tap)="beginGameSelected()" class="trail-btn"></Button>
+      </StackLayout>
+
+
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Completed Games'}" class="page mustard">
-        <Label text="Third tab item" class="tl-tab-label"></Label>
+
+    <StackLayout *tabItem="{title: 'Completed Games'}" class="page">
+        <Label text="Home" class="tl-title"></Label>
+        <Label text="This is the list of games you have completed." class="tl-subtitle"></Label>
+        <ListView [items]="completedGameList" (itemTap)="onCompletedGameTap($event)" height=150 class="page">
+          <template let-item="item" let-i="index">
+              <StackLayout class="page">
+                  <Label [text]='item' class="trail-message"></Label>
+              </StackLayout>
+          </template>
+      </ListView>
+
+      <Label text={{gameCompletedSelectMessage}} class="trail-message"></Label>
+      <Label text={{gameInfo}} class="trail-info" textWrap=true></Label>
     </StackLayout>
+
 </TabView>

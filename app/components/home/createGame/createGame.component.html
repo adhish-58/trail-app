@@ -1,0 +1,19 @@
+<ActionBar title="TRAIL" class="tl-action-bar">
+</ActionBar>
+
+<StackLayout class="page">
+    <Label text="Create game" class="tl-title"></Label>
+    <Label text="You can create a new Trail here." class="trail-small"></Label>
+  <StackLayout class="form">
+      <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name"></TextField>
+
+      <TextField autocorrect="false" autocapitalizationType="none" hint="Game Description" class="tl-input" [(ngModel)]="description"></TextField>
+
+
+  </StackLayout>
+  <StackLayout class="page">
+      <Button text="Create game" (tap)="createGame()" class="trail-btn"></Button>
+  </StackLayout>
+
+
+</StackLayout>

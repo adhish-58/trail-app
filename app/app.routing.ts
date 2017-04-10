@@ -7,7 +7,8 @@ import { Routes } from "@angular/router";
 // ===========================================================================================
 import { LoginComponent, RegisterComponent } from "./components/access"
 import { HomeComponent }     from "./components/home/home.component";
-import { CreateComponent }   from "./components/home/create/create.component";
+import { CreateGameComponent } from "./components/home/createGame/createGame.component";
+import { CreateMessageComponent } from "./components/home/createMessage/createMessage.component";
 import { ListComponent }     from "./components/list/list.component";
 // ===========================================================================================
 
@@ -16,7 +17,8 @@ const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent},
     { path: "home", component: HomeComponent },
-    { path: "create", component: CreateComponent },
+    { path: "createGame", component: CreateGameComponent },
+    { path: "createMessage", component: CreateMessageComponent },
     { path: "list", component: ListComponent },
 ];
 

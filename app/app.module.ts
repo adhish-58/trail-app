@@ -14,7 +14,8 @@ import { RestService, GameService, UserService } from "./services";
 import { LoginComponent, RegisterComponent } from "./components/access";
 
 import { HomeComponent } from "./components/home/home.component";
-import { CreateComponent } from "./components/home/create/create.component";
+import { CreateGameComponent } from "./components/home/createGame/createGame.component";
+import {CreateMessageComponent} from "./components/home/createMessage/createMessage.component";
 
 import { ListComponent } from "./components/list/list.component";
 import { HttpModule } from '@angular/http';
@@ -37,7 +38,8 @@ import { HttpModule } from '@angular/http';
         LoginComponent,
         RegisterComponent,
         HomeComponent,
-        CreateComponent,
+        CreateGameComponent,
+        CreateMessageComponent,
         ListComponent
     ],
     providers: [
