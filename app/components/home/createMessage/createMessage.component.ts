@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
 import { GameService, UserService } from "../../../services";
+import scrollViewModule = require("ui/scroll-view");
 
 @Component({
     selector: "tl-createMessage",
@@ -19,7 +20,6 @@ export class CreateMessageComponent implements OnInit {
     public locationList: Array<string>;
     public indexOfLocation = 0
     public locationSelectMessage = "Location selected: ";
-    import scrollViewModule = require("ui/scroll-view");
 
     ngOnInit() {
     }
