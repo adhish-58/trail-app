@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
 import { RouterExtensions } from "nativescript-angular/router";
 
-import { RestService } from "../../../services";
+import { RestService, UserService } from "../../../services";
 import { RegModel } from "../access.model";
 import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -11,7 +11,7 @@ import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from
     selector: "tl-register",
     moduleId: module.id,
     templateUrl: "./register.component.html",
-    providers: [RestService]
+    providers: [RestService, UserService]
 })
 export class RegisterComponent implements OnInit {
     //Input username from login view
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     usernameControl: AbstractControl;
 
     private sub: any;
-    constructor(private route: ActivatedRoute, private router: RouterExtensions, private RestService: RestService, private fb:FormBuilder)  {
+    constructor(private route: ActivatedRoute, private router: RouterExtensions, private RestService: RestService, private UserService:UserService, private fb:FormBuilder)  {
     }
 
     ngOnInit() {
@@ -40,6 +40,7 @@ export class RegisterComponent implements OnInit {
     }
 
     public register() {
+            this.username = this.UserService.get_username();
             this.sub = this.route.params.subscribe(params => {
              this.username = params['username'];
              this.registerThisUser(this.username, this.fullname)

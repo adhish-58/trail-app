@@ -5,13 +5,13 @@ import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { RestService } from "../../../services";
+import { RestService, UserService } from "../../../services";
 import { UserModel } from "../access.model";
 
 @Component({
     moduleId: module.id,
     templateUrl: "./login.component.html",
-    providers: [RestService]
+    providers: [RestService, UserService]
 })
 
 export class LoginComponent{
@@ -22,10 +22,8 @@ export class LoginComponent{
 
     public subtitleMessage: string = "Please sign in with your Earlham credentials.";
 
-    constructor(private router: RouterExtensions, private RestService: RestService, private fb:FormBuilder) {
+    constructor(private router: RouterExtensions, private RestService: RestService, private UserService: UserService, private fb:FormBuilder) {
         this.user = new UserModel();
-        this.user.username = "";
-        this.user.password = "";
     }
 
     ngOnInit() {
@@ -57,6 +55,7 @@ export class LoginComponent{
                 .subscribe(res => {
                     this.validateMembership(res);
                 });
+        this.UserService.store_name(this.user.username);
     }
 
     validateMembership(res) {

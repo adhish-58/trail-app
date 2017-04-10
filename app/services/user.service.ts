@@ -6,8 +6,20 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserService {
+    public username: String;
+    public fullname: String;
 
     constructor() {}
 
-}
+    public store_name(username:String){
+      this.username = username;
+    }
 
+    public store_fullname(fullname:String){
+      this.fullname = fullname;
+    }
+
+    public get_username(){
+      return this.username;
+    }
+}
