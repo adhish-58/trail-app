@@ -11,7 +11,7 @@ import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from
     selector: "tl-register",
     moduleId: module.id,
     templateUrl: "./register.component.html",
-    providers: []
+    providers: [RestService, UserService]
 })
 export class RegisterComponent implements OnInit {
     //Input username from login view
@@ -34,23 +34,20 @@ export class RegisterComponent implements OnInit {
 
     public checkValidity(){
             this.fullname = this.usernameControl.value;
-            if (this.usernameControl.hasError('required'))
-              alert('Fullname is required');
-            else if (this.usernameControl.hasError('minlength'))
-              alert('Fullname is too short');
-            else if (this.usernameControl.hasError('maxlength'))
-              alert('Fullname is too long');
+            if (!this.loginForm.valid)
+              this.invalidName()
             else this.register()
     }
 
     public register() {
-            this.username = this.UserService.username;
-
-            this.registerThisUser(this.username, this.fullname);
+            this.username = this.UserService.get_username();
+            this.sub = this.route.params.subscribe(params => {
+             this.username = params['username'];
+             this.registerThisUser(this.username, this.fullname)
+            });
     }
 
     goToHome() {
-        this.UserService.fullname = this.fullname;
         this.router.navigate(['/home'], {
             transition: {
                 duration: 500,

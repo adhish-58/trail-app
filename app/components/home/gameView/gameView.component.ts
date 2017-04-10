@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
+import dialogs = require("ui/dialogs");
+import geolocation = require("nativescript-geolocation");
 
 export class DataItem {
     constructor(public itemDesc: string) {}
@@ -20,9 +22,27 @@ export class GameViewComponent implements OnInit {
 
     constructor(public RouterExtensions: RouterExtensions){}
 
-    ngOnInit(){}
+    ngOnInit(){
+        geolocation.enableLocationRequest();
+    }
 
     public checkCurrentLocation(){
+        var location = geolocation.getCurrentLocation({timeout: 5000}).
+          then(
+            (loc) => {
+              if (loc) {
+                  // Do something with the location
+                console.log("The latitude is " + loc.latitude)
+                console.log("The longitude is " + loc.longitude)
+              }
+            },
+            (e) => {
+              //failed to get location
+              alert(e.message);
+            }
+        );
+        console.log(location)
+        // Alert when the latitude and logitude shows no message:
         alert({
             title: "Not found",
             message: "No message found here!",
@@ -34,5 +54,21 @@ export class GameViewComponent implements OnInit {
           console.log("-------------------- LocationTapped: " + args.index);
           this.indexOfLocation = args.index;
           this.locationInfo = this.locationList[this.indexOfLocation] + " is a place inside Earlham College"
+      }
+
+      public forfeit() {
+          dialogs.alert({
+              title: "Forfeit",
+              message: "You loser!",
+              okButtonText: "I agree"
+          }).then(() => {
+              this.RouterExtensions.navigate(['/home'], {
+                  transition: {
+                      duration: 500,
+                      name: 'fade',
+                  },
+                  clearHistory: true
+              });
+        });
       }
 }
