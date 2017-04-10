@@ -6,7 +6,8 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class GameService {
-
+    public locations:JSON;
+    
     constructor() {}
 
 // def get_all_locations():
@@ -52,4 +53,3 @@ export class GameService {
 // def delete_game_invitee(player_id, creator_id, game_name):
 // 	pass
 }
-
