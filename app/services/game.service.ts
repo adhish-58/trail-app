@@ -11,9 +11,8 @@ export class GameService {
 
     constructor (private RestService:RestService) {}
 
-    public get_locations(user_id){
-      this.RestService
-              .post({ username: user_id }, "get_locations");
+    public get_locations(){
+      this.RestService.get("get_locations");
     }
 
     public create_new_game(user_id, game_name){
@@ -59,7 +58,7 @@ export class GameService {
 
     public delete_game_invitee(player_id, creator_id, game_name){
       this.RestService
-              .post({ player_id: player_id, creator_id:creator_id, game_name:game_name }, "delete_game_invitee");      
+              .post({ player_id: player_id, creator_id:creator_id, game_name:game_name }, "delete_game_invitee");
     }
 
 }

@@ -25,9 +25,10 @@ export class RestService {
             .map(res => res.json());
     }
 
-    // public get() {
-    //
-    // }
+    public get(path: string) {
+        let finalURL = this.localApiUrl + path;
+        return this.http.get(finalURL).map(res => res.json())
+    }
     //
     // public request() {
     //
