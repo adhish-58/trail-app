@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
+import dialogs = require("ui/dialogs");
 
 export class DataItem {
     constructor(public itemDesc: string) {}
@@ -18,18 +19,23 @@ export class HomeComponent implements OnInit {
 
     // TODO: Change locationList to array object with info, tag visited/checked, tag message.
     // TODO: Make connection of gameList and locationList (locationList is depended upon gameList)
-    public locationList: Array<string> = ["Earlham Hall","OA","Mills", "Hoener", "Wellness Center", "Joseph Moore Museum"];
 
     public completedGameList: Array<string> = ["Lam's game", "James' game"];
 
+    public YourGameList: Array<string> = ["Find the treasure", "Find the drugs", "Find the weeds"]
+
     public gameSelectMessage : string = "Game selected: " + this.gameList[0]
     public gameCompletedSelectMessage : string = "Game selected: " + this.gameList[0]
-    public indexOfLocation = 0;
+    public indexOfYourGame = 0
     public indexOfGame = 0;
     public indexOfGameCompleted = 0;
+    public YourGameSelectMessage = "Game selected: Game1"
+    public gameDescription = "Description for game " + this.YourGameList[this.indexOfYourGame]
     public locationInfo = ""
     public gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
     public activeGame = this.gameList[0]
+
+
     public items: Array<DataItem>;
     constructor(public RouterExtensions: RouterExtensions) {
         this.items = new Array<DataItem>();
@@ -58,15 +64,20 @@ export class HomeComponent implements OnInit {
           this.gameSelectMessage = "Game selected: " + this.gameList[this.indexOfGame]
       }
 
-      public onLocationTap(args) {
-            console.log("-------------------- LocationTapped: " + args.index);
-            this.indexOfLocation = args.index;
-            this.locationInfo = this.locationList[this.indexOfLocation] + " is a place inside Earlham College"
-        }
-
       public beginGameSelected(){
           console.log("Begin game " + this.gameList[this.indexOfGame])
-          this.activeGame = this.gameList[this.indexOfGame]
+          dialogs.alert({
+              title: "Begin " + this.gameList[this.indexOfGame],
+              message: "The game will start in a second.",
+              okButtonText: "Continue"
+          }).then(() => {
+              this.RouterExtensions.navigate(['/gameView'], {
+                  transition: {
+                      duration: 500,
+                      name: 'fade',
+                  }
+              });
+        });
           // Load location List from game
       }
 
@@ -77,12 +88,12 @@ export class HomeComponent implements OnInit {
             this.gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
         }
 
-      public checkCurrentLocation(){
-          alert({
-              title: "Not found",
-              message: "No message found here!",
-              okButtonText: "Keep looking"
-          })
-      }
+        public onYourGameTap(args) {
+              console.log("------------------- GameCompletedTapped: " + args.index);
+              this.indexOfYourGame = args.index;
+              this.YourGameSelectMessage = "Game selected: " + this.YourGameList[this.indexOfYourGame]
+              this.gameDescription = "Description for game " + this.YourGameList[this.indexOfYourGame]
+          }
+
 
 }

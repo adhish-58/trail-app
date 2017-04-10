@@ -16,6 +16,7 @@ import { LoginComponent, RegisterComponent } from "./components/access";
 import { HomeComponent } from "./components/home/home.component";
 import { CreateGameComponent } from "./components/home/createGame/createGame.component";
 import {CreateMessageComponent} from "./components/home/createMessage/createMessage.component";
+import {GameViewComponent} from "./components/home/gameView/gameView.component";
 
 import { ListComponent } from "./components/list/list.component";
 import { HttpModule } from '@angular/http';
@@ -40,6 +41,7 @@ import { HttpModule } from '@angular/http';
         HomeComponent,
         CreateGameComponent,
         CreateMessageComponent,
+        GameViewComponent,
         ListComponent
     ],
     providers: [
