@@ -27,7 +27,7 @@ export class GameViewComponent implements OnInit {
     }
 
     public checkCurrentLocation(){
-        var location = geolocation.getCurrentLocation({timeout: 5000}).
+        var location = geolocation.getCurrentLocation({desiredAccuracy: 3, updateDistance: 10, timeout: 5000}).
           then(
             (loc) => {
               if (loc) {
