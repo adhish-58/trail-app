@@ -1,0 +1,11 @@
+{
+  "mediaPath": "media",
+  "icon": {
+    "filename": "./app/assets/trail_icon.png",
+    "background": "402173"
+  },
+  "splash": {
+    "filename": "./app/assets/trail_splash.png",
+    "background": "402173"
+  }
+}
