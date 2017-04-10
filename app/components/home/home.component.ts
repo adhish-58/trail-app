@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
 import dialogs = require("ui/dialogs");
+import scrollViewModule = require("ui/scroll-view");
 
 export class DataItem {
     constructor(public itemDesc: string) {}

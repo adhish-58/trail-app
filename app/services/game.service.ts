@@ -7,16 +7,16 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class GameService {
-    public locations:JSON;
+    public game_name:String;
 
     constructor (private RestService:RestService) {}
 
-    public get_locations(){
-      this.RestService.get("get_locations");
+    public get_all_locations(){
+      return this.RestService.get("get_all_locations");
     }
 
     public create_new_game(user_id, game_name){
-      this.RestService
+      return this.RestService
               .post({ user_id: user_id, game_name: game_name }, "create_new_game");
     }
 

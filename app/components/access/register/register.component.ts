@@ -6,6 +6,7 @@ import { RestService, UserService } from "../../../services";
 import { RegModel } from "../access.model";
 import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import scrollViewModule = require("ui/scroll-view");
 
 @Component({
     selector: "tl-register",
