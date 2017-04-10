@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
             this.loginForm = this.fb.group({
-                fullname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+                fullname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
             });
             this.usernameControl = this.loginForm.controls['fullname'];
     }
@@ -46,14 +46,14 @@ export class RegisterComponent implements OnInit {
             });
     }
 
-    goToRegister(){
-            this.router.navigate(['/home'], {
-                transition: {
-                    duration: 500,
-                    name: 'slideLeft',
-                },
-                clearHistory: true
-            });
+    goToHome() {
+        this.router.navigate(['/home'], {
+            transition: {
+                duration: 500,
+                name: 'slideLeft',
+            },
+            clearHistory: true
+        });
     }
 
     registerThisUser(user_id, user_fullname){
@@ -65,7 +65,11 @@ export class RegisterComponent implements OnInit {
     }
 
     validateRegistered(res){
-            this.goToRegister;
+           if (!(res.trailUserName == "false")) {
+                this.goToHome();
+            } else {
+                this.invalidName();
+            }
     }
 
     invalidName(){

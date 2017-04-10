@@ -61,7 +61,7 @@ export class LoginComponent{
 
     validateMembership(res) {
         if(res.isEcUser) {
-            if(res.isTrailUser) {
+            if(!(res.trailUserName == "false")) {
                 this.goToHome();
             } else {
                 this.goToRegister();
