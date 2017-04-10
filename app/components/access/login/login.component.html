@@ -1,7 +1,7 @@
 <ActionBar title="Trail" class="tl-action-bar"></ActionBar>
 
 <StackLayout class="page" orientation="vertical">
-
+ <ScrollView>
     <Label text="Sign In" class="tl-title"></Label>
     <Label [text]="subtitleMessage" class="tl-subtitle"></Label>
 
@@ -29,5 +29,5 @@
                     (tap)="onLogIn()">
             </Button>
     </StackLayout>
-
+ </ScrollView>
 </StackLayout>

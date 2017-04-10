@@ -7,11 +7,12 @@ import 'rxjs/add/operator/map';
 
 import { RestService, UserService } from "../../../services";
 import { UserModel } from "../access.model";
+import scrollViewModule = require("ui/scroll-view");
 
 @Component({
     moduleId: module.id,
     templateUrl: "./login.component.html",
-    providers: [RestService, UserService]
+    providers: []
 })
 
 export class LoginComponent{
@@ -27,13 +28,12 @@ export class LoginComponent{
     }
 
     ngOnInit() {
-        this.goToHome()
         this.loginForm = this.fb.group({
-            username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
-            password: ['']
+            username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(40)]],
+            password: ['', [Validators.required]]
         });
         this.usernameControl = this.loginForm.controls['username'];
-        this.passwordControl = this.loginForm.controls['password']
+        this.passwordControl = this.loginForm.controls['password'];
     }
 
 
@@ -44,8 +44,14 @@ export class LoginComponent{
     }
 
     private checkValidity(){
-      if (!this.loginForm.valid)
-        this.inputInvalid();
+      if (this.usernameControl.hasError('required'))
+        alert('Username is required');
+      else if (this.usernameControl.hasError('minlength'))
+        alert('Username is too short');
+      else if (this.usernameControl.hasError('maxlength'))
+        alert('Username is too long');
+      else if (this.passwordControl.hasError('required'))
+        alert('Password is required');
       else
         this.makeLoginRequest();
     }
@@ -56,7 +62,7 @@ export class LoginComponent{
                 .subscribe(res => {
                     this.validateMembership(res);
                 });
-        this.UserService.store_name(this.user.username);
+        this.UserService.username = this.user.username;
     }
 
     validateMembership(res) {
@@ -72,7 +78,7 @@ export class LoginComponent{
     }
 
     goToRegister() {
-        this.router.navigate(['register', this.user.username], {
+        this.router.navigate(['register'], {
             transition: {
                 duration: 500,
                 name: 'slideTop',
@@ -95,8 +101,5 @@ export class LoginComponent{
         this.subtitleMessage = "Error: Username & password do not match. Please try again.";
     };
 
-    inputInvalid(){
-      alert("Error: Invalid username. Please try again");
-      this.subtitleMessage = "Error: Username or password is invalid. Please try again";
-    }
+
 }
