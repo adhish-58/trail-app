@@ -75,7 +75,8 @@ export class HomeComponent implements OnInit {
                   transition: {
                       duration: 500,
                       name: 'fade',
-                  }
+                  },
+                  clearHistory: true
               });
         });
           // Load location List from game
