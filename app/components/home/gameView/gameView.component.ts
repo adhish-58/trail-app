@@ -17,8 +17,8 @@ export class DataItem {
 export class GameViewComponent implements OnInit {
     public locationList: Array<string> = ["Earlham Hall","OA","Mills", "Hoener", "Wellness Center", "Joseph Moore Museum"];
     public indexOfLocation = 0;
-    public locationInfo = ""
-    public activeGame = "Lam's game"
+    public locationInfo = "Earlham Hall is one of the buildings that Earlham College owns. It is located right next to TheHeart, which is the big circular grass field. Go to Earlham Hall and press the button, a message awaits.";
+    public activeGame = "Lam's game";
 
 
     constructor(public RouterExtensions: RouterExtensions){}
@@ -28,13 +28,13 @@ export class GameViewComponent implements OnInit {
     }
 
     public checkCurrentLocation(){
-        var location = geolocation.getCurrentLocation({desiredAccuracy: 3, updateDistance: 10, timeout: 5000}).
+        var location = geolocation.getCurrentLocation({timeout: 5000}).
           then(
             (loc) => {
               if (loc) {
                   // Do something with the location
-                console.log("The latitude is " + loc.latitude)
-                console.log("The longitude is " + loc.longitude)
+                console.log("\nThe latitude is " + loc.latitude)
+                console.log("\nThe longitude is " + loc.longitude)
               }
             },
             (e) => {
@@ -42,20 +42,14 @@ export class GameViewComponent implements OnInit {
               alert(e.message);
             }
         );
-        console.log(location)
         // Alert when the latitude and logitude shows no message:
         alert({
             title: "Not found",
-            message: "No message found here!",
-            okButtonText: "Keep looking"
+            message: "There are no message here. Are you at Earlham Hall yet?",
+            okButtonText: "I'll keep looking"
         })
     }
 
-    public onLocationTap(args) {
-          console.log("-------------------- LocationTapped: " + args.index);
-          this.indexOfLocation = args.index;
-          this.locationInfo = this.locationList[this.indexOfLocation] + " is a place inside Earlham College"
-      }
 
       public forfeit() {
           dialogs.alert({

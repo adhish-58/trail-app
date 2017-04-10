@@ -59,38 +59,49 @@ export class HomeComponent implements OnInit {
         });
     }
 
+    public loadMoreCompletedGame() {
+        // Load more items here.
+        this.completedGameList.push("Test data completed game")
+    }
+
     public onGameTap(args) {
-          console.log("------------------------ GameTapped: " + args.index);
+          console.log("\nGameTapped: " + args.index);
           this.indexOfGame = args.index;
           this.gameSelectMessage = "Game selected: " + this.gameList[this.indexOfGame]
       }
 
       public beginGameSelected(){
-          console.log("Begin game " + this.gameList[this.indexOfGame])
-          dialogs.alert({
+          console.log("\nBegin game " + this.gameList[this.indexOfGame])
+          dialogs.confirm({
               title: "Begin " + this.gameList[this.indexOfGame],
-              message: "The game will start in a second.",
-              okButtonText: "Continue"
-          }).then(() => {
-              this.RouterExtensions.navigate(['/gameView'], {
-                  transition: {
-                      duration: 500,
-                      name: 'fade',
-                  },
-                  clearHistory: true
+              message: "Are you sure you want to begin the game?",
+              cancelButtonText: "Cancel",
+              okButtonText: "Yes"
+          }).then(result => {
+              // result argument is boolean
+                  if (result == true) {
+                      this.RouterExtensions.navigate(['/gameView'], {
+                          transition: {
+                              duration: 500,
+                              name: 'fade',
+                          },
+                          clearHistory: true
+                      });
+                  }
               });
-        });
+
+
       }
 
       public onCompletedGameTap(args) {
-            console.log("------------------- GameCompletedTapped: " + args.index);
+            console.log("\nGameCompletedTapped: " + args.index);
             this.indexOfGameCompleted = args.index;
             this.gameCompletedSelectMessage = "Game selected: " + this.completedGameList[this.indexOfGameCompleted]
             this.gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
         }
 
         public onYourGameTap(args) {
-              console.log("------------------- GameCompletedTapped: " + args.index);
+              console.log("\nGameCompletedTapped: " + args.index);
               this.indexOfYourGame = args.index;
               this.YourGameSelectMessage = "Game selected: " + this.YourGameList[this.indexOfYourGame]
               this.gameDescription = "Description for game " + this.YourGameList[this.indexOfYourGame]
