@@ -5,13 +5,14 @@
     <Label text="Add message" class="tl-title"></Label>
     <Label text="You can add a new message at a location here." class="trail-small"></Label>
 
-    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=100>
-              <template let-item="item" let-i="index">
-                  <StackLayout class="page">
-                      <Label [text]='item' class="trail-message"></Label>
+    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=100 class="list">
+              <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                  <StackLayout [class.odd]="odd" [class.even]="even">
+                      <Label [text]="item" class="list-label"></Label>
                   </StackLayout>
               </template>
     </ListView>
+
     <Label text={{locationSelectMessage}} class="trail-small"></Label>
   <StackLayout class="page">
       <TextField autocorrect="false" autocapitalizationType="none" hint="Location Message" class="tl-input" [(ngModel)]="message"></TextField>
@@ -20,12 +21,9 @@
 
 
   </StackLayout>
-
-    <StackLayout class="page">
-        <Button text="Create Game" (tap)="createGame()" class="trail-btn"></Button>
-    </StackLayout>
   <StackLayout class="page">
       <Button text="Add message" (tap)="addMessage()" class="trail-btn"></Button>
   </StackLayout>
+
 
 </StackLayout>

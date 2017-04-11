@@ -25,7 +25,7 @@ export class CreateGameComponent implements OnInit {
           alert("Need a name and description!");
       } else {
           this.GameService.game_name = this.name;
-          this.RouterExtensions.navigate(['/createMessage'], {
+          this.RouterExtensions.navigate(['/messageView'], {
             transition: {
               duration: 500,
               name: 'slideLeft',

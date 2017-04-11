@@ -47,11 +47,11 @@ export class MessageViewComponent implements OnInit {
 
       }
 
-      public addMessage() {
+      public addNewMessage() {
           this.RouterExtensions.navigate(['/createMessage'], {
             transition: {
               duration: 500,
-              name: 'slideRight',
+              name: 'slideLeft',
             }
           });
       }
