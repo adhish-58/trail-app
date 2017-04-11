@@ -22,6 +22,7 @@ const routes: Routes = [
     { path: "createGame", component: CreateGameComponent },
     { path: "createMessage", component: CreateMessageComponent },
     { path: "gameView", component: GameViewComponent },
+    { path: "messageView", component: MessageViewComponent },
     { path: "list", component: ListComponent },
 ];
 
