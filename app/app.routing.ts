@@ -11,7 +11,9 @@ import { CreateGameComponent } from "./components/home/createGame/createGame.com
 import { CreateMessageComponent } from "./components/home/createMessage/createMessage.component";
 import { GameViewComponent } from "./components/home/gameView/gameView.component";
 import { MessageViewComponent } from "./components/home/messageView/messageView.component";
+import { SeeInvitesComponent } from "./components/home/seeInvites/seeInvites.component";
 import { ListComponent }     from "./components/list/list.component";
+
 // ===========================================================================================
 
 const routes: Routes = [
@@ -23,6 +25,7 @@ const routes: Routes = [
     { path: "createMessage", component: CreateMessageComponent },
     { path: "gameView", component: GameViewComponent },
     { path: "messageView", component: MessageViewComponent },
+    { path: "seeInvites", component: SeeInvitesComponent },
     { path: "list", component: ListComponent },
 ];
 

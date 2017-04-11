@@ -1,0 +1,44 @@
+<ActionBar title="Find the drugs" class="tl-action-bar">
+    <ActionItem ios.position="left" android.position="popup" [nsRouterLink]="['/home']" clearHistory=true>
+        <Button text="Home"></Button>
+    </ActionItem>
+    <ActionItem ios.position="right" android.position="popup" (tap)="addInvites()">
+        <Button text="Invite"></Button>
+    </ActionItem>
+</ActionBar>
+
+<TabView class="tl-tab-view" tabsBackgroundColor="#4A1A7E" color="#171738" selectedColor="#fff">
+    <StackLayout *tabItem="{title: 'Invites'}" class="page">
+        <Label text="View messages and invite people to your game." class="trail-small"></Label>
+        <Label text="Invitation list" class="trail-subtitle" textWrap=true></Label>
+
+        <Label text={{userInfo}} class="trail-subtitle" textWrap=true></Label>
+
+        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" height=200 class="list">
+                  <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                      <StackLayout [class.odd]="odd" [class.even]="even">
+                          <Label [text]='item' class="list-label"></Label>
+                      </StackLayout>
+                  </template>
+        </ListView>
+
+
+    </StackLayout>
+
+    <StackLayout *tabItem="{title: 'Message'}" class="page">
+        <Label text="View messages and invite people to your game." class="trail-small"></Label>
+        <Label text="Message list" class="trail-subtitle" textWrap=true></Label>
+
+        <Label text={{locationSelectMessage}} class="trail-small"></Label>
+        <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" height=200 class="list">
+                  <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                      <StackLayout [class.odd]="odd" [class.even]="even">
+                          <Label [text]='item.loc' class="list-label"></Label>
+                      </StackLayout>
+                  </template>
+        </ListView>
+        <Label text={{messageAtLocation}} class="trail-small" textWrap=true></Label>
+
+    </StackLayout>
+
+</TabView>

@@ -1,4 +1,4 @@
-<ActionBar title="Trail" class="tl-action-bar">
+<ActionBar title={{activeGame}} class="tl-action-bar">
     <ActionItem ios.position="left" android.position="popup" (tap)="forfeit()">
         <Button text="Forfeit"></Button>
     </ActionItem>
@@ -7,12 +7,10 @@
 
 
 <StackLayout class="page">
-    <Label text="Game" class="tl-title"></Label>
-    <Label text="This is where you can check for messages and location info. You are currently playing..." class="trail-small" textWrap=true></Label>
-    <Label text={{activeGame}} class="trail-title"></Label>
-
-    <Label text="Next location: Earlham Hall" class="trail-message"></Label>
+    <Label text="EH" class="tl-title"></Label>
+    <Label text="Go to the next location and check the message." class="trail-small" textWrap=true></Label>
     <Label text={{locationInfo}} class="trail-small" textWrap=true></Label>
+    
     <StackLayout>
       <Button text="Check for message" (tap)="checkCurrentLocation()" class="trail-btn"></Button>
     </StackLayout>

@@ -19,17 +19,16 @@ export class CreateGameComponent implements OnInit {
     }
 
     createGame() {
-      // Try this in the {N} app
-      // {N} can use these animation options
+      // Create game then go to Home
       if (this.name == "" || this.description == ""){
           alert("Need a name and description!");
       } else {
           this.GameService.game_name = this.name;
-          this.RouterExtensions.navigate(['/messageView'], {
+          this.RouterExtensions.navigate(['/createMessage'], {
             transition: {
               duration: 500,
               name: 'slideLeft',
-            }
+          }
           });
       }
 

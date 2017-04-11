@@ -25,14 +25,10 @@ export class HomeComponent implements OnInit {
 
     public YourGameList: Array<string> = ["Find the treasure", "Find the drugs", "Find the weeds"]
 
-    public gameSelectMessage : string = "Game selected: " + this.gameList[0]
     public gameCompletedSelectMessage : string = "Game selected: " + this.gameList[0]
     public indexOfYourGame = 0
     public indexOfGame = 0;
     public indexOfGameCompleted = 0;
-    public YourGameSelectMessage = "Game selected: Game1"
-    public gameDescription = "Description for game " + this.YourGameList[this.indexOfYourGame]
-    public locationInfo = ""
     public gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
     public activeGame = this.gameList[0]
 
@@ -67,7 +63,7 @@ export class HomeComponent implements OnInit {
     public onGameTap(args) {
           console.log("\nGameTapped: " + args.index);
           this.indexOfGame = args.index;
-          this.gameSelectMessage = "Game selected: " + this.gameList[this.indexOfGame]
+          this.beginGameSelected()
       }
 
       public beginGameSelected(){
@@ -103,8 +99,13 @@ export class HomeComponent implements OnInit {
         public onYourGameTap(args) {
               console.log("\nGameCompletedTapped: " + args.index);
               this.indexOfYourGame = args.index;
-              this.YourGameSelectMessage = "Game selected: " + this.YourGameList[this.indexOfYourGame]
-              this.gameDescription = "Description for game " + this.YourGameList[this.indexOfYourGame]
+              this.RouterExtensions.navigate(['/seeInvites'], {
+                  transition: {
+                      duration: 500,
+                      name: 'slideLeft',
+                  },
+                  clearHistory: true
+              });
           }
 
 

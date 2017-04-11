@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
 import { GameService, UserService } from "../../../services";
 import scrollViewModule = require("ui/scroll-view");
+import dialogs = require("ui/dialogs");
+
 
 @Component({
     selector: "tl-createMessage",
@@ -16,7 +18,6 @@ export class CreateMessageComponent implements OnInit {
     }
 
     public message: string = "";
-    public locationInfo: string = "";
     public locationList: Array<string>;
     public indexOfLocation = 0
     public locationSelectMessage = "Location selected: ";
@@ -31,18 +32,39 @@ export class CreateMessageComponent implements OnInit {
       this.GameService.new_game_messages[this.currentLocation] = this.currentMessage;
     }
 
+    done(){
+        //this.addLocation()
+        dialogs.confirm({
+            title: "Confirm finish",
+            message: "Are you sure you are done adding messages?",
+            cancelButtonText: "Cancel",
+            okButtonText: "Yes"
+        }).then(result => {
+            // result argument is boolean
+                if (result == true) {
+                    this.RouterExtensions.navigate(['/seeInvites'], {
+                        transition: {
+                            duration: 500,
+                            name: 'fade',
+                        },
+                        clearHistory: true
+                    });
+                }
+            });
+    }
+
     addMessage() {
-      // Try this in the {N} app
-      // {N} can use these animation options
-      if (this.message == "" || this.locationInfo == ""){
-          alert("Need a message and location info!");
+
+      if (this.message == ""){
+          alert("Need a message!");
       } else {
         this.addLocation()
-          this.RouterExtensions.navigate(['/messageView'], {
+          this.RouterExtensions.navigate(['/createMessage'], {
             transition: {
               duration: 500,
               name: 'slideRight',
-            }
+          },
+          clearHistory: true
           });
       }
     }

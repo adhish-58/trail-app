@@ -1,16 +1,15 @@
-<ActionBar title="TRAIL" class="tl-action-bar">
+<ActionBar title="Preview" class="tl-action-bar">
     <ActionItem ios.position="right" android.position="popup" (tap)="addNewMessage()">
         <Button text="+"></Button>
     </ActionItem>
 </ActionBar>
 
 <StackLayout class="page">
-    <Label text="Game" class="tl-title"></Label>
     <Label text="Add new messages to your newly created game." class="trail-small"></Label>
 
-    <Label text="Game title: Find the drugs" class="trail-subtitle" textWrap=true></Label>
+    <Label text="Find the drugs" class="trail-title"></Label>
 
-    <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" height=150 class="list">
+    <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" height=200 class="list">
               <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                   <StackLayout [class.odd]="odd" [class.even]="even">
                       <Label [text]='item.loc' class="list-label"></Label>
@@ -19,7 +18,7 @@
     </ListView>
     <Label text={{locationSelectMessage}} class="trail-small"></Label>
     <Label text={{messageAtLocation}} class="trail-small" textWrap=true></Label>
-  <Button text="Create Game" (tap)="done()" class="trail-btn"></Button>
+  <Button text="Done" (tap)="done()" class="trail-btn"></Button>
 
 
 </StackLayout>
