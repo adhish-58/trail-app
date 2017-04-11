@@ -44,15 +44,16 @@ export class CreateMessageComponent implements OnInit {
       // {N} can use these animation options
 
       this.GameService.create_new_game(this.UserService.username, this.GameService.game_name).subscribe();
-      this.RouterExtensions.navigate(['/home'], {
+      this.RouterExtensions.navigate(['/messageView'], {
         transition: {
           duration: 500,
           name: 'slideRight',
-        }
+      },
+      clearHistory: true
       });
   }
     public onLocationTap(args) {
-          console.log("-------------------- LocationTapped: " + args.index);
+          console.log("\nLocationTapped: " + args.index);
           this.indexOfLocation = args.index;
           this.locationSelectMessage = "Location selected: " + this.locationList[this.indexOfLocation];
       }

@@ -10,6 +10,7 @@ import { HomeComponent }     from "./components/home/home.component";
 import { CreateGameComponent } from "./components/home/createGame/createGame.component";
 import { CreateMessageComponent } from "./components/home/createMessage/createMessage.component";
 import { GameViewComponent } from "./components/home/gameView/gameView.component";
+import { MessageViewComponent } from "./components/home/messageView/messageView.component";
 import { ListComponent }     from "./components/list/list.component";
 // ===========================================================================================
 
