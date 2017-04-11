@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
+import { GameService, UserService } from "../../../services";
 
 class Message {
     constructor(public loc: string, public mes: string) { }
@@ -12,7 +13,8 @@ class Message {
 })
 export class MessageViewComponent implements OnInit {
 
-    constructor(public RouterExtensions: RouterExtensions) { }
+    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService,
+                  private UserService:UserService) { }
 
     public message: string = "";
     public locationInfo: string = "";
@@ -28,7 +30,17 @@ export class MessageViewComponent implements OnInit {
         this.yourMessageLocationList.push(new Message("Mills", "Go to third floor Vitalii's room for your drugs. You can use the bag to contain the drugs."));
     }
 
+    createGame() {
+      // Try this in the {N} app
+      // {N} can use these animation options
+
+      this.GameService.create_new_game(this.UserService.username, this.GameService.game_name).subscribe();
+
+  }
+
     done() {
+      this.createGame;
+      alert('Game Created');
       this.RouterExtensions.navigate(['/home'], {
         transition: {
           duration: 500,

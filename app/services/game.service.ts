@@ -11,6 +11,8 @@ export class GameService {
 
     constructor (private RestService:RestService) {}
 
+    public new_game_messages:JSON;
+
     public get_all_locations(){
       return this.RestService.get("get_all_locations");
     }

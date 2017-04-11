@@ -20,8 +20,15 @@ export class CreateMessageComponent implements OnInit {
     public locationList: Array<string>;
     public indexOfLocation = 0
     public locationSelectMessage = "Location selected: ";
+    public currentLocation:string;
+    public currentMessage:string;
+
 
     ngOnInit() {
+    }
+
+    addLocation() {
+      this.GameService.new_game_messages[this.currentLocation] = this.currentMessage;
     }
 
     addMessage() {
@@ -30,7 +37,8 @@ export class CreateMessageComponent implements OnInit {
       if (this.message == "" || this.locationInfo == ""){
           alert("Need a message and location info!");
       } else {
-          this.RouterExtensions.navigate(['/home'], {
+        this.addLocation()
+          this.RouterExtensions.navigate(['/messageView'], {
             transition: {
               duration: 500,
               name: 'slideRight',
@@ -39,22 +47,10 @@ export class CreateMessageComponent implements OnInit {
       }
     }
 
-    createGame() {
-      // Try this in the {N} app
-      // {N} can use these animation options
-
-      this.GameService.create_new_game(this.UserService.username, this.GameService.game_name).subscribe();
-      this.RouterExtensions.navigate(['/messageView'], {
-        transition: {
-          duration: 500,
-          name: 'slideRight',
-      },
-      clearHistory: true
-      });
-  }
     public onLocationTap(args) {
           console.log("\nLocationTapped: " + args.index);
           this.indexOfLocation = args.index;
           this.locationSelectMessage = "Location selected: " + this.locationList[this.indexOfLocation];
+          this.currentLocation = this.locationList[this.indexOfLocation];
       }
 }

@@ -1,10 +1,9 @@
 <ActionBar title="Trail" class="tl-action-bar"></ActionBar>
 
 <StackLayout class="page" orientation="vertical">
- <ScrollView>
     <Label text="Sign In" class="tl-title"></Label>
     <Label [text]="subtitleMessage" class="tl-subtitle"></Label>
-
+    <ScrollView>
     <StackLayout class="form" [formGroup]="loginForm">
             <TextField
                     formControlName="username"
