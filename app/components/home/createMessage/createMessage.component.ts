@@ -19,6 +19,7 @@ export class CreateMessageComponent implements OnInit {
     }
 
     public message: string = "";
+    public message_num: string = "Message 1";
     public locationList: Array<string>;
     public indexOfLocation = 0
     public locationSelectMessage = "Location selected: ";
@@ -38,6 +39,7 @@ export class CreateMessageComponent implements OnInit {
        this.GameService.NewGameObj['GameAttrs'].push(this.messageObj);
 
        this.messageObj = new GameAttributes;
+       this.message_num = "Message " + (this.GameService.NewGameObj.max_rank + 1);
     }
 
     createNewGame(){
