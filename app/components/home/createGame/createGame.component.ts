@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
-import { GameService } from "../../../services";
+import { GameService, UserService, NewGame } from "../../../services";
 import scrollViewModule = require("ui/scroll-view");
 
 @Component({
@@ -10,12 +10,15 @@ import scrollViewModule = require("ui/scroll-view");
 })
 export class CreateGameComponent implements OnInit {
 
-    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService) { }
+    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService,
+                private UserService:UserService) { }
 
     public name: string = "";
     public description: string = "";
 
     ngOnInit() {
+      this.GameService.NewGameObj = new NewGame;
+      this.GameService.NewGameObj.username = this.UserService.username;
     }
 
     createGame() {
@@ -23,7 +26,7 @@ export class CreateGameComponent implements OnInit {
       if (this.name == "" || this.description == ""){
           alert("Need a name and description!");
       } else {
-          this.GameService.game_name = this.name;
+          this.GameService.NewGameObj.GameName = this.name;
           this.RouterExtensions.navigate(['/createMessage'], {
             transition: {
               duration: 500,

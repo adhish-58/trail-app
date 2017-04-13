@@ -4,22 +4,34 @@ import { Http, Headers, Response, RequestOptions } from "@angular/http";
 import { Observable as RxObservable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 
+export class GameAttributes {
+  location: string = '';
+  message: string = '';
+  rank: number = 0;
+
+}
+
+export class NewGame {
+  max_rank: number = 0;
+  GameName: string;
+  username: string;
+  GameAttrs: Array<GameAttributes> = [];
+  Invitees: Array<string> = [];
+}
 
 @Injectable()
 export class GameService {
-    public game_name:String;
+    public NewGameObj:NewGame;
 
     constructor (private RestService:RestService) {}
-
-    public new_game_messages:JSON;
 
     public get_all_locations(){
       return this.RestService.get("get_all_locations");
     }
 
-    public create_new_game(user_id, game_name){
+    public new_game(NewGame) {
       return this.RestService
-              .post({ user_id: user_id, game_name: game_name }, "create_new_game");
+              .post(NewGame, "create_new_game");
     }
 
     public add_invitees_to_game(user_id, game_name, invitees_list){
