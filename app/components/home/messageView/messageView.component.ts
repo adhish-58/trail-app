@@ -34,7 +34,6 @@ export class MessageViewComponent implements OnInit {
       // Try this in the {N} app
       // {N} can use these animation options
 
-      this.GameService.create_new_game(this.UserService.username, this.GameService.game_name).subscribe();
 
   }
 

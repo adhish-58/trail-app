@@ -17,8 +17,8 @@ import scrollViewModule = require("ui/scroll-view");
 export class RegisterComponent implements OnInit {
     //Input username from login view
 
-    username: String;
-    fullname:String;
+    username: string;
+    fullname:string;
     loginForm: FormGroup;
     usernameControl: AbstractControl;
 

@@ -6,8 +6,8 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserService {
-    public username: String;
-    public fullname: String;
+    public username: string;
+    public fullname: string;
 
     constructor() {}
 }

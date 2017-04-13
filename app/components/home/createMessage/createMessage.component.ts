@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
-import { GameService, UserService } from "../../../services";
+import { GameService, UserService, GameAttributes } from "../../../services";
 import scrollViewModule = require("ui/scroll-view");
 import dialogs = require("ui/dialogs");
 
@@ -12,7 +12,8 @@ import dialogs = require("ui/dialogs");
 })
 export class CreateMessageComponent implements OnInit {
 
-    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService, private UserService:UserService) {
+    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService,
+                private UserService:UserService) {
       this.GameService.get_all_locations().
               subscribe(locationList => this.locationList = locationList['locations'], () => console.log(this.locationList));
     }
@@ -22,14 +23,25 @@ export class CreateMessageComponent implements OnInit {
     public indexOfLocation = 0
     public locationSelectMessage = "Location selected: ";
     public currentLocation:string;
-    public currentMessage:string;
-
+    public messageObj= new GameAttributes;
 
     ngOnInit() {
+
     }
 
     addLocation() {
-      this.GameService.new_game_messages[this.currentLocation] = this.currentMessage;
+       this.messageObj.message =  this.message;
+       this.messageObj.location = this.currentLocation;
+       this.messageObj.rank = this.GameService.NewGameObj.max_rank + 1;
+       this.GameService.NewGameObj.max_rank += 1;
+
+       this.GameService.NewGameObj['GameAttrs'].push(this.messageObj);
+
+       this.messageObj = new GameAttributes;
+    }
+
+    createNewGame(){
+      this.GameService.new_game(this.GameService.NewGameObj).subscribe();
     }
 
     done(){
@@ -41,6 +53,7 @@ export class CreateMessageComponent implements OnInit {
             okButtonText: "Yes"
         }).then(result => {
             // result argument is boolean
+                this.createNewGame();
                 if (result == true) {
                     this.RouterExtensions.navigate(['/seeInvites'], {
                         transition: {
@@ -59,13 +72,6 @@ export class CreateMessageComponent implements OnInit {
           alert("Need a message!");
       } else {
         this.addLocation()
-          this.RouterExtensions.navigate(['/createMessage'], {
-            transition: {
-              duration: 500,
-              name: 'slideRight',
-          },
-          clearHistory: true
-          });
       }
     }
 
