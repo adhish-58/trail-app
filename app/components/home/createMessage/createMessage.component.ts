@@ -72,6 +72,12 @@ export class CreateMessageComponent implements OnInit {
           alert("Need a message!");
       } else {
         this.addLocation()
+        this.message = ""
+        dialogs.alert({
+            title: "Success",
+            message: "Your message has been added.",
+            okButtonText: "Continue"
+        })
       }
     }
 
