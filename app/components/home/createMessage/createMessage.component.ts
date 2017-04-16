@@ -25,6 +25,7 @@ export class CreateMessageComponent implements OnInit {
     public locationSelectMessage = "Location selected: ";
     public currentLocation:string;
     public messageObj= new GameAttributes;
+    public lastLocation:string="";
 
     ngOnInit() {
 
@@ -56,6 +57,7 @@ export class CreateMessageComponent implements OnInit {
         }).then(result => {
             // result argument is boolean
                 this.createNewGame();
+                this.GameService.CurrentGame = this.GameService.NewGameObj.GameName;
                 if (result == true) {
                     this.RouterExtensions.navigate(['/seeInvites'], {
                         transition: {
@@ -72,7 +74,16 @@ export class CreateMessageComponent implements OnInit {
 
       if (this.message == ""){
           alert("Need a message!");
-      } else {
+      }
+      else if (this.currentLocation == this.lastLocation) {
+        dialogs.alert({
+            title: "Error",
+            message: "Can't choose the same location for two consecutive messages.",
+            okButtonText: "Continue"
+        })
+      }
+      else {
+        this.lastLocation = this.currentLocation
         this.addLocation()
         this.message = ""
         dialogs.alert({

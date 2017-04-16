@@ -1,4 +1,4 @@
-<ActionBar title="Find the drugs" class="tl-action-bar">
+<ActionBar title={{Game_title}} class="tl-action-bar">
     <ActionItem ios.position="left" android.position="popup" [nsRouterLink]="['/home']" clearHistory=true>
         <Button text="Home"></Button>
     </ActionItem>
@@ -33,7 +33,7 @@
         <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" height=200 class="list">
                   <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                       <StackLayout [class.odd]="odd" [class.even]="even">
-                          <Label [text]='item.loc' class="list-label"></Label>
+                          <Label [text]='item[1]' class="list-label"></Label>
                       </StackLayout>
                   </template>
         </ListView>

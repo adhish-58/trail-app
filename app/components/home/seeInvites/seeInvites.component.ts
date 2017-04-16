@@ -18,8 +18,16 @@ class Message {
 export class SeeInvitesComponent implements OnInit {
 
     constructor(public RouterExtensions: RouterExtensions, private GameService:GameService, private UserService:UserService) {
+      this.GameService.get_game_attributes(this.GameService.CurrentGame, this.UserService.username).subscribe(
+        locationList => this.yourMessageLocationList = locationList['attributes'],
+        () => console.log("TEST MONEY")
+      )
+
+    //   this.GameService.get_all_locations().
+    //           subscribe(locationList => this.yourMessageLocationList = locationList['locations']);
     }
 
+    public Game_title: string = this.GameService.CurrentGame;
     public message: string = "";
     public invitesList: Array<string> = [];
     public indexOfInvites = 0
@@ -33,9 +41,6 @@ export class SeeInvitesComponent implements OnInit {
 
 
     ngOnInit() {
-        this.yourMessageLocationList.push(new Message("Earlham Hall", "Well done, go to the next location"));
-        this.yourMessageLocationList.push(new Message("OA", "You are halfway there! Now go to the next location, grab the big bag in the kitchen"));
-        this.yourMessageLocationList.push(new Message("Mills", "Go to third floor Vitalii's room for your drugs. You can use the bag to contain the drugs."));
         if (this.invitesList.length == 0) {
             this.userInfo = "Oops, you have not invited anyone to the game yet.";
         }
@@ -65,9 +70,9 @@ export class SeeInvitesComponent implements OnInit {
       public onLocationTap(args) {
             console.log("\nLocationTapped: " + args.index);
             this.indexOfLocation = args.index;
-            this.locationSelectMessage = "Location selected: " + this.yourMessageLocationList[this.indexOfLocation].loc;
+            this.locationSelectMessage = "Location selected: " + this.yourMessageLocationList[this.indexOfLocation][1];
 
-            this.messageAtLocation = "The message at location " + this.yourMessageLocationList[this.indexOfLocation].loc + " is: " + this.yourMessageLocationList[this.indexOfLocation].mes;
+            this.messageAtLocation = "The message at location " + this.yourMessageLocationList[this.indexOfLocation][1] + " is: " + this.yourMessageLocationList[this.indexOfLocation][2];
 
         }
 }

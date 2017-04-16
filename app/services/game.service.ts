@@ -23,6 +23,8 @@ export class NewGame {
 export class GameService {
     public NewGameObj:NewGame;
 
+    public CurrentGame: string;
+
     constructor (private RestService:RestService) {}
 
     public get_all_locations(){
@@ -41,7 +43,7 @@ export class GameService {
     }
 
     public get_all_created_games(user_id){
-      this.RestService
+      return this.RestService
               .post({ user_id: user_id }, "get_all_created_games");
     }
 
@@ -50,9 +52,9 @@ export class GameService {
               .post({ user_id: user_id, game_name: game_name }, "get_game_invitees");
     }
 
-    public get_game_attributes(player_id, creator_id, game_name){
-      this.RestService
-              .post({ player_id: player_id, creator_id:creator_id, game_name:game_name}, "get_game_attributes");
+    public get_game_attributes(game_name, creator_id){
+      return this.RestService
+              .post({ game_name:game_name, creator_id:creator_id }, "get_game_attributes");
     }
 
     public get_completed_games(user_id){

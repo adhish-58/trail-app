@@ -1,11 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import {RouterExtensions} from "nativescript-angular/router";
+import { RouterExtensions } from "nativescript-angular/router";
+import { GameService, UserService } from "../../services";
 import dialogs = require("ui/dialogs");
 import scrollViewModule = require("ui/scroll-view");
-
-export class DataItem {
-    constructor(public itemDesc: string) {}
-}
 
 @Component({
     selector: "tl-home",
@@ -23,7 +20,7 @@ export class HomeComponent implements OnInit {
 
     public completedGameList: Array<string> = ["Lam's game", "James' game"];
 
-    public YourGameList: Array<string> = ["Find the treasure", "Find the drugs", "Find the weeds"]
+    public YourGameList: Array<string>;
 
     public gameCompletedSelectMessage : string = "Game selected: " + this.gameList[0]
     public indexOfYourGame = 0
@@ -33,12 +30,10 @@ export class HomeComponent implements OnInit {
     public activeGame = this.gameList[0]
 
 
-    public items: Array<DataItem>;
-    constructor(public RouterExtensions: RouterExtensions) {
-        this.items = new Array<DataItem>();
-        for (let i = 0; i < 5; i++) {
-            this.items.push(new DataItem("item " + i));
-        }
+    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService, private UserService:UserService) {
+        this.GameService.get_all_created_games(this.UserService.username).subscribe(
+          gamesCreated => this.YourGameList = gamesCreated['games']
+        )
 
     }
 
@@ -99,6 +94,7 @@ export class HomeComponent implements OnInit {
         public onYourGameTap(args) {
               console.log("\nGameCompletedTapped: " + args.index);
               this.indexOfYourGame = args.index;
+              this.GameService.CurrentGame = this.YourGameList[args.index];
               this.RouterExtensions.navigate(['/seeInvites'], {
                   transition: {
                       duration: 500,
