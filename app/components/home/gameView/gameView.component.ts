@@ -3,6 +3,8 @@ import {RouterExtensions} from "nativescript-angular/router";
 import dialogs = require("ui/dialogs");
 import geolocation = require("nativescript-geolocation");
 import scrollViewModule = require("ui/scroll-view");
+import { GameService, UserService } from "../../../services";
+
 
 export class DataItem {
     constructor(public itemDesc: string) {}
@@ -18,10 +20,11 @@ export class GameViewComponent implements OnInit {
     public locationList: Array<string> = ["Earlham Hall","OA","Mills", "Hoener", "Wellness Center", "Joseph Moore Museum"];
     public indexOfLocation = 0;
     public locationInfo = "Earlham Hall is one of the buildings that Earlham College owns. It is located right next to TheHeart, which is the big circular grass field. Go to Earlham Hall and press the button, a message awaits.";
-    public activeGame = "Lam's game";
+    public activeGame = this.GameService.CurrentGame;
 
 
-    constructor(public RouterExtensions: RouterExtensions){}
+    constructor(public RouterExtensions: RouterExtensions, private GameService:GameService,
+                  private UserService:UserService){}
 
     ngOnInit(){
         geolocation.enableLocationRequest();
@@ -45,7 +48,7 @@ export class GameViewComponent implements OnInit {
         // Alert when the latitude and logitude shows no message:
         alert({
             title: "Not found",
-            message: "There are no message here. Are you at Earlham Hall yet?",
+            message: "There are no message here. Are you there yet?",
             okButtonText: "I'll keep looking"
         })
     }
