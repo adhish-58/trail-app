@@ -10,7 +10,7 @@
 
 
 <TabView class="tl-tab-view" tabsBackgroundColor="#4A1A7E" color="#171738" selectedColor="#fff">
-    <FlexboxLayout flexDirection="column" *tabItem="{title: 'Your games', iconSource: '~/icon.png'}" class="page">
+    <FlexboxLayout flexDirection="column" *tabItem="{title: 'Your games'}" class="page">
         <Label text="This is the list of games you have created. You can view the name, description of the games and invite people here." class="trail-small" textWrap=true flexGrow="1"></Label>
 
         <ListView [items]="YourGameList" (itemTap)="onYourGameTap($event)" class="list" height=100 flexGrow="8">

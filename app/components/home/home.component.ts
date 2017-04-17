@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
         )
 
         this.GameService.get_invited_games(this.UserService.username).subscribe(
-          gamesInvited => this.gamesInvietedParser(gamesInvited)
+          gamesInvited => this.gamesInvitedParser(gamesInvited)
         )
 
         this.GameService.get_completed_games(this.UserService.username).subscribe(
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public gamesInvietedParser(gamesInvited){
+    public gamesInvitedParser(gamesInvited){
       this.gameList = gamesInvited['games'][0];
       this.gameCreators = gamesInvited['games'][1];
     }

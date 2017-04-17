@@ -1,0 +1,51 @@
+<GridLayout #pagecontainer rows="auto, auto" class="page">
+
+    <!-- Row 1: The custom action bar -->
+  <GridLayout row="0" columns="auto, *, auto" class="action-bar-custom">
+    <StackLayout col="1" class="left">
+        <Button text="Logout" (tap)="logout()"></Button>
+    </StackLayout>
+
+    <StackLayout col="2" class="right" >
+      <Button text="Create" nsRouterLink="/home"></Button>
+    </StackLayout>
+
+  </GridLayout>
+
+
+  <!-- Row 2: The Page-->
+  <GridLayout row="1">
+    <StackLayout #mainContainer class="main-container">
+      <GridLayout rows="auto, auto, auto, auto" translateY="30">
+
+        <GridLayout row="0" translateY="0" translateX="0">
+          <GridLayout translateX="10" translateY="2" class="play_bg"><Image src="res://play_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
+          <Button text="Play" class="menu-button" nsRouterLink="/play"></Button>
+        </GridLayout>
+
+        <GridLayout row="1" translateY="-15"  translateX="0">
+          <GridLayout translateX="10" class="play_bg"><Image src="res://your_games_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
+          <Button text="Your Games" class="menu-button" ></Button>
+        </GridLayout>
+
+        <GridLayout row="2" translateY="-30" translateX="0">
+          <GridLayout translateX="10" class="play_bg"><Image src="res://complete_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
+          <Button text="Completed" class="menu-button" ></Button>
+        </GridLayout>
+
+        <GridLayout row="3" translateY="-45"  translateX="0">
+          <GridLayout translateX="10" class="play_bg"><Image src="res://your_games_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
+          <Button text="About" class="menu-button" ></Button>
+        </GridLayout>
+
+      </GridLayout>
+
+    </StackLayout>
+    <AbsoluteLayout class="bg-pole">
+      <Image src="res://bg_pole" stretch="none" scaleX="0.9" scaleY="0.9"></Image>
+    </AbsoluteLayout>
+  </GridLayout>
+
+
+
+</GridLayout>

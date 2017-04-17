@@ -16,7 +16,7 @@
   },
   "scripts": {
     "asset-generator": "asset-generator",
-    "build-image-res": "asset-generator ./app/assets/Android/*.png --android ./app/App_Resources/Android/ --ios ./app/App_Resources/iOS/"
+    "build-image-res": "asset-generator ./app/assets/common/*.png --android ./app/App_Resources/Android/ --ios ./app/App_Resources/iOS/"
   },
   "dependencies": {
     "@angular/animations": "4.0.0",
@@ -31,6 +31,7 @@
     "asset-generator": "^1.1.1",
     "nativescript-angular": "1.5.1",
     "nativescript-geolocation": "0.0.19",
+    "nativescript-platform-css": "^1.4.0",
     "nativescript-theme-core": "~1.0.2",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~5.2.0",

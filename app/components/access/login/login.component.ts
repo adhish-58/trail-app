@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { AbstractControl, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { Page } from "ui/page";
 
 import { RestService, UserService } from "../../../services";
 import { UserModel } from "../access.model";
@@ -12,6 +13,7 @@ import scrollViewModule = require("ui/scroll-view");
 @Component({
     moduleId: module.id,
     templateUrl: "./login.component.html",
+    styleUrls: ["./login-common.css", "./login.component.css"],
     providers: []
 })
 
@@ -23,11 +25,14 @@ export class LoginComponent{
 
     public subtitleMessage: string = "Please sign in with your Earlham credentials.";
 
-    constructor(private router: RouterExtensions, private RestService: RestService, private UserService: UserService, private fb:FormBuilder) {
+    @ViewChild("password") password: ElementRef;
+
+    constructor(private router: RouterExtensions, private RestService: RestService, private UserService: UserService, private fb:FormBuilder, private page: Page) {
         this.user = new UserModel();
     }
 
     ngOnInit() {
+        this.page.actionBarHidden = true;
         this.loginForm = this.fb.group({
             username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(40)]],
             password: ['', [Validators.required]]
@@ -36,11 +41,14 @@ export class LoginComponent{
         this.passwordControl = this.loginForm.controls['password'];
     }
 
+    focusPassword() {
+      this.password.nativeElement.focus();
+    }
 
     public onLogIn() {
         this.user.username = this.usernameControl.value;
         this.user.password = this.passwordControl.value;
-        this.checkValidity()
+        this.checkValidity();
     }
 
     private checkValidity(){
@@ -67,10 +75,10 @@ export class LoginComponent{
 
     validateMembership(res) {
         if(res.isEcUser) {
-            if(!(res.trailUserName == "false")) {
-                this.goToHome();
-            } else {
+            if(res.trailUserName == false) {
                 this.goToRegister();
+            } else {
+                this.goToHome();
             }
         } else {
             this.invalidCredentials();
@@ -78,16 +86,17 @@ export class LoginComponent{
     }
 
     goToRegister() {
-        this.router.navigate(['register'], {
+        this.router.navigate(['/register'], {
             transition: {
-                duration: 500,
-                name: 'slideTop',
+                name: 'flipRight',
+                duration: 350,
+                curve: "linear"
             },
         });
     }
 
     goToHome() {
-        this.router.navigate(['/home'], {
+        this.router.navigate(['/main'], {
             transition: {
                 duration: 500,
                 name: 'slideLeft',

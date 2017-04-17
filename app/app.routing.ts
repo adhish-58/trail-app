@@ -13,11 +13,13 @@ import { GameViewComponent } from "./components/home/gameView/gameView.component
 import { MessageViewComponent } from "./components/home/messageView/messageView.component";
 import { SeeInvitesComponent } from "./components/home/seeInvites/seeInvites.component";
 import { ListComponent }     from "./components/list/list.component";
+import { PlayComponent }     from "./components/home/play/play.component";
+import { MainComponent }     from "./components/home/main/main.component";
 
 // ===========================================================================================
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "", redirectTo: "/play", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent},
     { path: "home", component: HomeComponent },
@@ -27,6 +29,9 @@ const routes: Routes = [
     { path: "messageView", component: MessageViewComponent },
     { path: "seeInvites", component: SeeInvitesComponent },
     { path: "list", component: ListComponent },
+    { path: "play", component: PlayComponent },
+    { path: "main", component: MainComponent },
+
 ];
 
 @NgModule({

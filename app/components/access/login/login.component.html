@@ -1,41 +1,48 @@
-<ActionBar title="Trail" class="tl-action-bar"></ActionBar>
+<GridLayout class="page">
+  <StackLayout #mainContainer
+    class="main-container">
+    <Label
+      class="main-label"
+      [text]="subtitleMessage"
+      textWrap=true
+      color='white'></Label>
 
-<FlexboxLayout class="page" orientation="vertical" flexDirection="column">
+    <GridLayout #formControls
+      [formGroup]="loginForm"
+      class="form-controls"
+      rows="auto, auto"
+      translateY="0">
+      <TextField
+        formControlName="username"
+        autocorrect="false"
+        hint="Earlham Username"
+        keyboardType="email"
+        (returnPress)="focusPassword()"
+        returnKeyType="next"
 
-    <Label text="Sign In" class="tl-title" flexGrow="3"></Label>
-    <Label [text]="subtitleMessage" class="tl-subtitle" textWrap=true flexGrow="1"></Label>
-    <FlexboxLayout class="form" [formGroup]="loginForm" flexDirection="column" flexGrow="6">
-            <FlexboxLayout flexGrow="1" flexDirection="column">
-                <TextField
-                        formControlName="username"
-                        autocorrect="false"
-                        hint="Earlham Username"
-                        autocapitalizationType="none"
-                        class="tl-input"
-                        editable="true">
-                </TextField>
-            </FlexboxLayout>
+        autocapitalizationType="none"
+        row="0"></TextField>
+      <TextField #password
+        formControlName="password"
+        hint="Password"
+        secure="true"
+        returnKeyType="done"
+        (returnPress)="onLogIn()"
+        row="1"></TextField>
+    </GridLayout>
 
-            <FlexboxLayout flexGrow="1" flexDirection="column">
-                <TextField
-                        formControlName="password"
-                        secure="true"
-                        hint="Password"
-                        returnKeyType="done"
-                        (returnPress)="onLogIn()"
-                        editable="true"
-                        class="tl-input">
-                </TextField>
-            </FlexboxLayout>
+    <Button
+      text="Log In"
+      clearHistory="true"
+      (tap)="onLogIn()"
+      class="submit-button"></Button>
 
-            <FlexboxLayout flexGrow="1" flexDirection="column">
-                <Button
-                        text="Log in"
-                        clearHistory="true"
-                        (tap)="onLogIn()"
-                        class="trail-btn">
-                </Button>
-            </FlexboxLayout>
+  </StackLayout>
 
-    </FlexboxLayout>
-</FlexboxLayout>
+    <AbsoluteLayout #logoContainer
+    class="logo-container">
+    <Image
+      src="res://logo_login"
+      stretch="none"></Image>
+  </AbsoluteLayout>
+</GridLayout>

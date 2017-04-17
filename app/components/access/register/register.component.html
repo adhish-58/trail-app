@@ -1,34 +1,86 @@
-<ActionBar title="Trail" class="tl-action-bar"></ActionBar>
+<!--<ActionBar title="Trail" class="tl-action-bar"></ActionBar>-->
 
-<FlexboxLayout class="page" orientation="vertical" flexDirection="column">
+<!--<FlexboxLayout class="page" orientation="vertical" flexDirection="column">-->
 
-    <Label text="Registration" class="tl-title" flexGrow="3"></Label>
+    <!--<Label text="Registration" class="tl-title" flexGrow="3"></Label>-->
+    <!--<Label-->
+          <!--text="EC User ID:"-->
+          <!--class="tl-subtitle"-->
+          <!--flexGrow="1"-->
+          <!--&gt;-->
+    <!--</Label>-->
+
+    <!--<FlexboxLayout class="form" [formGroup]="loginForm" flexDirection="column" flexGrow="6">-->
+            <!--<FlexboxLayout flexGrow="1" flexDirection="column">-->
+                <!--<TextField-->
+                            <!--autocorrect="false"-->
+                            <!--autocapitalizationType="none"-->
+                            <!--class="tl-input"-->
+                            <!--hint="Enter full name"-->
+                            <!--formControlName="fullname">-->
+                <!--</TextField>-->
+            <!--</FlexboxLayout>-->
+
+            <!--<FlexboxLayout flexGrow="1" flexDirection="column">-->
+                <!--<Button-->
+                            <!--text="Register"-->
+                            <!--(tap)="checkValidity()"-->
+                            <!--clearHistory="true"-->
+                            <!--class="trail-btn">-->
+                <!--</Button>-->
+            <!--</FlexboxLayout>-->
+
+    <!--</FlexboxLayout>-->
+<!--</FlexboxLayout>-->
+
+<GridLayout class="page">
+  <StackLayout #mainContainer
+    class="main-container">
     <Label
-          text="EC User ID:"
-          class="tl-subtitle"
-          flexGrow="1"
-          >
-    </Label>
+      class="main-label top"
+      [text]="userText"
+      textWrap=true
+      color='white'></Label>
 
-    <FlexboxLayout class="form" [formGroup]="loginForm" flexDirection="column" flexGrow="6">
-            <FlexboxLayout flexGrow="1" flexDirection="column">
-                <TextField
-                            autocorrect="false"
-                            autocapitalizationType="none"
-                            class="tl-input"
-                            hint="Enter full name"
-                            formControlName="fullname">
-                </TextField>
-            </FlexboxLayout>
+    <Label
+      class="main-label sub1"
+      text="We're excited to have you use Trail!"
+      textWrap=true
+      color='white'></Label>
 
-            <FlexboxLayout flexGrow="1" flexDirection="column">
-                <Button
-                            text="Register"
-                            (tap)="checkValidity()"
-                            clearHistory="true"
-                            class="trail-btn">
-                </Button>
-            </FlexboxLayout>
+    <Label
+      class="main-label sub2"
+      text="Please give us your name to better acquaint us."
+      textWrap=true
+      color='white'></Label>
 
-    </FlexboxLayout>
-</FlexboxLayout>
+    <GridLayout #formControls
+      [formGroup]="loginForm"
+      class="form-controls"
+      rows="auto, auto"
+      translateY="0">
+      <TextField
+        formControlName="fullname"
+        autocorrect="false"
+        hint="Enter Full Name"
+        (returnPress)="checkValidity()"
+        returnKeyType="done"
+
+        autocapitalizationType="none"
+        row="0"></TextField>
+    </GridLayout>
+
+    <Button
+      text="Register"
+      clearHistory="true"
+      (tap)="checkValidity()"
+      class="submit-button"></Button>
+  </StackLayout>
+
+    <AbsoluteLayout #logoContainer
+    class="logo-container">
+    <Image
+      src="res://logo_login"
+      stretch="none"></Image>
+  </AbsoluteLayout>
+</GridLayout>
