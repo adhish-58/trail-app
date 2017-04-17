@@ -40,7 +40,7 @@
         <Label text="This is the list of games you have completed." class="tl-subtitle" flexGrow="1"></Label>
 
         <Label text={{gameCompletedSelectMessage}} class="trail-small" flexGrow="1"></Label>
-        <ListView [items]="completedGameList" (itemTap)="onCompletedGameTap($event)" class="list" (loadMoreItems)="loadMoreCompletedGame()" height=100 flexGrow="6">
+        <ListView [items]="completedGameList" (itemTap)="onCompletedGameTap($event)" class="list" height=100 flexGrow="6">
           <template let-item="item" let-i="index" let-odd="odd" let-even="even">
               <StackLayout [class.odd]="odd" [class.even]="even">
                   <Label [text]='item' class="list-label"></Label>

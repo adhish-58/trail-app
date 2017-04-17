@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
         });
     }
 
+
     public onGameTap(args) {
           console.log("\nGameTapped: " + args.index);
           this.indexOfGame = args.index;
