@@ -16,11 +16,7 @@
   },
   "scripts": {
     "asset-generator": "asset-generator",
-    "build-image-res": "asset-generator ./app/assets/*.png --android ./app/App_Resources/Android/ --ios ./app/App_Resources/iOS/",
-    "start.ios": "asset-generator ./app/assets/*.png --android ./app/App_Resources/Android/ --ios ./app/App_Resources/iOS/ && tns run ios --emulator",
-    "start.ios.device": "asset-generator ./app/assets/*.png --android ./app/App_Resources/Android/ --ios ./app/App_Resources/iOS/ && tns run ios",
-    "start.android": "asset-generator ./app/assets/Android/*.png --android ./app/App_Resources/Android/ && tns run android --emulator",
-    "start.android.device": "/image.build.sh && tns run android"
+    "build-image-res": "asset-generator ./app/assets/Android/*.png --android ./app/App_Resources/Android/ --ios ./app/App_Resources/iOS/"
   },
   "dependencies": {
     "@angular/animations": "4.0.0",
