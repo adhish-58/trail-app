@@ -14,7 +14,6 @@ export class CreateGameComponent implements OnInit {
                 private UserService:UserService) { }
 
     public name: string = "";
-    public description: string = "";
 
     ngOnInit() {
       this.GameService.NewGameObj = new NewGame;
@@ -23,7 +22,7 @@ export class CreateGameComponent implements OnInit {
 
     createGame() {
       // Create game then go to Home
-      if (this.name == "" || this.description == ""){
+      if (this.name == ""){
           alert("Need a name and description!");
       } else {
           this.GameService.NewGameObj.GameName = this.name;

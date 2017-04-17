@@ -14,7 +14,7 @@
 
         <Label text={{userInfo}} class="trail-subtitle" textWrap=true></Label>
 
-        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" height=200 class="list">
+        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" class="list">
                   <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                       <StackLayout [class.odd]="odd" [class.even]="even">
                           <Label [text]='item' class="list-label"></Label>
@@ -30,7 +30,7 @@
         <Label text="Message list" class="trail-subtitle" textWrap=true></Label>
 
         <Label text={{locationSelectMessage}} class="trail-small"></Label>
-        <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" height=200 class="list">
+        <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" class="list">
                   <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                       <StackLayout [class.odd]="odd" [class.even]="even">
                           <Label [text]='item[1]' class="list-label"></Label>

@@ -11,14 +11,16 @@
     </Label>
 
     <FlexboxLayout class="form" [formGroup]="loginForm" flexDirection="column" flexGrow="6">
-            <TextField
-                        autocorrect="false"
-                        autocapitalizationType="none"
-                        class="tl-input"
-                        hint="Enter full name"
-                        formControlName="fullname"
-                        flexGrow="1">
-            </TextField>
+            <FlexboxLayout flexGrow="1" flexDirection="column">
+                <TextField
+                            autocorrect="false"
+                            autocapitalizationType="none"
+                            class="tl-input"
+                            hint="Enter full name"
+                            formControlName="fullname">
+                </TextField>
+            </FlexboxLayout>
+
             <FlexboxLayout flexGrow="1" flexDirection="column">
                 <Button
                             text="Register"
