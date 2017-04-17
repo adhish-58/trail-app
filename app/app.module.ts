@@ -28,6 +28,15 @@ import { ListComponent } from "./components/list/list.component";
 import { HttpModule } from '@angular/http';
 // ===========================================================================================
 
+
+// ===========================================================================================
+// Telerik UI
+// ===========================================================================================
+import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
+import { NativeScriptUIListViewModule } from "nativescript-telerik-ui/listview/angular";
+// ===========================================================================================
+
+
 import { setStatusBarColors } from "./shared";
 setStatusBarColors();
 
@@ -41,7 +50,9 @@ setStatusBarColors();
         AppRoutingModule,
         NativeScriptHttpModule,
         HttpModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NativeScriptUISideDrawerModule,
+        NativeScriptUIListViewModule
     ],
     declarations: [
         AppComponent,

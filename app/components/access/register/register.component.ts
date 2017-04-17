@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
 
     goToHome() {
         this.UserService.fullname = this.fullname;
-        this.router.navigate(['/home'], {
+        this.router.navigate(['/main'], {
             transition: {
                 duration: 500,
                 name: 'slideLeft',
