@@ -1,0 +1,39 @@
+<GridLayout #pagecontainer rows="auto, auto" class="page">
+
+    <!-- Row 1: The custom action bar -->
+  <GridLayout row="0" columns="auto, *, auto" class="action-bar-custom">
+    <StackLayout col="1" class="left">
+        <Button text="Back" (tap)="goToHome()"></Button>
+    </StackLayout>
+
+    <StackLayout col="2" class="right" >
+      <Button text="Create" nsRouterLink="/createGame"></Button>
+    </StackLayout>
+
+  </GridLayout>
+
+
+  <!-- Row 2: The Page-->
+  <GridLayout row="1" rows="auto,auto">
+
+        <StackLayout row="0">
+          <Label class="section-description" text="This is the list of games you have created. You can view the name, description of the games and invite people here." textWrap=true></Label>
+        </StackLayout>
+
+        <ListView row="1" [items]="YourGameList" class="trail-list" height="400" (itemLoading)="makeBackgroundTransparent($event)">
+          <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                <StackLayout>
+                  <Button [text]='item' class="menu-button" nsRouterLink="/yourGames" (itemTap)="onGameTap($event)"></Button>
+                  <AbsoluteLayout class="play_items_bg" translateY="-5">
+                    <Image src="res://your_games_bg" stretch="none" scaleX="0.75" scaleY="0.75"></Image>
+                  </AbsoluteLayout>
+                </StackLayout>
+          </ng-template>
+        </ListView>
+
+
+  </GridLayout>
+
+
+
+</GridLayout>
