@@ -43,10 +43,6 @@ export class CreateMessageComponent implements OnInit {
        this.message_num = "Message " + (this.GameService.NewGameObj.max_rank + 1);
     }
 
-    createNewGame(){
-      this.GameService.new_game(this.GameService.NewGameObj).subscribe();
-    }
-
     done(){
         //this.addLocation()
         dialogs.confirm({
@@ -57,9 +53,9 @@ export class CreateMessageComponent implements OnInit {
         }).then(result => {
             // result argument is boolean
                 if (result == true) {
-                    this.createNewGame();
+                    //this.createNewGame();
                     this.GameService.CurrentGame = this.GameService.NewGameObj.GameName;
-                    this.RouterExtensions.navigate(['/seeInvites'], {
+                    this.RouterExtensions.navigate(['/messageView'], {
                         transition: {
                             duration: 500,
                             name: 'fade',

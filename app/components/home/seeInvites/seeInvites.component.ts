@@ -51,6 +51,9 @@ export class SeeInvitesComponent implements OnInit {
         }).then(r => {
             console.log("Dialog result: " + r.result + ", user: " + r.text);
             if (r.result){
+              this.GameService.get_game_invitees(this.UserService.username, this.GameService.CurrentGame).subscribe(
+                inviteesList => this.invitesList = inviteesList['invitees']
+              )
               this.GameService.add_invitees_to_game(this.UserService.username, this.GameService.CurrentGame, r.text).subscribe()
             }
         });

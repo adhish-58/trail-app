@@ -5,31 +5,34 @@
     <Label text="Sign In" class="tl-title" flexGrow="3"></Label>
     <Label [text]="subtitleMessage" class="tl-subtitle" textWrap=true flexGrow="1"></Label>
     <FlexboxLayout class="form" [formGroup]="loginForm" flexDirection="column" flexGrow="6">
-            <TextField
-                    formControlName="username"
-                    autocorrect="false"
-                    hint="Earlham Username"
-                    autocapitalizationType="none"
-                    class="tl-input"
-                    editable="true"
-                    flexGrow="1">
-            </TextField>
-            <TextField
-                    formControlName="password"
-                    secure="true"
-                    hint="Password"
-                    returnKeyType="done"
-                    (returnPress)="onLogIn()"
-                    editable="true"
-                    class="tl-input"
-                    flexGrow="1">
-            </TextField>
+            <FlexboxLayout flexGrow="1" flexDirection="column">
+                <TextField
+                        formControlName="username"
+                        autocorrect="false"
+                        hint="Earlham Username"
+                        autocapitalizationType="none"
+                        class="tl-input"
+                        editable="true">
+                </TextField>
+            </FlexboxLayout>
+
+            <FlexboxLayout flexGrow="1" flexDirection="column">
+                <TextField
+                        formControlName="password"
+                        secure="true"
+                        hint="Password"
+                        returnKeyType="done"
+                        (returnPress)="onLogIn()"
+                        editable="true"
+                        class="tl-input">
+                </TextField>
+            </FlexboxLayout>
+
             <FlexboxLayout flexGrow="1" flexDirection="column">
                 <Button
                         text="Log in"
                         clearHistory="true"
                         (tap)="onLogIn()"
-                        flexGrow="1"
                         class="trail-btn">
                 </Button>
             </FlexboxLayout>
