@@ -16,7 +16,6 @@ declare var UIColor: any;
 })
 
 export class PlayComponent implements OnInit {
-    public gameListStat: Array<string>= ["one","two","three","four","five","six","seven"];
     public gameList: Array<string>= [];
     public gameCreators: string;
     public listHeight: number;
@@ -33,7 +32,7 @@ export class PlayComponent implements OnInit {
 
     ngOnInit() {
       this.page.actionBarHidden = true;
-      this.listHeight = this.gameListStat.length*100;
+      this.listHeight = this.gameList.length*100;
     }
 
     public gamesInvitedParser(gamesInvited){

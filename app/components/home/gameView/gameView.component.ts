@@ -78,7 +78,7 @@ export class GameViewComponent implements OnInit {
               if (loc) {
                 for (var locationIndex=0; locationIndex < this.allLocations.length; locationIndex++){
                   if (this.locationName == this.allLocations[locationIndex][0]){
-                      if (!this.compareLocations(loc.latitude,loc.longitude,this.allLocations[locationIndex][1],this.allLocations[locationIndex][2])){
+                      if (this.compareLocations(loc.latitude,loc.longitude,this.allLocations[locationIndex][1],this.allLocations[locationIndex][2])){
                         dialogs.alert({
                           title: "Found",
                           message: this.locations[this.indexOfLocation][2],

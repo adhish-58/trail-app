@@ -20,7 +20,7 @@
           <Label class="section-description" text="This is the list of games you can play. Select a game to start playing." textWrap=true></Label>
         </StackLayout>
 
-        <ListView row="1" [items]="gameListStat" class="trail-list" height="400" (itemLoading)="makeBackgroundTransparent($event)">
+        <ListView row="1" [items]="gameList" class="trail-list" height="400" (itemLoading)="makeBackgroundTransparent($event)">
           <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
                 <StackLayout>
                   <Button [text]='item' class="menu-button" nsRouterLink="/play" (itemTap)="onGameTap($event)"></Button>
