@@ -93,7 +93,7 @@ export class CreateMessageComponent implements OnInit {
     public onLocationTap(args) {
           console.log("\nLocationTapped: " + args.index);
           this.indexOfLocation = args.index;
-          this.locationSelectMessage = "Location selected: " + this.locationList[this.indexOfLocation];
-          this.currentLocation = this.locationList[this.indexOfLocation];
+          this.locationSelectMessage = "Location selected: " + this.locationList[this.indexOfLocation][0];
+          this.currentLocation = this.locationList[this.indexOfLocation][0];
       }
 }

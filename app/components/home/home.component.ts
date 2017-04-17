@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     public indexOfGameCompleted = 0;
     public gameInfo = ""
     public activeGame = this.gameList[0]
+    public gameCreators: string;
 
 
     constructor(public RouterExtensions: RouterExtensions, private GameService:GameService, private UserService:UserService) {
@@ -36,16 +37,26 @@ export class HomeComponent implements OnInit {
         )
 
         this.GameService.get_invited_games(this.UserService.username).subscribe(
-          gamesInvited => this.gameList = gamesInvited['games']
+          gamesInvited => this.gamesInvietedParser(gamesInvited)
         )
 
         this.GameService.get_completed_games(this.UserService.username).subscribe(
-          completedGames => this.completedGameList = completedGames['games'],
-          // () =>  this.gameCompletedSelectMessage = "No game founded. You're a newbie huh?"
+          completedGames => this.completedGamesFunc(completedGames),
         )
     }
 
     ngOnInit(): void {
+    }
+
+    public gamesInvietedParser(gamesInvited){
+      this.gameList = gamesInvited['games'][0];
+      this.gameCreators = gamesInvited['games'][1];
+    }
+
+    public completedGamesFunc(completedGames){
+      this.completedGameList = completedGames['games'];
+      if (this.completedGameList[0] == "")
+        this.gameCompletedSelectMessage = "No game founded. You're a newbie huh?";
     }
 
     public logout() {
@@ -76,6 +87,7 @@ export class HomeComponent implements OnInit {
           }).then(result => {
               // result argument is boolean
                   this.GameService.CurrentGame = this.gameList[this.indexOfGame];
+                  this.GameService.GameCreator = this.gameCreators[this.indexOfGame];
                   if (result == true) {
                       this.RouterExtensions.navigate(['/gameView'], {
                           transition: {

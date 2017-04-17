@@ -10,7 +10,7 @@
 
     <Label text={{locationSelectMessage}} class="trail-small" flexGrow="1"></Label>
     <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=50 flexGrow="3" class="list">
-              <template let-item="item" let-i="index" let-odd="odd" let-even="even" >
+              <template let-item="item[0]" let-i="index" let-odd="odd" let-even="even" >
                   <StackLayout [class.odd]="odd" [class.even]="even" >
                       <Label [text]="item" class="list-label"></Label>
                   </StackLayout>

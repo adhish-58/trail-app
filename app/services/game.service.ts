@@ -24,6 +24,7 @@ export class GameService {
     public NewGameObj:NewGame;
 
     public CurrentGame: string;
+    public GameCreator: string;
 
     constructor (private RestService:RestService) {}
 
@@ -68,7 +69,7 @@ export class GameService {
     }
 
     public update_game_status(player_id, creator_id, game_name, time){
-      this.RestService
+      return this.RestService
               .post({ player_id:player_id, creator_id:creator_id, game_name:game_name, time:time }, "update_game_status");
     }
 

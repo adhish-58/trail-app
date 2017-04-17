@@ -7,7 +7,7 @@ import * as platform from "platform";
 
 @Injectable()
 export class RestService {
-    private prodApiUrl = "http://159.28.23.1:7225/";
+    private prodApiUrl = "http://hopper.cluster.earlham.edu:7225/";
     private localApiUrl: String;
     // private localApiUrl = "http://localhost:7225/";
 
