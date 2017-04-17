@@ -37,7 +37,7 @@ export class GameService {
     }
 
     public add_invitees_to_game(user_id, game_name, invitees_list){
-      this.RestService
+      return this.RestService
               .post({ user_id: user_id, game_name: game_name , invitees_list:invitees_list},
                           "add_invitees_to_game");
     }
@@ -48,7 +48,7 @@ export class GameService {
     }
 
     public get_game_invitees(user_id, game_name){
-      this.RestService
+      return this.RestService
               .post({ user_id: user_id, game_name: game_name }, "get_game_invitees");
     }
 

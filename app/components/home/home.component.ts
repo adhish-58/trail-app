@@ -40,20 +40,12 @@ export class HomeComponent implements OnInit {
         )
 
         this.GameService.get_completed_games(this.UserService.username).subscribe(
-          completedGames => this.completed_games_func(completedGames),
+          completedGames => this.completedGameList = completedGames['games'],
           // () =>  this.gameCompletedSelectMessage = "No game founded. You're a newbie huh?"
         )
     }
 
     ngOnInit(): void {
-    }
-
-    public completed_games_func(completedGames){
-        this.completedGameList = completedGames['games'];
-        if ( completedGames['games'][0] == undefined ) {
-          this.gameCompletedSelectMessage = "No game founded. You're a newbie huh?"
-        } else
-        this.gameCompletedSelectMessage = "Game selected: " + this.completedGameList[this.indexOfGameCompleted];
     }
 
     public logout() {

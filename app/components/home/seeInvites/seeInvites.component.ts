@@ -19,12 +19,12 @@ export class SeeInvitesComponent implements OnInit {
 
     constructor(public RouterExtensions: RouterExtensions, private GameService:GameService, private UserService:UserService) {
       this.GameService.get_game_attributes(this.GameService.CurrentGame, this.UserService.username).subscribe(
-        locationList => this.yourMessageLocationList = locationList['attributes'],
-        () => console.log("TEST MONEY")
+        locationList => this.yourMessageLocationList = locationList['attributes']
+      )
+      this.GameService.get_game_invitees(this.UserService.username, this.GameService.CurrentGame).subscribe(
+        inviteesList => this.invitesList = inviteesList['invitees']
       )
 
-    //   this.GameService.get_all_locations().
-    //           subscribe(locationList => this.yourMessageLocationList = locationList['locations']);
     }
 
     public Game_title: string = this.GameService.CurrentGame;
@@ -41,14 +41,9 @@ export class SeeInvitesComponent implements OnInit {
 
 
     ngOnInit() {
-        if (this.invitesList.length == 0) {
-            this.userInfo = "Oops, you have not invited anyone to the game yet.";
-        }
-
     }
 
     addInvites() {
-        this.userInfo = "";
         dialogs.prompt({
             title: "Invite people",
             okButtonText: "Invite",
@@ -56,7 +51,7 @@ export class SeeInvitesComponent implements OnInit {
         }).then(r => {
             console.log("Dialog result: " + r.result + ", user: " + r.text);
             if (r.result){
-                this.invitesList.push(r.text)
+              this.GameService.add_invitees_to_game(this.UserService.username, this.GameService.CurrentGame, r.text).subscribe()
             }
         });
     }
