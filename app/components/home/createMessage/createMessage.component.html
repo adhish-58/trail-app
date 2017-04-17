@@ -6,7 +6,7 @@
     <Label text="Press Done to stop adding messages and begin inviting people." class="trail-small" textWrap=true flexGrow="1"></Label>
 
     <Label text={{locationSelectMessage}} class="trail-small" flexGrow="1"></Label>
-    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=200 class="list" flexGrow="3">
+    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=50 flexGrow="3" class="list">
               <template let-item="item" let-i="index" let-odd="odd" let-even="even" >
                   <StackLayout [class.odd]="odd" [class.even]="even" >
                       <Label [text]="item" class="list-label"></Label>

@@ -13,7 +13,7 @@
         <Label text="Invitation list" class="trail-subtitle" textWrap=true flexGrow="2"></Label>
 
 
-        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" class="list" flexGrow="6">
+        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" class="list" height=100 flexGrow="6">
                   <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                       <StackLayout [class.odd]="odd" [class.even]="even">
                           <Label [text]='item' class="list-label"></Label>

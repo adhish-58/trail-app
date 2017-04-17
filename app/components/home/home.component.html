@@ -13,7 +13,7 @@
     <FlexboxLayout flexDirection="column" *tabItem="{title: 'Your games', iconSource: '~/icon.png'}" class="page">
         <Label text="This is the list of games you have created. You can view the name, description of the games and invite people here." class="trail-small" textWrap=true flexGrow="1"></Label>
 
-        <ListView [items]="YourGameList" (itemTap)="onYourGameTap($event)" class="list" flexGrow="8">
+        <ListView [items]="YourGameList" (itemTap)="onYourGameTap($event)" class="list" height=100 flexGrow="8">
           <template let-item="item" let-i="index" let-odd="odd" let-even="even">
               <StackLayout [class.odd]="odd" [class.even]="even">
                   <Label [text]='item' class="list-label"></Label>
@@ -26,7 +26,7 @@
     <FlexboxLayout flexDirection="column" *tabItem="{title: 'Play'}" class="page">
         <Label text="This is the list of games you can play. Select a game to start playing." class="trail-small" flexGrow="1" textWrap=true></Label>
 
-        <ListView [items]="gameList" (itemTap)="onGameTap($event)" class="list" flexGrow="8">
+        <ListView [items]="gameList" (itemTap)="onGameTap($event)" class="list" height=100 flexGrow="8">
           <template let-item="item" let-i="index" let-odd="odd" let-even="even">
               <StackLayout [class.odd]="odd" [class.even]="even">
                   <Label [text]='item' class="list-label"></Label>
@@ -40,7 +40,7 @@
         <Label text="This is the list of games you have completed." class="tl-subtitle" flexGrow="1"></Label>
 
         <Label text={{gameCompletedSelectMessage}} class="trail-small" flexGrow="1"></Label>
-        <ListView [items]="completedGameList" (itemTap)="onCompletedGameTap($event)" class="list" (loadMoreItems)="loadMoreCompletedGame()" flexGrow="6">
+        <ListView [items]="completedGameList" (itemTap)="onCompletedGameTap($event)" class="list" (loadMoreItems)="loadMoreCompletedGame()" height=100 flexGrow="6">
           <template let-item="item" let-i="index" let-odd="odd" let-even="even">
               <StackLayout [class.odd]="odd" [class.even]="even">
                   <Label [text]='item' class="list-label"></Label>

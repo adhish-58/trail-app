@@ -7,7 +7,7 @@ import * as platform from "platform";
 
 @Injectable()
 export class RestService {
-    private prodApiUrl = "http://hopper.cluster.earlham.edu:7225/";
+    private prodApiUrl = "http://159.28.23.1:7225/";
     private localApiUrl: String;
     // private localApiUrl = "http://localhost:7225/";
 
@@ -20,13 +20,13 @@ export class RestService {
     }
 
     public post(data: any, path: string) {
-        let finalURL = this.localApiUrl + path;
+        let finalURL = this.prodApiUrl + path;
         return this.http.post(finalURL, data, this.headerRequestOptions())
             .map(res => res.json());
     }
 
     public get(path: string) {
-        let finalURL = this.localApiUrl + path;
+        let finalURL = this.prodApiUrl + path;
         return this.http.get(finalURL).map(res => res.json())
     }
     //

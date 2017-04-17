@@ -9,7 +9,7 @@
 
     <Label text="Find the drugs" class="trail-title" flexGrow="3"></Label>
 
-    <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" class="list" flexGrow="6">
+    <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" class="list" height=100 flexGrow="6">
               <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                   <StackLayout [class.odd]="odd" [class.even]="even">
                       <Label [text]='item.loc' class="list-label"></Label>
