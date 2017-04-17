@@ -1,17 +1,18 @@
 <ActionBar title="Trail" class="tl-action-bar"></ActionBar>
 
-<StackLayout class="page" orientation="vertical">
-    <Label text="Sign In" class="tl-title"></Label>
-    <Label [text]="subtitleMessage" class="tl-subtitle" textWrap=true></Label>
-    <ScrollView>
-    <StackLayout class="form" [formGroup]="loginForm">
+<FlexboxLayout class="page" orientation="vertical" flexDirection="column">
+
+    <Label text="Sign In" class="tl-title" flexGrow="3"></Label>
+    <Label [text]="subtitleMessage" class="tl-subtitle" textWrap=true flexGrow="1"></Label>
+    <FlexboxLayout class="form" [formGroup]="loginForm" flexDirection="column" flexGrow="6">
             <TextField
                     formControlName="username"
                     autocorrect="false"
                     hint="Earlham Username"
                     autocapitalizationType="none"
                     class="tl-input"
-                    editable="true">
+                    editable="true"
+                    flexGrow="1">
             </TextField>
             <TextField
                     formControlName="password"
@@ -20,13 +21,18 @@
                     returnKeyType="done"
                     (returnPress)="onLogIn()"
                     editable="true"
-                    class="tl-input">
+                    class="tl-input"
+                    flexGrow="1">
             </TextField>
-            <Button
-                    text="Log in"
-                    clearHistory="true"
-                    (tap)="onLogIn()">
-            </Button>
-    </StackLayout>
- </ScrollView>
-</StackLayout>
+            <FlexboxLayout flexGrow="1" flexDirection="column">
+                <Button
+                        text="Log in"
+                        clearHistory="true"
+                        (tap)="onLogIn()"
+                        flexGrow="1"
+                        class="trail-btn">
+                </Button>
+            </FlexboxLayout>
+
+    </FlexboxLayout>
+</FlexboxLayout>

@@ -1,12 +1,12 @@
 <ActionBar title={{message_num}} class="tl-action-bar">
 </ActionBar>
 
-<StackLayout class="page">
-    <Label text="Add the message to your newly created game." class="trail-small"></Label>
-    <Label text="Press Done to stop adding messages and begin inviting people." class="trail-small" textWrap=true></Label>
+<FlexboxLayout flexDirection="column" class="page">
+    <Label text="Add the message to your newly created game." class="trail-small" flexGrow="1"></Label>
+    <Label text="Press Done to stop adding messages and begin inviting people." class="trail-small" textWrap=true flexGrow="1"></Label>
 
-    <Label text={{locationSelectMessage}} class="trail-small"></Label>
-    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=200 class="list">
+    <Label text={{locationSelectMessage}} class="trail-small" flexGrow="1"></Label>
+    <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=200 class="list" flexGrow="3">
               <template let-item="item" let-i="index" let-odd="odd" let-even="even" >
                   <StackLayout [class.odd]="odd" [class.even]="even" >
                       <Label [text]="item" class="list-label"></Label>
@@ -14,12 +14,18 @@
               </template>
     </ListView>
 
-  <StackLayout class="page">
+  <FlexboxLayout flexDirection="column" class="page" flexGrow="1">
       <TextField autocorrect="false" autocapitalizationType="none" hint="Location Message" class="tl-input" [(ngModel)]="message"></TextField>
-  </StackLayout>
+  </FlexboxLayout>
 
-  <Button text="Next message" (tap)="addMessage()" class="trail-btn"></Button>
-  <Button text="Done" (tap)="done()" class="trail-btn"></Button>
+  <FlexboxLayout flexDirection="column" flexGrow="1">
+      <Button text="Next message" (tap)="addMessage()" class="trail-btn"></Button>
+  </FlexboxLayout>
+  <FlexboxLayout flexDirection="column" flexGrow="1">
+      <Button text="Done" (tap)="done()" class="trail-btn"></Button>
+  </FlexboxLayout>
 
 
-</StackLayout>
+
+
+</FlexboxLayout>

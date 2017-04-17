@@ -6,13 +6,13 @@
 
 
 
-<StackLayout class="page">
-    <Label text="EH" class="tl-title"></Label>
-    <Label text="Go to the next location and check the message." class="trail-small" textWrap=true></Label>
-    <Label text={{locationInfo}} class="trail-small" textWrap=true></Label>
-    
-    <StackLayout>
-      <Button text="Check for message" (tap)="checkCurrentLocation()" class="trail-btn"></Button>
-    </StackLayout>
+<FlexboxLayout flexDirection="column" class="page">
+    <Label text="EH" class="tl-title" flexGrow="3"></Label>
+    <Label text="Go to the next location and check the message." class="trail-small" textWrap=true flexGrow="1"></Label>
+    <Label text={{locationInfo}} class="trail-small" textWrap=true flexGrow="1"></Label>
 
-</StackLayout>
+    <FlexboxLayout flexDirection="column" flexGrow="3">
+      <Button text="Check for message" (tap)="checkCurrentLocation()" class="trail-btn"></Button>
+    </FlexboxLayout>
+
+</FlexboxLayout>

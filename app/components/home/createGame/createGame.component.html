@@ -1,18 +1,18 @@
 <ActionBar title="Create game" class="tl-action-bar">
 </ActionBar>
 
-<StackLayout class="page">
-    <Label text="You can create a new game here." class="trail-small"></Label>
-  <StackLayout class="form">
+<FlexboxLayout flexDirection="column" class="page">
+    <Label text="You can create a new game here." class="trail-small" flexGrow="1"></Label>
+  <FlexboxLayout flexDirection="column" class="form" flexGrow="4">
       <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name"></TextField>
 
       <TextField autocorrect="false" autocapitalizationType="none" hint="Game Description" class="tl-input" [(ngModel)]="description"></TextField>
 
 
-  </StackLayout>
-  <StackLayout class="page">
+  </FlexboxLayout>
+  <FlexboxLayout flexDirection="column" class="page" flexGrow="1">
       <Button text="Create game" (tap)="createGame()" class="trail-btn"></Button>
-  </StackLayout>
+  </FlexboxLayout>
 
 
-</StackLayout>
+</FlexboxLayout>
