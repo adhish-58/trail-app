@@ -58,8 +58,13 @@ export class GameService {
     }
 
     public get_completed_games(user_id){
-      this.RestService
+      return this.RestService
               .post({ user_id: user_id }, "get_completed_games");
+    }
+
+    public get_invited_games(user_id){
+      return this.RestService
+              .post({ user_id: user_id }, "get_invited_games");
     }
 
     public update_game_status(player_id, creator_id, game_name, time){
