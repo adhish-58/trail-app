@@ -13,16 +13,16 @@ import scrollViewModule = require("ui/scroll-view");
 export class HomeComponent implements OnInit {
 
     // TODO: Change gameList from Array string to Array object, with tag completed, game name, who invites, game time, date finished ...
-    public gameList: Array<string> = ["Lam's game", "James' game", "Vitalii's game", "Niraj's game", "Sidd's game", "Adhish's game"];
+    public gameList: Array<string>= [];
 
     // TODO: Change locationList to array object with info, tag visited/checked, tag message.
     // TODO: Make connection of gameList and locationList (locationList is depended upon gameList)
 
-    public completedGameList: Array<string> = ["Lam's game", "James' game"];
+    public completedGameList: Array<string>;
 
     public YourGameList: Array<string>;
 
-    public gameCompletedSelectMessage : string = "Game selected: " + this.gameList[0]
+    public gameCompletedSelectMessage : string;
     public indexOfYourGame = 0
     public indexOfGame = 0;
     public indexOfGameCompleted = 0;
@@ -35,9 +35,26 @@ export class HomeComponent implements OnInit {
           gamesCreated => this.YourGameList = gamesCreated['games']
         )
 
+        this.GameService.get_invited_games(this.UserService.username).subscribe(
+          gamesInvited => this.gameList = gamesInvited['games']
+        )
+
+        this.GameService.get_completed_games(this.UserService.username).subscribe(
+          completedGames => this.completed_games_func(completedGames),
+          // () =>  this.gameCompletedSelectMessage = "No game founded. You're a newbie huh?"
+        )
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+    }
+
+    public completed_games_func(completedGames){
+        this.completedGameList = completedGames['games'];
+        if ( completedGames['games'][0] == undefined ) {
+          this.gameCompletedSelectMessage = "No game founded. You're a newbie huh?"
+        } else
+        this.gameCompletedSelectMessage = "Game selected: " + this.completedGameList[this.indexOfGameCompleted];
+    }
 
     public logout() {
         console.log("LOGOUT run")
@@ -87,8 +104,8 @@ export class HomeComponent implements OnInit {
       public onCompletedGameTap(args) {
             console.log("\nGameCompletedTapped: " + args.index);
             this.indexOfGameCompleted = args.index;
-            this.gameCompletedSelectMessage = "Game selected: " + this.completedGameList[this.indexOfGameCompleted]
-            this.gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
+            this.gameCompletedSelectMessage = "Game selected: " + this.completedGameList[this.indexOfGameCompleted];
+            // this.gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
         }
 
         public onYourGameTap(args) {

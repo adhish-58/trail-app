@@ -15,20 +15,20 @@ export class CreateMessageComponent implements OnInit {
     constructor(public RouterExtensions: RouterExtensions, private GameService:GameService,
                 private UserService:UserService) {
       this.GameService.get_all_locations().
-              subscribe(locationList => this.locationList = locationList['locations'], () => console.log(this.locationList));
+              subscribe(locationList => this.locationList = locationList['locations'],
+                        () => console.log(this.locationList));
     }
 
     public message: string = "";
     public message_num: string = "Message 1";
-    public locationList: Array<string>;
+    public locationList: Array<string>=[];
     public indexOfLocation = 0
     public locationSelectMessage = "Location selected: ";
-    public currentLocation:string;
+    public currentLocation:string="";
     public messageObj= new GameAttributes;
     public lastLocation:string="";
 
     ngOnInit() {
-
     }
 
     addLocation() {
@@ -56,9 +56,9 @@ export class CreateMessageComponent implements OnInit {
             okButtonText: "Yes"
         }).then(result => {
             // result argument is boolean
-                this.createNewGame();
-                this.GameService.CurrentGame = this.GameService.NewGameObj.GameName;
                 if (result == true) {
+                    this.createNewGame();
+                    this.GameService.CurrentGame = this.GameService.NewGameObj.GameName;
                     this.RouterExtensions.navigate(['/seeInvites'], {
                         transition: {
                             duration: 500,
