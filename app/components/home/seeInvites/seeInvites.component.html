@@ -9,12 +9,11 @@
 
 <TabView class="tl-tab-view" tabsBackgroundColor="#4A1A7E" color="#171738" selectedColor="#fff">
     <FlexboxLayout flexDirection="column" *tabItem="{title: 'Invites'}" class="page">
-        <Label text="View messages and invite people to your game." class="trail-small"></Label>
-        <Label text="Invitation list" class="trail-subtitle" textWrap=true></Label>
+        <Label text="View messages and invite people to your game." class="trail-small" flexGrow="1"></Label>
+        <Label text="Invitation list" class="trail-subtitle" textWrap=true flexGrow="2"></Label>
 
-        <Label text={{userInfo}} class="trail-subtitle" textWrap=true></Label>
 
-        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" class="list">
+        <ListView [items]="invitesList" (itemTap)="onInvitesTap($event)" class="list" flexGrow="6">
                   <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                       <StackLayout [class.odd]="odd" [class.even]="even">
                           <Label [text]='item' class="list-label"></Label>
@@ -26,18 +25,18 @@
     </FlexboxLayout>
 
     <FlexboxLayout flexDirection="column" *tabItem="{title: 'Message'}" class="page">
-        <Label text="View messages and invite people to your game." class="trail-small"></Label>
-        <Label text="Message list" class="trail-subtitle" textWrap=true></Label>
+        <Label text="View messages and invite people to your game." class="trail-small" flexGrow="1"></Label>
+        <Label text="Message list" class="trail-subtitle" textWrap=true flexGrow="2"></Label>
 
-        <Label text={{locationSelectMessage}} class="trail-small"></Label>
-        <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" class="list">
+        <Label text={{locationSelectMessage}} class="trail-small" flexGrow="1"></Label>
+        <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" class="list" flexGrow="6">
                   <template let-item="item" let-i="index" let-odd="odd" let-even="even">
                       <StackLayout [class.odd]="odd" [class.even]="even">
                           <Label [text]='item[1]' class="list-label"></Label>
                       </StackLayout>
                   </template>
         </ListView>
-        <Label text={{messageAtLocation}} class="trail-small" textWrap=true></Label>
+        <Label text={{messageAtLocation}} class="trail-small" textWrap=true flexGrow="3"></Label>
 
     </FlexboxLayout>
 
