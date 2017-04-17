@@ -1,13 +1,10 @@
-<ActionBar title="Preview" class="tl-action-bar">
-    <ActionItem ios.position="right" android.position="popup" (tap)="addNewMessage()">
-        <Button text="+"></Button>
-    </ActionItem>
+<ActionBar title="Overview" class="tl-action-bar">
 </ActionBar>
 
 <FlexboxLayout flexDirection="column" class="page">
     <Label text="Add new messages to your newly created game." class="trail-small" flexGrow="1"></Label>
 
-    <Label text="Find the drugs" class="trail-title" flexGrow="3"></Label>
+    <Label text={{gameName}} class="trail-title" flexGrow="3"></Label>
 
     <ListView [items]="yourMessageLocationList" (itemTap)="onLocationTap($event)" class="list" height=100 flexGrow="6">
               <template let-item="item" let-i="index" let-odd="odd" let-even="even">

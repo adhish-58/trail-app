@@ -1,10 +1,12 @@
 {
+  "name": "Trail",
   "description": "Trail - A Virtual Treasure Hunt App",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "readme": "Trail - A Virtual Treasure Hunt App",
-  "repository": "<fill-your-repository-here>",
+  "license": "See License in LIC ENSE.md",
+  "readme": "See readme in README.md",
+  "version": "1.0.0",
+  "repository": "https://github.com/siddharthsudheer/trail-app.git",
   "nativescript": {
-    "id": "org.nativescript.trailapp",
+    "id": "com.siddharthsudheer.trail",
     "tns-ios": {
       "version": "2.5.0"
     },

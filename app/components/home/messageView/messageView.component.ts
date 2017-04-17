@@ -16,6 +16,7 @@ export class MessageViewComponent implements OnInit {
     constructor(public RouterExtensions: RouterExtensions, private GameService:GameService,
                   private UserService:UserService) { }
 
+    public gameName: string = this.GameService.NewGameObj.GameName;
     public message: string = "";
     public locationInfo: string = "";
     public yourMessageLocationList = []
@@ -30,21 +31,19 @@ export class MessageViewComponent implements OnInit {
         this.yourMessageLocationList.push(new Message("Mills", "Go to third floor Vitalii's room for your drugs. You can use the bag to contain the drugs."));
     }
 
-    createGame() {
-      // Try this in the {N} app
-      // {N} can use these animation options
+    createNewGame(){
+      this.GameService.new_game(this.GameService.NewGameObj).subscribe();
+    }
 
-
-  }
 
     done() {
-      this.createGame;
+      this.createNewGame();
       alert('Game Created');
-      this.RouterExtensions.navigate(['/home'], {
-        transition: {
-          duration: 500,
-          name: 'slideRight',
-        }
+      this.RouterExtensions.navigate(['/seeInvites'], {
+          transition: {
+              duration: 500,
+              name: 'fade',
+          }
       });
 
     }
@@ -58,12 +57,4 @@ export class MessageViewComponent implements OnInit {
 
       }
 
-      public addNewMessage() {
-          this.RouterExtensions.navigate(['/createMessage'], {
-            transition: {
-              duration: 500,
-              name: 'slideLeft',
-            }
-          });
-      }
 }
