@@ -2,8 +2,11 @@
 </ActionBar>
 
 <FlexboxLayout flexDirection="column" class="page">
-    <Label text="Add the message to your newly created game." class="trail-small" flexGrow="1"></Label>
-    <Label text="Press Done to stop adding messages and begin inviting people." class="trail-small" textWrap=true flexGrow="1"></Label>
+    <Label text="Add the message to your newly created game. Press Done to stop adding messages and begin inviting people." class="trail-small" flexGrow="1" textWrap=true></Label>
+
+    <FlexboxLayout flexDirection="column" class="page" flexGrow="1">
+        <TextField autocorrect="false" autocapitalizationType="none" hint="Location Message" class="tl-input" [(ngModel)]="message"></TextField>
+    </FlexboxLayout>
 
     <Label text={{locationSelectMessage}} class="trail-small" flexGrow="1"></Label>
     <ListView [items]="locationList" (itemTap)="onLocationTap($event)" height=50 flexGrow="3" class="list">
@@ -13,10 +16,6 @@
                   </StackLayout>
               </template>
     </ListView>
-
-  <FlexboxLayout flexDirection="column" class="page" flexGrow="1">
-      <TextField autocorrect="false" autocapitalizationType="none" hint="Location Message" class="tl-input" [(ngModel)]="message"></TextField>
-  </FlexboxLayout>
 
   <FlexboxLayout flexDirection="column" flexGrow="1">
       <Button text="Next message" (tap)="addMessage()" class="trail-btn"></Button>
