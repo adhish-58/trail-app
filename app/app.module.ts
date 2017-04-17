@@ -20,6 +20,8 @@ import { GameViewComponent } from "./components/home/gameView/gameView.component
 import { MessageViewComponent } from "./components/home/messageView/messageView.component"
 import { SeeInvitesComponent } from "./components/home/seeInvites/seeInvites.component";
 import { PlayComponent }     from "./components/home/play/play.component";
+import { YourGamesComponent }     from "./components/home/yourGames/yourGames.component";
+import { CompletedGamesComponent }     from "./components/home/completedGames/completedGames.component";
 import { MainComponent }     from "./components/home/main/main.component";
 
 import { ListComponent } from "./components/list/list.component";
@@ -53,7 +55,10 @@ setStatusBarColors();
         SeeInvitesComponent,
         ListComponent,
         PlayComponent,
-        MainComponent
+        MainComponent,
+        YourGamesComponent,
+        CompletedGamesComponent
+
     ],
     providers: [
         RestService,

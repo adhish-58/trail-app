@@ -14,12 +14,14 @@ import { MessageViewComponent } from "./components/home/messageView/messageView.
 import { SeeInvitesComponent } from "./components/home/seeInvites/seeInvites.component";
 import { ListComponent }     from "./components/list/list.component";
 import { PlayComponent }     from "./components/home/play/play.component";
+import { YourGamesComponent }     from "./components/home/yourGames/yourGames.component";
+import { CompletedGamesComponent }     from "./components/home/completedGames/completedGames.component";
 import { MainComponent }     from "./components/home/main/main.component";
 
 // ===========================================================================================
 
 const routes: Routes = [
-    { path: "", redirectTo: "/play", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent},
     { path: "home", component: HomeComponent },
@@ -31,6 +33,8 @@ const routes: Routes = [
     { path: "list", component: ListComponent },
     { path: "play", component: PlayComponent },
     { path: "main", component: MainComponent },
+    { path: "yourGames", component: YourGamesComponent },
+    { path: "completedGames", component: CompletedGamesComponent }
 
 ];
 

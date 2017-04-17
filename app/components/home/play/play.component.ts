@@ -48,7 +48,7 @@ export class PlayComponent implements OnInit {
     }
 
     goToHome() {
-        this.RouterExtensions.navigate(['/list'], {
+        this.RouterExtensions.navigate(['/main'], {
             transition: {
                 duration: 350,
                 name: 'flipLeft',
