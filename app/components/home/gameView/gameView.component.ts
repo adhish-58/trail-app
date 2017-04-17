@@ -125,7 +125,7 @@ export class GameViewComponent implements OnInit {
               message: "You loser!",
               okButtonText: "I agree"
           }).then(() => {
-              this.RouterExtensions.navigate(['/home'], {
+              this.RouterExtensions.navigate(['/main'], {
                   transition: {
                       duration: 500,
                       name: 'fade',
