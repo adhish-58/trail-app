@@ -59,11 +59,6 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    public loadMoreCompletedGame() {
-        // Load more items here.
-        this.completedGameList.push("Test data completed game")
-    }
-
     public onGameTap(args) {
           console.log("\nGameTapped: " + args.index);
           this.indexOfGame = args.index;
