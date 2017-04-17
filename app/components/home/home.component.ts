@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     public indexOfYourGame = 0
     public indexOfGame = 0;
     public indexOfGameCompleted = 0;
-    public gameInfo = "You completed this game on 4/1/2017. Takes 4 hours 24 minutes."
+    public gameInfo = ""
     public activeGame = this.gameList[0]
 
 
@@ -75,6 +75,7 @@ export class HomeComponent implements OnInit {
               okButtonText: "Yes"
           }).then(result => {
               // result argument is boolean
+                  this.GameService.CurrentGame = this.gameList[this.indexOfGame];
                   if (result == true) {
                       this.RouterExtensions.navigate(['/gameView'], {
                           transition: {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
 import { GameService, UserService } from "../../../services";
+import dialogs = require("ui/dialogs");
+
 
 class Message {
     constructor(public loc: string, public mes: string) { }
@@ -19,16 +21,14 @@ export class MessageViewComponent implements OnInit {
     public gameName: string = this.GameService.NewGameObj.GameName;
     public message: string = "";
     public locationInfo: string = "";
-    public yourMessageLocationList = []
-    public indexOfLocation = 0
+    public yourMessageLocationList = [];
+    public indexOfLocation = 0;
     public locationSelectMessage = "Location selected: ";
     public messageAtLocation = "";
 
     ngOnInit() {
         // Push some sample data to the list
-        this.yourMessageLocationList.push(new Message("Earlham Hall", "Well done, go to the next location"));
-        this.yourMessageLocationList.push(new Message("OA", "You are halfway there! Now go to the next location, grab the big bag in the kitchen"));
-        this.yourMessageLocationList.push(new Message("Mills", "Go to third floor Vitalii's room for your drugs. You can use the bag to contain the drugs."));
+        this.yourMessageLocationList = this.GameService.NewGameObj.GameAttrs;
     }
 
     createNewGame(){
@@ -37,15 +37,20 @@ export class MessageViewComponent implements OnInit {
 
 
     done() {
-      this.createNewGame();
-      alert('Game Created');
-      this.RouterExtensions.navigate(['/seeInvites'], {
-          transition: {
-              duration: 500,
-              name: 'fade',
-          }
-      });
-
+      dialogs.alert({
+          title: "Game Created",
+          message: "Game is successfully created",
+          okButtonText: "Cool!"
+      }).then(() => {
+          this.createNewGame();
+          this.RouterExtensions.navigate(['/seeInvites'], {
+              transition: {
+                  duration: 500,
+                  name: 'fade',
+              },
+              clearHistory: true
+          });
+    });
     }
 
     public onLocationTap(args) {
@@ -53,7 +58,7 @@ export class MessageViewComponent implements OnInit {
           this.indexOfLocation = args.index;
           this.locationSelectMessage = "Location selected: " + this.yourMessageLocationList[this.indexOfLocation].loc;
 
-          this.messageAtLocation = "The message at location " + this.yourMessageLocationList[this.indexOfLocation].loc + " is: " + this.yourMessageLocationList[this.indexOfLocation].mes;
+          this.messageAtLocation = "The message at location " + this.yourMessageLocationList[this.indexOfLocation].location + " is: " + this.yourMessageLocationList[this.indexOfLocation].message;
 
       }
 
