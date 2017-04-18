@@ -20,6 +20,7 @@
           <Label class="section-description" text="This is the list of games you have created. You can view the name, description of the games and invite people here." textWrap=true></Label>
         </StackLayout>
 
+        <!--
         <ListView row="1" [items]="YourGameList" class="trail-list" height="400" (itemLoading)="makeBackgroundTransparent($event)">
           <ng-template let-item="item" let-i="index">
                 <StackLayout>
@@ -30,9 +31,10 @@
                 </StackLayout>
           </ng-template>
         </ListView>
-        
-        <!--
+        -->
+
         <RadListView
+        row="1"
         [items]="YourGameList"
         (itemTap)="onYourGameTap($event)"
         class="trail-list" height=400
@@ -44,7 +46,7 @@
         (itemSwipeProgressStarted)="onSwipeCellStarted($event)"
         (itemSwipeProgressChanged)="onCellSwiping($event)"
         swipeActions="true">
-        <ng-template let-item="item" let-i="index">
+        <ng-template tkListItemTemplate let-item="item" let-i="index">
               <StackLayout>
                 <Button [text]='item' class="menu-button" nsRouterLink="/yourGames" (itemTap)="onGameTap($event)"></Button>
                 <AbsoluteLayout class="play_items_bg" translateY="-5">
@@ -62,7 +64,7 @@
             </StackLayout>
         </GridLayout>
       </RadListView>
-      -->
+
 
   </GridLayout>
 
