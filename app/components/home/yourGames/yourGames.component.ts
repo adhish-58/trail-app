@@ -25,7 +25,7 @@ declare var UIColor: any;
 })
 
 export class YourGamesComponent implements OnInit {
-    public YourGameList: Array<string>= [];
+    public YourGameList: Array<string>= ["sadasdas","asdasdasd","asdasdas","asdasdasd","asdasdas","asdasdas","asdasdasd"];
     public gameCreators: string;
     public listHeight: number;
 
@@ -99,8 +99,8 @@ public refreshYourGameList(args: ListViewEventData) {
             var swipeView = args['object'];
             var leftItem = swipeView.getViewById('mark-view');
             var rightItem = swipeView.getViewById('delete-view');
-            swipeLimits.left = leftItem.getMeasuredWidth();
-            swipeLimits.right = rightItem.getMeasuredWidth();
+            swipeLimits.left = 0;
+            swipeLimits.right = 100;
             swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
         }
         // << angular-listview-swipe-action-multiple-limits

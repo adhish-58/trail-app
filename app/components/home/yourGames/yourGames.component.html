@@ -49,9 +49,13 @@
         <ng-template tkListItemTemplate let-item="item" let-i="index">
               <StackLayout>
                 <Button [text]='item' class="menu-button" nsRouterLink="/yourGames" (itemTap)="onGameTap($event)"></Button>
+                <AbsoluteLayout class="list_item_bg" translateY="-5">
+                  <Image src="res://list_item_bg" stretch="none" scaleX="1.32" scaleY="1.1"></Image>
+                </AbsoluteLayout>
                 <AbsoluteLayout class="play_items_bg" translateY="-5">
                   <Image src="res://your_games_bg" stretch="none" scaleX="0.75" scaleY="0.75"></Image>
                 </AbsoluteLayout>
+
               </StackLayout>
         </ng-template>
 
@@ -60,7 +64,7 @@
                 <Label text="mark" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
             </StackLayout>
             <StackLayout id="delete-view" col="2" class="deleteViewStackLayout" (tap)="onRightSwipeClick($event)">
-                <Label text="delete" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
+                <Label text="Delete" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
             </StackLayout>
         </GridLayout>
       </RadListView>
