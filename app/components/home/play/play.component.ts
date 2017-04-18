@@ -54,6 +54,7 @@ export class PlayComponent implements OnInit {
     }
 
     public onGameTap(args: ListViewEventData) {
+        /*
            var listview = args.object as RadListView;
            var selectedItems = listview.getSelectedItems();
            var i:number =0;
@@ -71,7 +72,7 @@ export class PlayComponent implements OnInit {
                },
                clearHistory: true
            });
-
+           */
     }
 
     goToHome() {
@@ -168,6 +169,11 @@ export class PlayComponent implements OnInit {
         this.GameService.get_all_created_games(this.UserService.username).subscribe(
           gamesCreated => this.gameList = gamesCreated['games']
         )
+    }
+
+    public onLeftSwipeClick(args: ListViewEventData) {
+        var listView = args.object;
+        console.log("Button clicked: " + args.object.id + " for item: " + args.object.bindingContext);
     }
 
 }

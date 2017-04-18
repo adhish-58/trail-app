@@ -49,17 +49,17 @@ export class YourGamesComponent implements OnInit {
     }
 
     public onYourGameSelected(args: ListViewEventData) {
-           var listview = args.object as RadListView;
-           var selectedItems = listview.getSelectedItems()
-           this.GameService.CurrentGame = selectedItems[0];
-           this.RouterExtensions.navigate(['/seeInvites'], {
-               transition: {
-                   duration: 350,
-                   name: 'flipLeft',
-                   curve: "linear"
-               },
-               clearHistory: true
-           });
+        //    var listview = args.object as RadListView;
+        //    var selectedItems = listview.getSelectedItems()
+        //    this.GameService.CurrentGame = selectedItems[0];
+        //    this.RouterExtensions.navigate(['/seeInvites'], {
+        //        transition: {
+        //            duration: 350,
+        //            name: 'flipLeft',
+        //            curve: "linear"
+        //        },
+        //        clearHistory: true
+        //    });
 
        }
 
@@ -148,6 +148,11 @@ export class YourGamesComponent implements OnInit {
 
                 viewModule.View.layoutChild(rightItem.parent, rightItem, mainView.getMeasuredWidth() - rightDimensions.measuredWidth, 0, mainView.getMeasuredWidth(), rightDimensions.measuredHeight);
             }
+        }
+
+        public onLeftSwipeClick(args: ListViewEventData) {
+            var listView = args.object;
+            console.log("Button clicked: " + args.object.id + " for item: " + args.object.bindingContext);
         }
 
         public onRightSwipeClick(args) {
