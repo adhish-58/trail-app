@@ -59,12 +59,15 @@
         </ng-template>
 
           <GridLayout *tkListItemSwipeTemplate columns="auto, *, auto" class="gridLayoutLayout">
-             <StackLayout id="mark-view" col="0" class="markViewStackLayout" (tap)="onLeftSwipeClick($event)">
-                <Label text="mark" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
+
+             <StackLayout id="view-view" col="0" class="markViewStackLayout" (tap)="onLeftSwipeClick($event)">
+                <Label text="View" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
             </StackLayout>
+
             <StackLayout id="delete-view" col="2" (tap)="onRightSwipeClick($event)">
                 <Label text="Delete" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
             </StackLayout>
+
         </GridLayout>
       </RadListView>
 

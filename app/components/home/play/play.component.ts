@@ -111,9 +111,9 @@ export class PlayComponent implements OnInit {
     public onSwipeCellStarted(args: ListViewEventData) {
         var swipeLimits = args.data.swipeLimits;
         var swipeView = args['object'];
-        var leftItem = swipeView.getViewById('mark-view');
-        var rightItem = swipeView.getViewById('delete-view');
-        swipeLimits.left = 0;
+        var leftItem = swipeView.getViewById('play-view');
+        var rightItem = swipeView.getViewById('play-view');
+        swipeLimits.left = 100;
         swipeLimits.right = 0;
         swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
     }

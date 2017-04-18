@@ -102,7 +102,7 @@ export class YourGamesComponent implements OnInit {
             var swipeView = args['object'];
             var leftItem = swipeView.getViewById('mark-view');
             var rightItem = swipeView.getViewById('delete-view');
-            swipeLimits.left = 0;
+            swipeLimits.left = 100;
             swipeLimits.right = 100;
             swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
         }
