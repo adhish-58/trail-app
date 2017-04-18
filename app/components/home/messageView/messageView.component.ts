@@ -12,6 +12,7 @@ class Message {
     selector: "tl-messageView",
     moduleId: module.id,
     templateUrl: "./messageView.component.html",
+    styleUrls: ["messageView-common.css"]
 })
 export class MessageViewComponent implements OnInit {
 

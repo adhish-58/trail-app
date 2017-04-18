@@ -9,6 +9,7 @@ import dialogs = require("ui/dialogs");
     selector: "tl-createMessage",
     moduleId: module.id,
     templateUrl: "./createMessage.component.html",
+    styleUrls: ["../../../app.css"]
 })
 export class CreateMessageComponent implements OnInit {
 

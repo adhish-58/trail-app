@@ -1,0 +1,184 @@
+@import '../../../variables.less';
+
+
+TextField {
+  padding: 10;
+  font-size: 13;
+}
+
+Page {
+  font-size: 15;
+}
+/* NEW GENERAL */
+
+.tl-action-bar {
+  background-color: @tl-purple;
+  font-family: sans-serif;
+  font-weight: lighter;
+  color: rgba(255,255,255,0.7);
+
+  .action-bar-title {
+    font-weight: bold;
+    font-size: 17;
+    vertical-align: center;
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .action-item {
+    background-color: @tl-purple;
+    font-size: 22;
+  }
+}
+
+.list {
+    background-color: @tl-purple;
+    separator-color: transparent;
+}
+
+// Change color of listview odd and even below
+.odd {
+    background-color: #3b1464; //Equal to tl-purple opacity 0.80
+}
+
+.even {
+    background-color: #4e22a5; //Equal to tl-purple opacity 0.95
+}
+
+.list-label {
+    color: @tl-white;
+    font-size: 18;
+    opacity: 0.7;
+    margin: 8 8;
+    text-align: center;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.page {
+  background-color: @tl-purple;
+  padding: 16;
+  color: @tl-white;
+
+  TextField.tl-input {
+    text-align: center;
+    padding: 8 8 8 8;
+    margin: 8 8 8 8;
+    border-color: rgba(255,255,255,0.4);
+    border-bottom-width: 1;
+    placeholder-color: rgba(255,255,255,0.2);
+  }
+}
+
+.tl-tab-view {
+  background-color: @tl-purple;
+  color: @tl-white;
+}
+
+.page, .tl-action-bar, .tl-tab-view {
+  &.oceanblue {
+    background-color: @tl-oceanblue;
+    .action-item {
+      background-color: @tl-oceanblue;
+    }
+  }
+
+  &.mustard {
+    background-color: @tl-mustard;
+    .action-item {
+      background-color: @tl-mustard;
+    }
+  }
+}
+
+.tl-tab-label {
+  color: @tl-bloodred;
+}
+
+.tl-title {
+  font-size: 50;
+  opacity: 0.7;
+  margin: auto;
+  text-align: center;
+  font-weight: 100;
+}
+
+.tl-subtitle {
+  font-size: 14;
+  opacity: 0.4;
+  margin: auto;
+  text-align: center;
+  font-weight: 100;
+}
+
+// Clean up later
+.trail-message {
+  font-size: 20;
+  opacity: 0.6;
+  margin: auto;
+  text-align: center;
+  font-weight: 100;
+}
+
+.trail-subtitle {
+    font-size: 22;
+    opacity: 0.7;
+    margin: auto;
+    text-align: center;
+    font-weight: 100;
+}
+
+.trail-title {
+    font-size: 30;
+    opacity: 0.7;
+    margin: auto;
+    text-align: center;
+    font-weight: 100;
+}
+
+.trail-info {
+    font-size: 22;
+    opacity: 0.7;
+    margin: auto;
+    text-align: center;
+    font-weight: 100;
+}
+
+.trail-small {
+    font-size: 14;
+    opacity: 0.4;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    font-weight: 100;
+}
+
+.trail-btn {
+    margin: auto;
+    padding: 12;
+    color: rgba(255,255,255,0.9);
+    background-color: rgba(255,255,255,0.1);
+    //border-width: 1;
+}
+/////////////////////////////
+
+.form {
+  margin-top: 8;
+  text-align: center;
+
+  TextField.tl-input {
+    padding: 8 8 8 8;
+    margin: 8 8 8 8;
+    border-color: rgba(255,255,255,0.4);
+    border-bottom-width: 1;
+    placeholder-color: rgba(255,255,255,0.2);
+  }
+
+  Button {
+      vertical-align: center;
+    margin: auto;
+    padding: auto;
+    color: rgba(255,255,255,0.9);
+    background-color: rgba(255,255,255,0.1);
+    //border-width: 1;
+  }
+}

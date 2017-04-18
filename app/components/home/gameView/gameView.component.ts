@@ -14,6 +14,7 @@ export class DataItem {
     selector: "tl-home",
     moduleId: module.id,
     templateUrl: "./gameView.component.html",
+    styleUrls: ["./gameView-common.css"]
 })
 
 export class GameViewComponent implements OnInit {

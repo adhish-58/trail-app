@@ -21,7 +21,7 @@ import { AboutComponent }     from "./components/home/about/about.component";
 // ===========================================================================================
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "", redirectTo: "/seeInvites", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent},
     { path: "createGame", component: CreateGameComponent },

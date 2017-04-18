@@ -14,6 +14,7 @@ class Message {
     selector: "tl-seeInvites",
     moduleId: module.id,
     templateUrl: "./seeInvites.component.html",
+    styleUrls: ["seeInvites-common.css"]
 })
 export class SeeInvitesComponent implements OnInit {
 

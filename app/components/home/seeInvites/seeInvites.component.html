@@ -7,9 +7,12 @@
     </ActionItem>
 </ActionBar>
 
+
+
+
 <TabView class="tl-tab-view" tabsBackgroundColor="#4A1A7E" color="#171738" selectedColor="#fff">
     <FlexboxLayout flexDirection="column" *tabItem="{title: 'Invites'}" class="page">
-        <Label text="View messages and invite people to your game." class="trail-small" flexGrow="1"></Label>
+        <Label text="View messages and invite people to your game." class="trail-small" flexGrow="1" textWrap=true></Label>
         <Label text="Invitation list" class="trail-subtitle" textWrap=true flexGrow="2"></Label>
 
 
@@ -25,7 +28,7 @@
     </FlexboxLayout>
 
     <FlexboxLayout flexDirection="column" *tabItem="{title: 'Message'}" class="page">
-        <Label text="View messages and invite people to your game." class="trail-small" flexGrow="1"></Label>
+        <Label text="View messages and invite people to your game." class="trail-small" flexGrow="1" textWrap=true></Label>
         <Label text="Message list" class="trail-subtitle" textWrap=true flexGrow="2"></Label>
 
         <Label text={{locationSelectMessage}} class="trail-small" flexGrow="1"></Label>
