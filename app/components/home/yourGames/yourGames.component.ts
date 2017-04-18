@@ -153,6 +153,16 @@ export class YourGamesComponent implements OnInit {
         public onLeftSwipeClick(args: ListViewEventData) {
             var listView = args.object;
             console.log("Button clicked: " + args.object.id + " for item: " + args.object.bindingContext);
+            this.GameService.CurrentGame = args.object.bindingContext;
+            this.RouterExtensions.navigate(['/seeInvites'], {
+                transition: {
+                    duration: 350,
+                    name: 'flipLeft',
+                    curve: "linear"
+                },
+                clearHistory: true
+            });
+
         }
 
         public onRightSwipeClick(args) {
