@@ -20,7 +20,7 @@ import { MainComponent }     from "./components/home/main/main.component";
 // ===========================================================================================
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "", redirectTo: "/main", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent},
     { path: "createGame", component: CreateGameComponent },
