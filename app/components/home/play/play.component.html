@@ -28,11 +28,7 @@
         (itemLoading)="makeBackgroundTransparent($event)"
         pullToRefresh="true"
         (pullToRefreshInitiated)="refreshGameList($event)"
-        selectionBehavior="Press"
-        (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
-        (itemSwipeProgressStarted)="onSwipeCellStarted($event)"
-        (itemSwipeProgressChanged)="onCellSwiping($event)"
-        swipeActions="true">
+        selectionBehavior="Press">
         <ng-template tkListItemTemplate let-item="item" let-i="index">
                       <StackLayout>
                         <Label [text]='item' class="menu-button"></Label>
