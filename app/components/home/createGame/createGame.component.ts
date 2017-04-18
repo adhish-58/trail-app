@@ -41,7 +41,7 @@ export class CreateGameComponent implements OnInit {
       }
 
     }
-    
+
     goToHome() {
         this.RouterExtensions.navigate(['/main'], {
             transition: {
