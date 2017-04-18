@@ -77,21 +77,14 @@ export class YourGamesComponent implements OnInit {
       }
     }
 
-    Function
-public refreshYourGameList(args: ListViewEventData) {
-              console.log("Refresh your game list")
-              var that = new WeakRef(this);
-
-              Timer.setTimeout(function () {
-                  var initialNumberOfItems = that.get()._numberOfAddedItems;
-                  that.get().YourGameList.push("NEWNEWNEW")
-                  that.get()._numberOfAddedItems++;
-
-
-              }, 1000);
-              var listView = args.object;
-              listView.notifyPullToRefreshFinished();
-            }
+        public refreshYourGameList(args: ListViewEventData) {
+            var that = new WeakRef(this);
+            Timer.setTimeout(function () {
+            var listView = args.object;
+            listView.notifyPullToRefreshFinished();
+                // Here make the refresh of the list
+            }, 1000);
+        }
 
             // >> angular-listview-swipe-action-multiple-limits
         public onSwipeCellStarted(args: ListViewEventData) {
@@ -145,11 +138,6 @@ public refreshYourGameList(args: ListViewEventData) {
 
                 viewModule.View.layoutChild(rightItem.parent, rightItem, mainView.getMeasuredWidth() - rightDimensions.measuredWidth, 0, mainView.getMeasuredWidth(), rightDimensions.measuredHeight);
             }
-        }
-
-        public onLeftSwipeClick(args: ListViewEventData) {
-            var listView = args.object;
-            console.log("Button clicked: " + args.object.id + " for item: " + args.object.bindingContext);
         }
 
         public onRightSwipeClick(args) {
