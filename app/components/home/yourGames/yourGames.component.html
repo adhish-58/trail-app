@@ -35,27 +35,26 @@
 
         <RadListView
         row="1"
+        (itemSelected)="onYourGameSelected($event)"
         [items]="YourGameList"
-        (itemTap)="onYourGameTap($event)"
         class="trail-list" height=400
         (itemLoading)="makeBackgroundTransparent($event)"
         pullToRefresh="true"
         (pullToRefreshInitiated)="refreshYourGameList($event)"
-        selectionBehavior="None"
+        selectionBehavior="Press"
         (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
         (itemSwipeProgressStarted)="onSwipeCellStarted($event)"
         (itemSwipeProgressChanged)="onCellSwiping($event)"
         swipeActions="true">
         <ng-template tkListItemTemplate let-item="item" let-i="index">
               <StackLayout>
-                <Button [text]='item' class="menu-button" nsRouterLink="/yourGames" (itemTap)="onGameTap($event)"></Button>
+                <Label [text]='item' class="menu-button"></Label>
                 <AbsoluteLayout class="list_item_bg" translateY="-5">
                   <Image src="res://list_item_bg" stretch="none" scaleX="1.32" scaleY="1.1"></Image>
                 </AbsoluteLayout>
                 <AbsoluteLayout class="play_items_bg" translateY="-5">
                   <Image src="res://your_games_bg" stretch="none" scaleX="0.75" scaleY="0.75"></Image>
                 </AbsoluteLayout>
-
               </StackLayout>
         </ng-template>
 

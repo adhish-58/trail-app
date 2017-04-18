@@ -74,7 +74,7 @@ export class GameService {
     }
 
     public delete_game_admin(user_id, game_name){
-      this.RestService
+      return this.RestService
               .post({ user_id: user_id, game_name:game_name }, "delete_game_admin");
     }
 

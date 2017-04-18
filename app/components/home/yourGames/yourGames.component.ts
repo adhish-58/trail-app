@@ -25,7 +25,7 @@ declare var UIColor: any;
 })
 
 export class YourGamesComponent implements OnInit {
-    public YourGameList: Array<string>= ["sadasdas","asdasdasd","asdasdas","asdasdasd","asdasdas","asdasdas","asdasdasd"];
+    public YourGameList: Array<string>= [];
     public gameCreators: string;
     public listHeight: number;
 
@@ -48,12 +48,11 @@ export class YourGamesComponent implements OnInit {
       this.listHeight = this.YourGameList.length*100;
     }
 
-    public onGameTap(args) {
-      console.log("\nGameTapped: " + args.index);
-      alert("\nGameTapped: " + args.index);
-      // this.indexOfGame = args.index;
-      // this.beginGameSelected()
-    }
+    public onYourGameSelected(args: ListViewEventData) {
+           var listview = args.object as RadListView;
+           var selectedItems = listview.getSelectedItems()
+           console.log("------------------------ ItemTapped: " + selectedItems);
+       }
 
     goToHome() {
         this.RouterExtensions.navigate(['/main'], {
@@ -79,10 +78,12 @@ export class YourGamesComponent implements OnInit {
 
         public refreshYourGameList(args: ListViewEventData) {
             var that = new WeakRef(this);
+            this.GameService.get_all_created_games(this.UserService.username).subscribe(
+              gamesCreated => this.YourGameList = gamesCreated['games']
+            )
             Timer.setTimeout(function () {
             var listView = args.object;
             listView.notifyPullToRefreshFinished();
-                // Here make the refresh of the list
             }, 1000);
         }
 
@@ -143,6 +144,10 @@ export class YourGamesComponent implements OnInit {
         public onRightSwipeClick(args) {
             var listView = args.object;
             console.log("Button clicked: " + args.object.id + " for item: " + args.object.bindingContext);
+            this.GameService.delete_game_admin(this.UserService.username, args.object.bindingContext).subscribe();
+            this.GameService.get_all_created_games(this.UserService.username).subscribe(
+              gamesCreated => this.YourGameList = gamesCreated['games']
+            )
         }
 
 }

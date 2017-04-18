@@ -20,13 +20,13 @@ export class RestService {
     }
 
     public post(data: any, path: string) {
-        let finalURL = this.prodApiUrl + path;
+        let finalURL = this.localApiUrl + path;
         return this.http.post(finalURL, data, this.headerRequestOptions())
             .map(res => res.json());
     }
 
     public get(path: string) {
-        let finalURL = this.prodApiUrl + path;
+        let finalURL = this.localApiUrl + path;
         return this.http.get(finalURL).map(res => res.json())
     }
     //
