@@ -34,7 +34,7 @@ export class LoginComponent{
     ngOnInit() {
         this.page.actionBarHidden = true;
         this.loginForm = this.fb.group({
-            username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(40)]],
+            username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]],
             password: ['', [Validators.required]]
         });
         this.usernameControl = this.loginForm.controls['username'];
