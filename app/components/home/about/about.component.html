@@ -1,0 +1,27 @@
+<GridLayout #pagecontainer rows="auto, auto" class="page">
+
+    <!-- Row 1: The custom action bar -->
+  <GridLayout row="0" columns="auto, *, auto" class="action-bar-custom">
+    <StackLayout col="1" class="left">
+        <Button text="Back" (tap)="goToHome()"></Button>
+    </StackLayout>
+
+    <StackLayout col="2" class="right" >
+      <Button text="Create" nsRouterLink="/createGame"></Button>
+    </StackLayout>
+
+  </GridLayout>
+<GridLayout row="1" rows="auto,auto">
+    <ScrollView class="about" >
+      <StackLayout row="0">
+          <Label class="section-description"  text="This game is a virtual scavenger hunt that uses geolocation data. This app comes with a default game, NAME HERE, that anyone can play." textWrap=true></Label>
+          <Label class="section-description"  text="Users will only be able to games that they have been invited to or that they have created. To create a game, you, firstly, have to specify the name of your game, then select locations and type messages for those locations." textWrap=true></Label>
+          <Label class="section-description"  text="Once done, you can simply press finish. Note that when you create a game, you need not invite yourself to it. To view all the games that you created, click on YOUR GAMES button. To view all the games that you have completed, click on COMPLETED button. To play a game, click on the PLAY button. Then, you can simply click on a game and follow the instructions on the screen." textWrap=true></Label>
+          <GridLayout row="0" translateY="0"  translateX="0">
+            <GridLayout translateX="10" class="play_bg"><Image src="res://your_games_bg" stretch="none" scaleX="3" scaleY="1"></Image></GridLayout>
+          <Label text="Enjoy!" id="enjoy"></Label>
+          </GridLayout>
+      </StackLayout>
+
+    </ScrollView>
+</GridLayout>

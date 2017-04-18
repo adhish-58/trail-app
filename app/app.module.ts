@@ -22,6 +22,7 @@ import { PlayComponent }     from "./components/home/play/play.component";
 import { YourGamesComponent }     from "./components/home/yourGames/yourGames.component";
 import { CompletedGamesComponent }     from "./components/home/completedGames/completedGames.component";
 import { MainComponent }     from "./components/home/main/main.component";
+import { AboutComponent }     from "./components/home/about/about.component";
 
 import { ListComponent } from "./components/list/list.component";
 import { HttpModule } from '@angular/http';
@@ -66,7 +67,8 @@ setStatusBarColors();
         PlayComponent,
         MainComponent,
         YourGamesComponent,
-        CompletedGamesComponent
+        CompletedGamesComponent,
+        AboutComponent
 
     ],
     providers: [
