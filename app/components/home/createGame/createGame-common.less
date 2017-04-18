@@ -1,0 +1,94 @@
+@import '../../../variables.less';
+
+.page {
+  background-color: @tl-purple;
+}
+
+
+.menu-button {
+  color: #5d1e0b;
+  font-weight: bold;
+  font-size: 16;
+  padding: 10 5;
+  background-color: rgba(255,255,255,0);
+  vertical-align: center;
+  text-transform: uppercase;
+  width:180;
+}
+
+Label.section-description {
+  margin: 16;
+  text-align: center;
+  font-size: 14;
+  color: white;
+}
+
+
+
+.trail-list {
+    margin-top: 8;
+    margin-top: 16;
+    padding: 8 0;
+    background-color: darken(@tl-purple, 5%);
+    separator-color: transparent;
+
+    .menu-button {
+      color: #5d1e0b;
+      font-weight: bold;
+      font-size: 16;
+      margin-top: 8;
+      vertical-align: center;
+      horizontal-align: center;
+      text-transform: uppercase;
+      text-align: center;
+      width:200;
+      height: 75;
+      z-index: 99;
+    }
+}
+
+.play_items_bg {
+  visibility: visible;
+  horizontal-align: center;
+}
+
+/* Custom Action Bar */
+.action-bar-custom {
+  color: white;
+  margin-top: 26;
+  margin-bottom: 8;
+
+  Button {
+    font-size: 10;
+    padding: 14;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: @tl-red;
+    width:80;
+  }
+
+  StackLayout {
+    height: 46;
+    vertical-align: center;
+
+
+    &.left {
+      Image {
+        vertical-align: center;
+      }
+      Button {
+        padding-left: 16;
+        padding-right: 16;
+        horizontal-align: left;
+      }
+    }
+
+    &.right {
+      horizontal-align: right;
+      Button {
+          padding-left: 16;
+          padding-right: 16;
+      }
+    }
+  }
+}

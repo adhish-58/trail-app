@@ -1,16 +1,30 @@
 <ActionBar title="Create game" class="tl-action-bar">
 </ActionBar>
 
-<FlexboxLayout flexDirection="column" class="page">
-    <Label text="You can create a new game here." class="trail-small" flexGrow="1"></Label>
-  <FlexboxLayout flexDirection="column" class="form" flexGrow="4">
-      <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name"></TextField>
+<GridLayout #pagecontainer rows="auto, auto" class="page">
+    <GridLayout row="0" columns="auto, *, auto" class="action-bar-custom">
+      <StackLayout col="1" class="left">
+          <Button text="Back" (tap)="goToHome()"></Button>
+      </StackLayout>
+
+      <StackLayout col="2" class="right" >
+        <Button text="Create" nsRouterLink="/createGame"></Button>
+      </StackLayout>
+  </GridLayout>
+  <GridLayout row="1" rows="auto,auto">
+
+        <StackLayout row="0">
+          <Label class="section-description" text="This is the list of games you have completed." textWrap=true></Label>
+        </StackLayout>
+
+        <Label text="You can create a new game here." class="trail-small" row="1"></Label>
+        <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name" row="2"></TextField>
 
 
-  </FlexboxLayout>
-  <FlexboxLayout flexDirection="column" class="page" flexGrow="1">
-      <Button text="Create game" (tap)="createGame()" class="trail-btn"></Button>
-  </FlexboxLayout>
+        <GridLayout row="3" translateY="0" translateX="0">
+          <GridLayout translateX="10" translateY="2" class="play_bg"><Image src="res://play_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
+          <Button text="Create game" (tap)="createGame()" class="menu-button"></Button>
+        </GridLayout>
 
-
-</FlexboxLayout>
+  </GridLayout>
+</GridLayout>

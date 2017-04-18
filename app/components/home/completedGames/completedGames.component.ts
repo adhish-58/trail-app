@@ -9,7 +9,7 @@ import dialogs = require("ui/dialogs");
 declare var UIColor: any;
 
 @Component({
-    selector: "tl-play",
+    selector: "tl-completedGame",
     moduleId: module.id,
     templateUrl: "./completedGames.component.html",
     styleUrls: ["./completedGames-common.css", "./completedGames.component.css"]
