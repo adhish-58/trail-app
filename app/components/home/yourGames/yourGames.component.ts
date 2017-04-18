@@ -100,10 +100,10 @@ export class YourGamesComponent implements OnInit {
             public onSwipeCellStarted(args: ListViewEventData) {
                 var swipeLimits = args.data.swipeLimits;
                 var swipeView = args['object'];
-                var leftItem = swipeView.getViewById('mark-view');
+                var leftItem = swipeView.getViewById('view-view');
                 var rightItem = swipeView.getViewById('delete-view');
-                swipeLimits.left = leftItem.getMeasuredWidth();
-                swipeLimits.right = rightItem.getMeasuredWidth();
+                swipeLimits.left = 100;
+                swipeLimits.right = 100;
                 swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
             }
             // << angular-listview-swipe-action-multiple-limits
