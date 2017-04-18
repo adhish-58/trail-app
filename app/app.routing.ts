@@ -16,6 +16,7 @@ import { PlayComponent }     from "./components/home/play/play.component";
 import { YourGamesComponent }     from "./components/home/yourGames/yourGames.component";
 import { CompletedGamesComponent }     from "./components/home/completedGames/completedGames.component";
 import { MainComponent }     from "./components/home/main/main.component";
+import { AboutComponent }     from "./components/home/about/about.component";
 
 // ===========================================================================================
 
@@ -32,7 +33,8 @@ const routes: Routes = [
     { path: "play", component: PlayComponent },
     { path: "main", component: MainComponent },
     { path: "yourGames", component: YourGamesComponent },
-    { path: "completedGames", component: CompletedGamesComponent }
+    { path: "completedGames", component: CompletedGamesComponent },
+    { path: "about", component: AboutComponent }
 
 ];
 

@@ -55,8 +55,23 @@ export class PlayComponent implements OnInit {
 
     public onGameTap(args: ListViewEventData) {
            var listview = args.object as RadListView;
-           var selectedItems = listview.getSelectedItems()
+           var selectedItems = listview.getSelectedItems();
+           var i:number =0;
            console.log("------------------------ ItemTapped: " + selectedItems);
+           this.GameService.CurrentGame = selectedItems[0];
+           for (i=0; i<this.gameList.length;i++){
+             if (this.GameService.CurrentGame == this.gameList[i])
+                this.GameService.GameCreator = this.gameCreators[i];
+           }
+           this.RouterExtensions.navigate(['/gameView'], {
+               transition: {
+                   duration: 350,
+                   name: 'flipLeft',
+                   curve: "linear"
+               },
+               clearHistory: true
+           });
+
     }
 
     goToHome() {
@@ -83,9 +98,9 @@ export class PlayComponent implements OnInit {
 
     public refreshGameList(args: ListViewEventData) {
         var that = new WeakRef(this);
-        this.GameService.get_all_created_games(this.UserService.username).subscribe(
-          gamesCreated => this.gameList = gamesCreated['games']
-        )
+        this.GameService.get_invited_games(this.UserService.username).subscribe(
+            gamesInvited => this.gamesInvitedParser(gamesInvited)
+        );
         Timer.setTimeout(function () {
         var listView = args.object;
         listView.notifyPullToRefreshFinished();
@@ -99,7 +114,7 @@ export class PlayComponent implements OnInit {
         var leftItem = swipeView.getViewById('mark-view');
         var rightItem = swipeView.getViewById('delete-view');
         swipeLimits.left = 0;
-        swipeLimits.right = 100;
+        swipeLimits.right = 0;
         swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
     }
     // << angular-listview-swipe-action-multiple-limits

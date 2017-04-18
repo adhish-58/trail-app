@@ -51,7 +51,16 @@ export class YourGamesComponent implements OnInit {
     public onYourGameSelected(args: ListViewEventData) {
            var listview = args.object as RadListView;
            var selectedItems = listview.getSelectedItems()
-           console.log("------------------------ ItemTapped: " + selectedItems);
+           this.GameService.CurrentGame = selectedItems[0];
+           this.RouterExtensions.navigate(['/seeInvites'], {
+               transition: {
+                   duration: 350,
+                   name: 'flipLeft',
+                   curve: "linear"
+               },
+               clearHistory: true
+           });
+
        }
 
     goToHome() {
