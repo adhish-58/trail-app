@@ -25,7 +25,7 @@ declare var UIColor: any;
 })
 
 export class YourGamesComponent implements OnInit {
-    public YourGameList: Array<string>= ["ASDASD", "XXXXXX", "PPPPPP", "TTTTT"];
+    public YourGameList: Array<string>= [];
     public gameCreators: string;
     public listHeight: number;
 
