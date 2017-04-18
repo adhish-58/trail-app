@@ -46,7 +46,10 @@
         </ng-template>
 
           <GridLayout *tkListItemSwipeTemplate columns="auto, *, auto" class="gridLayoutLayout">
-
+              <StackLayout id="play-view" col="0" (tap)="onRightSwipeClick($event)">
+                  <Label text="Play" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
+              </StackLayout>
+              
             <StackLayout id="play-view" col="2" (tap)="onRightSwipeClick($event)">
                 <Label text="Play" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
             </StackLayout>
