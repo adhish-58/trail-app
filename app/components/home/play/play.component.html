@@ -20,16 +20,37 @@
           <Label class="section-description" text="This is the list of games you can play. Select a game to start playing." textWrap=true></Label>
         </StackLayout>
 
-        <ListView row="1" [items]="gameList" class="trail-list" height="400" (itemLoading)="makeBackgroundTransparent($event)">
-          <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-                <StackLayout>
-                  <Button [text]='item' class="menu-button" nsRouterLink="/play" (itemTap)="onGameTap($event)"></Button>
-                  <AbsoluteLayout class="play_items_bg" translateY="-5">
-                    <Image src="res://your_games_bg" stretch="none" scaleX="0.75" scaleY="0.75"></Image>
-                  </AbsoluteLayout>
-                </StackLayout>
-          </ng-template>
-        </ListView>
+        <RadListView
+        row="1"
+        (itemSelected)="onGameTap($event)"
+        [items]="YourGameList"
+        class="trail-list" height=400
+        (itemLoading)="makeBackgroundTransparent($event)"
+        pullToRefresh="true"
+        (pullToRefreshInitiated)="refreshGameList($event)"
+        selectionBehavior="Press"
+        (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+        (itemSwipeProgressStarted)="onSwipeCellStarted($event)"
+        (itemSwipeProgressChanged)="onCellSwiping($event)"
+        swipeActions="true">
+        <ng-template tkListItemTemplate let-item="item" let-i="index">
+            <StackLayout>
+              <Label [text]='item' class="menu-button"></Label>
+              <AbsoluteLayout class="play_items_bg" translateY="-5">
+                <Image src="res://your_games_bg" stretch="none" scaleX="0.75" scaleY="0.75"></Image>
+              </AbsoluteLayout>
+            </StackLayout>
+        </ng-template>
+
+          <GridLayout *tkListItemSwipeTemplate columns="auto, *, auto" class="gridLayoutLayout">
+             <StackLayout id="mark-view" col="0" class="markViewStackLayout" (tap)="onLeftSwipeClick($event)">
+                <Label text="mark" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
+            </StackLayout>
+            <StackLayout id="delete-view" col="2" (tap)="onRightSwipeClick($event)">
+                <Label text="Delete" class="list-label" verticalAlignment="center" horizontalAlignment="center"></Label>
+            </StackLayout>
+        </GridLayout>
+      </RadListView>
 
 
   </GridLayout>

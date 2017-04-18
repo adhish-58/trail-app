@@ -13,8 +13,6 @@ import { MessageViewComponent } from "./components/home/messageView/messageView.
 import { SeeInvitesComponent } from "./components/home/seeInvites/seeInvites.component";
 import { ListComponent }     from "./components/list/list.component";
 import { PlayComponent }     from "./components/home/play/play.component";
-import { AboutComponent }     from "./components/home/about/about.component";
-
 import { YourGamesComponent }     from "./components/home/yourGames/yourGames.component";
 import { CompletedGamesComponent }     from "./components/home/completedGames/completedGames.component";
 import { MainComponent }     from "./components/home/main/main.component";
@@ -22,7 +20,7 @@ import { MainComponent }     from "./components/home/main/main.component";
 // ===========================================================================================
 
 const routes: Routes = [
-    { path: "", redirectTo: "/about", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent},
     { path: "createGame", component: CreateGameComponent },
@@ -34,9 +32,7 @@ const routes: Routes = [
     { path: "play", component: PlayComponent },
     { path: "main", component: MainComponent },
     { path: "yourGames", component: YourGamesComponent },
-    { path: "completedGames", component: CompletedGamesComponent },
-    { path: "about", component: AboutComponent }
-
+    { path: "completedGames", component: CompletedGamesComponent }
 
 ];
 

@@ -11,20 +11,27 @@
         <Button text="Create" nsRouterLink="/createGame"></Button>
       </StackLayout>
   </GridLayout>
+
   <GridLayout row="1" rows="auto,auto">
+      <StackLayout #mainContainer class="main-container">
+          <GridLayout row="0">
+            <Label class="section-description" text="This is the list of games you have completed." textWrap=true></Label>
+          </GridLayout>
 
-        <StackLayout row="0">
-          <Label class="section-description" text="This is the list of games you have completed." textWrap=true></Label>
-        </StackLayout>
+          <GridLayout row="1">
+          <Label text="You can create a new game here." class="trail-small"></Label>
+          </GridLayout>
 
-        <Label text="You can create a new game here." class="trail-small" row="1"></Label>
-        <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name" row="2"></TextField>
+          <GridLayout row="2">
+          <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name"></TextField>
+          </GridLayout>
 
+          <GridLayout row="3" translateY="0" translateX="0">
+            <GridLayout translateX="30" translateY="2" class="play_bg"><Image src="res://play_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
+            <Button text="Create game" (tap)="createGame()" class="menu-button"></Button>
+          </GridLayout>
+      </StackLayout>
 
-        <GridLayout row="3" translateY="0" translateX="0">
-          <GridLayout translateX="10" translateY="2" class="play_bg"><Image src="res://play_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
-          <Button text="Create game" (tap)="createGame()" class="menu-button"></Button>
-        </GridLayout>
 
   </GridLayout>
 </GridLayout>
