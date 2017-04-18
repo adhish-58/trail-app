@@ -97,58 +97,58 @@ export class YourGamesComponent implements OnInit {
         }
 
             // >> angular-listview-swipe-action-multiple-limits
-        public onSwipeCellStarted(args: ListViewEventData) {
-            var swipeLimits = args.data.swipeLimits;
-            var swipeView = args['object'];
-            var leftItem = swipeView.getViewById('mark-view');
-            var rightItem = swipeView.getViewById('delete-view');
-            swipeLimits.left = 100;
-            swipeLimits.right = 100;
-            swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
-        }
-        // << angular-listview-swipe-action-multiple-limits
-
-        public onSwipeCellFinished(args: ListViewEventData) {
-            if (args.data.x > 200) {
-                console.log("Perform left action");
-            } else if (args.data.x < -200) {
-                console.log("Perform right action");
+            public onSwipeCellStarted(args: ListViewEventData) {
+                var swipeLimits = args.data.swipeLimits;
+                var swipeView = args['object'];
+                var leftItem = swipeView.getViewById('mark-view');
+                var rightItem = swipeView.getViewById('delete-view');
+                swipeLimits.left = leftItem.getMeasuredWidth();
+                swipeLimits.right = rightItem.getMeasuredWidth();
+                swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
             }
-        }
+            // << angular-listview-swipe-action-multiple-limits
 
-        public onCellSwiping(args: ListViewEventData) {
-            var swipeLimits = args.data.swipeLimits;
-            var swipeView = args['swipeView'];
-            var mainView = args['mainView'];
-            var leftItem = swipeView.getViewById('mark-view');
-            var rightItem = swipeView.getViewById('delete-view');
-
-            if (args.data.x > swipeView.getMeasuredWidth() / 4 && !this.leftThresholdPassed) {
-                console.log("Notify perform left action");
-                var markLabel = leftItem.getViewById('mark-text');
-                this.leftThresholdPassed = true;
-            } else if (args.data.x < -swipeView.getMeasuredWidth() / 4 && !this.rightThresholdPassed) {
-                var deleteLabel = rightItem.getViewById('delete-text');
-                console.log("Notify perform right action");
-                this.rightThresholdPassed = true;
+            public onSwipeCellFinished(args: ListViewEventData) {
+                if (args.data.x > 200) {
+                    console.log("Perform left action");
+                } else if (args.data.x < -200) {
+                    console.log("Perform right action");
+                }
             }
-            if (args.data.x > 0) {
-                var leftDimensions = viewModule.View.measureChild(
-                leftItem.parent,
-                leftItem,
-                utilsModule.layout.makeMeasureSpec(Math.abs(args.data.x), utilsModule.layout.EXACTLY),
-                utilsModule.layout.makeMeasureSpec(mainView.getMeasuredHeight(), utilsModule.layout.EXACTLY));
-                viewModule.View.layoutChild(leftItem.parent, leftItem, 0, 0, leftDimensions.measuredWidth, leftDimensions.measuredHeight);
-            } else {
-                var rightDimensions = viewModule.View.measureChild(
-                rightItem.parent,
-                rightItem,
-                utilsModule.layout.makeMeasureSpec(Math.abs(args.data.x), utilsModule.layout.EXACTLY),
-                utilsModule.layout.makeMeasureSpec(mainView.getMeasuredHeight(), utilsModule.layout.EXACTLY));
 
-                viewModule.View.layoutChild(rightItem.parent, rightItem, mainView.getMeasuredWidth() - rightDimensions.measuredWidth, 0, mainView.getMeasuredWidth(), rightDimensions.measuredHeight);
+            public onCellSwiping(args: ListViewEventData) {
+                var swipeLimits = args.data.swipeLimits;
+                var swipeView = args['swipeView'];
+                var mainView = args['mainView'];
+                var leftItem = swipeView.getViewById('mark-view');
+                var rightItem = swipeView.getViewById('delete-view');
+
+                if (args.data.x > swipeView.getMeasuredWidth() / 4 && !this.leftThresholdPassed) {
+                    console.log("Notify perform left action");
+                    var markLabel = leftItem.getViewById('mark-text');
+                    this.leftThresholdPassed = true;
+                } else if (args.data.x < -swipeView.getMeasuredWidth() / 4 && !this.rightThresholdPassed) {
+                    var deleteLabel = rightItem.getViewById('delete-text');
+                    console.log("Notify perform right action");
+                    this.rightThresholdPassed = true;
+                }
+                if (args.data.x > 0) {
+                    var leftDimensions = viewModule.View.measureChild(
+                    leftItem.parent,
+                    leftItem,
+                    utilsModule.layout.makeMeasureSpec(Math.abs(args.data.x), utilsModule.layout.EXACTLY),
+                    utilsModule.layout.makeMeasureSpec(mainView.getMeasuredHeight(), utilsModule.layout.EXACTLY));
+                    viewModule.View.layoutChild(leftItem.parent, leftItem, 0, 0, leftDimensions.measuredWidth, leftDimensions.measuredHeight);
+                } else {
+                    var rightDimensions = viewModule.View.measureChild(
+                    rightItem.parent,
+                    rightItem,
+                    utilsModule.layout.makeMeasureSpec(Math.abs(args.data.x), utilsModule.layout.EXACTLY),
+                    utilsModule.layout.makeMeasureSpec(mainView.getMeasuredHeight(), utilsModule.layout.EXACTLY));
+
+                    viewModule.View.layoutChild(rightItem.parent, rightItem, mainView.getMeasuredWidth() - rightDimensions.measuredWidth, 0, mainView.getMeasuredWidth(), rightDimensions.measuredHeight);
+                }
             }
-        }
 
         public onLeftSwipeClick(args: ListViewEventData) {
             var listView = args.object;

@@ -54,25 +54,25 @@ export class PlayComponent implements OnInit {
     }
 
     public onGameTap(args: ListViewEventData) {
-        /*
-           var listview = args.object as RadListView;
-           var selectedItems = listview.getSelectedItems();
-           var i:number =0;
-           console.log("------------------------ ItemTapped: " + selectedItems);
-           this.GameService.CurrentGame = selectedItems[0];
-           for (i=0; i<this.gameList.length;i++){
-             if (this.GameService.CurrentGame == this.gameList[i])
-                this.GameService.GameCreator = this.gameCreators[i];
-           }
-           this.RouterExtensions.navigate(['/gameView'], {
-               transition: {
-                   duration: 350,
-                   name: 'flipLeft',
-                   curve: "linear"
-               },
-               clearHistory: true
-           });
-           */
+
+        //    var listview = args.object as RadListView;
+        //    var selectedItems = listview.getSelectedItems();
+        //    var i:number =0;
+        //    console.log("------------------------ ItemTapped: " + selectedItems);
+        //    this.GameService.CurrentGame = selectedItems[0];
+        //    for (i=0; i<this.gameList.length;i++){
+        //      if (this.GameService.CurrentGame == this.gameList[i])
+        //         this.GameService.GameCreator = this.gameCreators[i];
+        //    }
+        //    this.RouterExtensions.navigate(['/gameView'], {
+        //        transition: {
+        //            duration: 350,
+        //            name: 'flipLeft',
+        //            curve: "linear"
+        //        },
+        //        clearHistory: true
+        //    });
+
     }
 
     goToHome() {
@@ -105,17 +105,17 @@ export class PlayComponent implements OnInit {
         Timer.setTimeout(function () {
         var listView = args.object;
         listView.notifyPullToRefreshFinished();
-    }, 500);
+    }, 1000);
     }
 
-        // >> angular-listview-swipe-action-multiple-limits
+    // >> angular-listview-swipe-action-multiple-limits
     public onSwipeCellStarted(args: ListViewEventData) {
         var swipeLimits = args.data.swipeLimits;
         var swipeView = args['object'];
-        var leftItem = swipeView.getViewById('play-view');
-        var rightItem = swipeView.getViewById('play-view');
-        swipeLimits.left = 100;
-        swipeLimits.right = 0;
+        var leftItem = swipeView.getViewById('mark-view');
+        var rightItem = swipeView.getViewById('delete-view');
+        swipeLimits.left = leftItem.getMeasuredWidth();
+        swipeLimits.right = rightItem.getMeasuredWidth();
         swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
     }
     // << angular-listview-swipe-action-multiple-limits
