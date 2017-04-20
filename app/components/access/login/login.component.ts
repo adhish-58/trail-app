@@ -65,8 +65,10 @@ export class LoginComponent{
     }
 
     private makeLoginRequest() {
-        if ((this.user.username == "barbeda") || (this.user.username == "test_user"))
+        if ((this.user.username == "barbeda") || (this.user.username == "test_user")){
+          this.UserService.username = this.user.username;
           this.goToRegister();
+        }
         else {
         this.RestService
                 .post({ username: this.user.username, password: this.user.password }, "log-in")
