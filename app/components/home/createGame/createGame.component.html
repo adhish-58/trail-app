@@ -5,23 +5,23 @@
       </StackLayout>
 
       <StackLayout col="2" class="right" >
-        <Button text="Create" nsRouterLink="/createGame"></Button>
+        <Button text="Create" (tap)="createGame()" ></Button>
       </StackLayout>
   </GridLayout>
 
-  <GridLayout row="1" rows="auto,auto">
+  <GridLayout row="1">
       <StackLayout #mainContainer class="main-container">
           <GridLayout row="0">
             <Label class="section-description" text="You can create a new game here." textWrap=true></Label>
           </GridLayout>
 
           <GridLayout row="1">
-          <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name"></TextField>
+            <Label class="section-description" text="Type a name for your game then press create to continue." textWrap=true></Label>
           </GridLayout>
 
-          <GridLayout row="2" translateX="0">
-            <GridLayout translateX="20" translateY="2" class="play_bg"><Image src="res://play_bg" stretch="none" scaleX="0.8" scaleY="0.8"></Image></GridLayout>
-            <Button text="Create game" (tap)="createGame()" class="menu-button"></Button>
+
+          <GridLayout row="2">
+          <TextField autocorrect="false" autocapitalizationType="none" hint="Game Name" class="tl-input" [(ngModel)]="name"></TextField>
           </GridLayout>
       </StackLayout>
 
