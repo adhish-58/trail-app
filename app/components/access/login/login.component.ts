@@ -65,16 +65,13 @@ export class LoginComponent{
     }
 
     private makeLoginRequest() {
-        if ((this.user.username == "barbeda") || (this.user.username == "test_user"))
-          this.goToRegister();
-        else {
         this.RestService
                 .post({ username: this.user.username, password: this.user.password }, "log-in")
                 .subscribe(res => {
                     this.validateMembership(res);
                 });
         this.UserService.username = this.user.username;
-}    }
+    }
 
     validateMembership(res) {
         if(res.isEcUser) {
